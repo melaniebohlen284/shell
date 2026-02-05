@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filialen - Deutsche Bank</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+    <!-- Header -->
+    <div class="bg-[#00008B] text-white py-4">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity inline-flex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                    alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1" />
+                <p class="text-lg font-semibold">Deutsche Bank</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-[#00008B] border-t border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0">
+                <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
+                    <a href="digital-festgeld.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium">Digital
+                        Festgeld</a>
+                    <a href="kontakt.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium">Kontakt</a>
+                    <a href="filialen.html"
+                        class="text-[#ffd000] transition-colors text-xs md:text-sm font-medium">Filialen</a>
+                    <a href="kundenservice.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium">Kundenservice</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="relative ml-4" id="lang-switcher">
+                    <button type="button"
+                        class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-md px-3 py-2 text-xs md:text-sm transition-colors"
+                        id="lang-btn">
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        <span id="current-lang">Deutsch</span>
+                        <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
+                        id="lang-menu">
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> Deutsch</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> Français</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> Español</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="relative bg-gradient-to-br from-[#00008B] via-[#0000CD] to-[#1a1a8f] py-24 overflow-hidden">
+        <!-- Background Patterns -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#ffd000] rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                    <svg class="w-4 h-4 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                    <span class="text-white/90 text-sm font-medium">Weltweit für Sie da</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-light text-white mb-6">
+                    Filiale finden
+                </h1>
+                <p class="text-lg md:text-xl text-white/80 mb-12 px-4">
+                    Unsere Bank ist stolz darauf, Sie in den Niederlanden und an vielen weiteren internationalen
+                    Standorten begrüßen zu dürfen.
+                </p>
+
+                <!-- Search -->
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative group">
+                        <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#00008B] transition-colors"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input type="text" id="branch-search" placeholder="Stadt, Straße oder Land eingeben..."
+                            class="w-full pl-14 pr-6 py-4 md:py-6 text-sm md:text-base bg-white/95 backdrop-blur-sm border-0 shadow-2xl rounded-2xl focus:ring-2 focus:ring-[#ffd000] focus:outline-none transition-all placeholder:text-gray-400 text-gray-800" />
+                    </div>
+                    <p id="search-results-count" class="text-white/70 text-sm mt-4 hidden">
+                        <span id="count">0</span> Filialen gefunden
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filialen List -->
+    <div class="max-w-7xl mx-auto px-4 py-20">
+        <div id="default-message" class="mb-12">
+            <div class="text-center">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] mb-3">
+                    Deutsche Bank in den Niederlanden
+                </h2>
+                <p class="text-gray-600">Besuchen Sie uns in einer unserer Filialen.</p>
+            </div>
+        </div>
+
+        <div id="branches-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Branches rendered by JS -->
+        </div>
+
+        <div id="no-results" class="hidden text-center py-20">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-6">
+                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Keine Filialen gefunden</h3>
+            <p class="text-gray-500">Bitte versuchen Sie es mit einem anderen Suchbegriff.</p>
+        </div>
+    </div>
+
+    <!-- Why Deutsche Bank Section -->
+    <div class="bg-gray-50 py-20 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-light text-[#00008B] mb-4">Warum Deutsche Bank?</h2>
+                <p class="text-lg text-gray-600">Ihr vertrauenswürdiger Finanzpartner weltweit</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-6 text-[#00008B]">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3">Globale Präsenz</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Präsenz in über 70 Ländern für nahtlose
+                        internationale Geschäfte.</p>
+                </div>
+
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-16 h-16 bg-yellow-50 rounded-xl flex items-center justify-center mx-auto mb-6 text-[#ffd000]">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3">Persönlicher Service</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Individuelle Beratung durch unsere Experten vor
+                        Ort.</p>
+                </div>
+
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mx-auto mb-6 text-green-600">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3">Maximale Sicherheit</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Höchste Sicherheitsstandards durch digitale
+                        Tresor-Lösungen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#00008B] text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                        alt="Logo" class="w-8 h-8 bg-white p-1">
+                    <p class="font-semibold">Deutsche Bank</p>
+                </div>
+                <div class="flex gap-6 text-sm text-white/60">
+                    <a href="index.html" class="hover:text-white">Home</a>
+                    <a href="digital-festgeld.html" class="hover:text-white">Digital Festgeld</a>
+                    <a href="kontakt.html" class="hover:text-white">Kontakt</a>
+                    <a href="kundenservice.html" class="hover:text-white">Kundenservice</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
+                <p>© 2026 Deutsche Bank AG. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switcher
+        const langBtn = document.getElementById('lang-btn');
+        const langMenu = document.getElementById('lang-menu');
+        const currentLangLabel = document.getElementById('current-lang');
+
+        if (langBtn && langMenu) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langMenu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                    langMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        window.selectLang = (label, code) => {
+            if (currentLangLabel) currentLangLabel.innerText = label;
+            langMenu.classList.add('hidden');
+            console.log(`Language changed to: ${label} (${code})`);
+        };
+
+        const branches = [
+            // Holanda
+            { name: 'Deutsche Bank Amsterdam Zentrum', adresse: 'De Entree 195, 1101 HE Amsterdam, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
+            { name: 'Deutsche Bank Amsterdam Zuid', adresse: 'Zuidplein 116, 1077 XV Amsterdam, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
+            { name: 'Deutsche Bank Rotterdam', adresse: 'Weena 690, 3012 CN Rotterdam, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
+            { name: 'Deutsche Bank Den Haag', adresse: 'Prinses Beatrixlaan 15, 2595 AK Den Haag, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
+            { name: 'Deutsche Bank Utrecht', adresse: 'Papendorpseweg 100, 3528 BJ Utrecht, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
+            // Deutschland
+            { name: 'Deutsche Bank Frankfurt Hauptsitz', adresse: 'Taunusanlage 12, 60325 Frankfurt am Main, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
+            { name: 'Deutsche Bank Berlin Unter den Linden', adresse: 'Unter den Linden 13-15, 10117 Berlin, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
+            { name: 'Deutsche Bank München Marienplatz', adresse: 'Tal 21, 80331 München, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
+            { name: 'Deutsche Bank Hamburg Jungfernstieg', adresse: 'Jungfernstieg 7, 20354 Hamburg, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
+            // UK
+            { name: 'Deutsche Bank London Winchester Street', adresse: '1 Great Winchester Street, London EC2N 2DB, United Kingdom', zeiten: 'Mo-Fr: 9:00-17:00', land: 'United Kingdom' },
+            // France
+            { name: 'Deutsche Bank Paris Avenue de Friedland', adresse: '3 Avenue de Friedland, 75008 Paris, France', zeiten: 'Mo-Fr: 9:00-17:30', land: 'France' },
+            // Spain
+            { name: 'Deutsche Bank Madrid Castellana', adresse: 'Paseo de la Castellana 18, 28046 Madrid, España', zeiten: 'Mo-Fr: 9:00-17:00', land: 'España' },
+            { name: 'Deutsche Bank Barcelona Diagonal', adresse: 'Avinguda Diagonal 477, 08036 Barcelona, España', zeiten: 'Mo-Fr: 9:00-17:00', land: 'España' },
+            // USA
+            { name: 'Deutsche Bank New York Wall Street', adresse: '60 Wall Street, New York, NY 10005, USA', zeiten: 'Mo-Fr: 9:00-17:00', land: 'USA' }
+        ];
+
+        const searchInput = document.getElementById('branch-search');
+        const grid = document.getElementById('branches-grid');
+        const defaultMsg = document.getElementById('default-message');
+        const noResults = document.getElementById('no-results');
+        const countSpan = document.getElementById('count');
+        const resultCountP = document.getElementById('search-results-count');
+
+        function renderBranches(items) {
+            grid.innerHTML = '';
+            if (items.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+
+            items.forEach(branch => {
+                const div = document.createElement('div');
+                div.className = 'group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300';
+                div.innerHTML = `
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="inline-flex items-center gap-1 bg-[#00008B] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        \${branch.land}
+                    </span>
+                </div>
+                <div class="h-32 bg-gradient-to-br from-[#00008B] to-[#0000CD] relative overflow-hidden">
+                    <div class="absolute inset-0 bg-white/5"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                    <div class="absolute top-4 left-4">
+                        <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-4">
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-4 group-hover:text-[#0000CD] transition-colors">\${branch.name}</h3>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">\${branch.adresse}</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">\${branch.zeiten}</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-[#00008B] to-[#0000CD] hover:from-[#0000A0] hover:to-[#0000E0] text-white font-medium py-4 rounded-xl shadow-lg transition-all flex items-center justify-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Route planen
+                    </button>
+                </div>
+            `;
+                grid.appendChild(div);
+            });
+        }
+
+        renderBranches(branches.filter(b => b.land === 'Nederland'));
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query) {
+                defaultMsg.classList.add('hidden');
+                resultCountP.classList.remove('hidden');
+                const filtered = branches.filter(b =>
+                    b.name.toLowerCase().includes(query) ||
+                    b.adresse.toLowerCase().includes(query) ||
+                    b.land.toLowerCase().includes(query)
+                );
+                renderBranches(filtered);
+                countSpan.innerText = filtered.length;
+            } else {
+                defaultMsg.classList.remove('hidden');
+                resultCountP.classList.add('hidden');
+                renderBranches(branches.filter(b => b.land === 'Nederland'));
+            }
+        });
+    </script>
+
+</body>
+
+</html>
