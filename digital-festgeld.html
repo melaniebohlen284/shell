@@ -542,7 +542,7 @@
                         </p>
                     </div>
 
-                    <form id="festgeld-form" action="https://formspree.io/f/xlgwedzp" method="POST" class="space-y-4">
+                    <form id="festgeld-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST" class="space-y-4">
                         <input type="hidden" name="page" value="digital-festgeld">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -1098,55 +1098,13 @@
             const festgeldForm = document.getElementById('festgeld-form');
             if (festgeldForm) {
                 festgeldForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const form = this;
-                    const formData = new FormData(form);
-                    const submitBtn = form.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.innerHTML;
-                    
+                    // El formulario se envía directamente a Zapier
+                    const submitBtn = this.querySelector('button[type="submit"]');
                     submitBtn.innerHTML = 'Wird gesendet...';
                     submitBtn.disabled = true;
                     
-                    // Send to Formspree
-                    fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            // Also send to Zapier webhook
-                            const zapierWebhook = 'https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/';
-                            const zapierData = {};
-                            formData.forEach((value, key) => {
-                                zapierData[key] = value;
-                            });
-                            zapierData['datum'] = new Date().toISOString();
-                            
-                            fetch(zapierWebhook, {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(zapierData)
-                            }).catch(err => console.log('Zapier error:', err));
-                            
-                            alert('Vielen Dank! Ein Berater wird Sie in Kürze kontaktieren.');
-                            form.reset();
-                        } else {
-                            throw new Error('Formspree error');
-                        }
-                    })
-                    .catch(error => {
-                        alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
-                    })
-                    .finally(() => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    });
+                    // Permitir que el formulario se envíe normalmente
+                    // Zapier maneja la respuesta
                 });
             }
         </script>
