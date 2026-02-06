@@ -2,1211 +2,1107 @@
 <html lang="de">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deutsche Bank - Ihr Geld ist hier MEHR wert</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Festgeld - Deutsche Bank</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            border: "hsl(var(--border))",
-            input: "hsl(var(--input))",
-            ring: "hsl(var(--ring))",
-            background: "hsl(var(--background))",
-            foreground: "hsl(var(--foreground))",
-            primary: {
-              DEFAULT: "hsl(var(--primary))",
-              foreground: "hsl(var(--primary-foreground))",
-            },
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          keyframes: {
-            "accordion-down": {
-              from: { height: "0" },
-              to: { height: "var(--radix-accordion-content-height)" },
-            },
-            "accordion-up": {
-              from: { height: "var(--radix-accordion-content-height)" },
-              to: { height: "0" },
-            },
-          },
-          animation: {
-            "accordion-down": "accordion-down 0.2s ease-out",
-            "accordion-up": "accordion-up 0.2s ease-out",
-          },
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
-  <style>
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-  </style>
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            max-height: 0;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 
 <body class="bg-white">
 
-  <!-- Top Bar Logo (Standardized) -->
-  <div class="bg-[#00008B] text-white py-4 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4">
-      <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity inline-flex">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
-          alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1" />
-        <p class="text-lg font-semibold">Deutsche Bank</p>
-      </a>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="bg-[#00008B] sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0 font-medium">
-        <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
-          <a href="digital-festgeld.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
-            data-i18n="nav_festgeld">Digital Festgeld</a>
-          <a href="kontakt.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
-            data-i18n="nav_kontakt">Kontakt</a>
-          <a href="filialen.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
-            data-i18n="nav_filialen">Filialen</a>
-          <a href="kundenservice.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
-            data-i18n="nav_kundenservice">Kundenservice</a>
-        </div>
-
-        <!-- Language Switcher -->
-        <div class="relative ml-4" id="lang-switcher">
-          <button type="button"
-            class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-md px-3 py-2 text-xs transition-colors"
-            id="lang-btn">
-            <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-              </path>
-            </svg>
-            <span id="current-lang">Deutsch</span>
-            <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div
-            class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
-            id="lang-menu">
-            <a href="?lang=de" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-              onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> Deutsch</a>
-            <a href="?lang=en" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-              onclick="selectLang('English', 'en')"><span>🇬🇧</span> English</a>
-            <a href="?lang=fr" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-              onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> Français</a>
-            <a href="?lang=es" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-              onclick="selectLang('Español', 'es')"><span>🇪🇸</span> Español</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- Risk Indicator -->
-    <div class="bg-white border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 py-3">
-        <div
-          class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 border border-[#00008B] rounded-sm p-4">
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-light text-[#00008B]">1/6</span>
-            <p class="text-xs text-gray-600 text-center max-w-md mt-1">
-              Diese Zahl ist ein Indikator für das Produktrisiko, wobei 1/6 das geringste Risiko und 6/6 das höchste
-              Risiko anzeigt.
-            </p>
-          </div>
-          <div class="hidden md:block w-px h-16 bg-gray-300"></div>
-          <p class="text-xs text-gray-600 text-center md:text-left max-w-md">
-            Deutsche Bank ist Mitglied des Einlagensicherungsfonds für Kreditinstitute.
-            <span class="text-[#00008B] font-medium"> Der garantierte Betrag beträgt bis zu 100.000 € pro
-              Einleger.</span>
-          </p>
-        </div>
-
-        <!-- Security & Fraud Protection Section -->
-        <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border border-green-200 mt-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="bg-green-600 rounded-full p-2">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-[#00008B]">Sicherheit & Betrugsschutzgarantien</h3>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                </path>
-              </svg>
-              <div>
-                <p class="font-semibold text-gray-900 mb-1">100% Betrugsschutz</p>
-                <p class="text-gray-600">Sie sind vollständig gegen betrügerische Transaktionen geschützt. Bei
-                  Missbrauch erstatten wir Ihnen den vollständigen Betrag zurück.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                </path>
-              </svg>
-              <div>
-                <p class="font-semibold text-gray-900 mb-1">Echtzeit-Überwachung</p>
-                <p class="text-gray-600">Unsere KI-gestützten Systeme überwachen alle Transaktionen rund um die Uhr auf
-                  verdächtige Aktivitäten.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                </path>
-              </svg>
-              <div>
-                <p class="font-semibold text-gray-900 mb-1">Sichere Verschlüsselung</p>
-                <p class="text-gray-600">Alle Ihre Daten werden mit modernster Verschlüsselungstechnologie geschützt.
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                </path>
-              </svg>
-              <div>
-                <p class="font-semibold text-gray-900 mb-1">Sofortige Benachrichtigungen</p>
-                <p class="text-gray-600">Erhalten Sie Echtzeit-Benachrichtigungen über alle Kontobewegungen.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                </path>
-              </svg>
-              <div>
-                <p class="font-semibold text-gray-900 mb-1">Einlagensicherung bis 100.000€</p>
-                <p class="text-gray-600">Ihre Einlagen sind durch den deutschen Einlagensicherungsfonds vollständig
-                  geschützt.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-center gap-2 mt-3 text-xs text-gray-600">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-            </path>
-          </svg>
-          <p>Die Rückzahlung, Rücknahme oder vorzeitige Rückgabe eines Teils oder des gesamten investierten Kapitals
-            unterliegt Gebühren oder Strafen.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero Section -->
-    <div class="bg-[#00008B] relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <!-- Left Content -->
-          <div class="text-white">
-            <div class="flex items-center gap-3 mb-8">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
-                alt="Deutsche Bank Logo" class="w-16 h-16 bg-white p-2">
-              <div>
-                <p class="text-xl font-semibold">Deutsche Bank</p>
-              </div>
-            </div>
-
-            <h1 class="text-4xl md:text-5xl font-light mb-8 leading-tight">Ihr Geld ist hier MEHR wert</h1>
-
-            <a href="digital-festgeld.html">
-              <div class="bg-[#0000A0] rounded-lg p-8 inline-block cursor-pointer hover:bg-[#0000B5] transition-colors">
-                <p class="text-white/80 text-lg mb-2">Erhalten Sie bis zu</p>
-                <p class="text-[#ffd000] text-6xl md:text-7xl font-light mb-2">8.000€</p>
-                <p class="text-white text-lg">Bonus in EURC</p>
-                <div class="text-white/70 text-xs mt-3 space-y-1">
-                  <div>25k: 4% + 2% Cashback</div>
-                  <div>50k: 5% + 2% Cashback</div>
-                  <div>100k: 6% + 2% Cashback</div>
-                </div>
-              </div>
+    <!-- Top Bar Logo (Matches Kontakt.jsx) -->
+    <div class="bg-[#00008B] text-white py-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity inline-flex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                    alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1" />
+                <p class="text-lg font-semibold" data-i18n="nav_brand">Deutsche Bank</p>
             </a>
-
-            <p class="mt-8 text-white/80 text-sm">
-              Wählen Sie, wie Sie Ihr Konto eröffnen möchten, über einen Berater oder direkt über
-              <span class="text-white underline cursor-pointer hover:text-[#ffd000] transition-colors">FORMULAR
-                ABSENDEN</span>
-            </p>
-
-            <!-- Security Badge with 7 items -->
-            <div class="mt-12 space-y-6">
-              <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="text-white font-semibold text-lg">Maximale Sicherheit</h3>
-                    <p class="text-white/70 text-sm">Von Deutsche Bank garantiert</p>
-                  </div>
-                </div>
-
-                <div class="space-y-3 text-sm">
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">Einlagensicherung:</strong> Bis zu 100.000€
-                      vollständig geschützt</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">Betrugsschutz:</strong> Höchste Sicherheit
-                      für alle Transaktionen</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">Kostenlose EURC/EURAU IBAN:</strong> Ihr
-                      persönliches sicheres Konto</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">Zahlungen senden & empfangen:</strong> Mit
-                      maximaler Sicherheit</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">100% auf Ihren Namen:</strong> Nur Sie haben
-                      Zugriff</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">Dezentrale Lösungen:</strong> Erstmalig
-                      innovative Blockchain-Technologie</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-white/90"><strong class="text-white">Komplett kostenlos:</strong> Keine
-                      versteckten Gebühren</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Form -->
-          <div class="bg-white rounded-lg shadow-2xl p-8">
-            <h2 class="text-xl font-semibold text-[#00008B] mb-2">Konto eröffnen bei Deutsche Bank</h2>
-            <p class="text-gray-600 text-sm mb-4">Füllen Sie dieses Formular aus und wir werden uns unverbindlich mit
-              Ihnen in Verbindung setzen.</p>
-
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <h3 class="text-sm font-semibold text-[#00008B] mb-3 flex items-center gap-2">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd"
-                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd" />
-                </svg>
-                Sicherheit mit Deutsche Bank
-              </h3>
-              <ul class="text-xs text-gray-700 space-y-2">
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>Einlagensicherung:</strong> Bis zu 100.000€ vollständig geschützt</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>Betrugsschutz:</strong> Höchste Sicherheit für alle Transaktionen</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>Kostenlose digitale EURC/EURAU IBAN:</strong> Ihr persönliches sicheres Konto</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>Zahlungen senden & empfangen:</strong> Mit maximaler Sicherheit</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>100% auf Ihren Namen:</strong> Nur Sie haben Zugriff</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>Dezentrale Lösungen:</strong> Erstmalig innovative Blockchain-Technologie</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 font-bold">✓</span>
-                  <span><strong>Komplett kostenlos:</strong> Keine versteckten Gebühren</span>
-                </li>
-              </ul>
-              <p class="text-xs text-gray-600 mt-3 pt-3 border-t border-blue-200">
-                Ein Berater wird sich mit Ihnen in Verbindung setzen, um Ihre Kontoeröffnung zu begleiten.
-              </p>
-            </div>
-
-            <form id="contact-form" class="space-y-4">
-              <div>
-                <label class="text-sm text-gray-700 block mb-1">Vorname <span class="text-red-500">*</span></label>
-                <input type="text" name="vorname"
-                  class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
-                  placeholder="Ihr Vorname" required>
-              </div>
-
-              <div>
-                <label class="text-sm text-gray-700 block mb-1">Nachname <span class="text-red-500">*</span></label>
-                <input type="text" name="nachname"
-                  class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
-                  placeholder="Ihr Nachname" required>
-              </div>
-
-              <div>
-                <label class="text-sm text-gray-700 block mb-1">Personalausweis <span
-                    class="text-red-500">*</span></label>
-                <input type="text" name="personalausweis"
-                  class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
-                  placeholder="Beispiel: 12345678X" required>
-              </div>
-
-              <div>
-                <label class="text-sm text-gray-700 block mb-1">Telefon <span class="text-red-500">*</span></label>
-                <input type="tel" name="telefon"
-                  class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
-                  placeholder="612 34 56 78" required>
-              </div>
-
-              <div>
-                <label class="text-sm text-gray-700 block mb-1">E-Mail <span class="text-red-500">*</span></label>
-                <input type="email" name="email"
-                  class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
-                  placeholder="Beispiel: email@domain.de" required>
-              </div>
-
-              <div>
-                <label class="text-sm text-gray-700 block mb-1">Postleitzahl <span class="text-red-500">*</span></label>
-                <input type="text" name="postleitzahl"
-                  class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
-                  placeholder="Beispiel: 10115" required>
-              </div>
-
-              <div class="flex items-start space-x-3 pt-2">
-                <input type="checkbox" name="autorizo" id="autorizo"
-                  class="mt-1 h-4 w-4 rounded border-gray-300 text-[#00008B] focus:ring-[#00008B]" required>
-                <label for="autorizo" class="text-xs text-gray-600 leading-relaxed">
-                  Ich autorisiere die Verarbeitung meiner Daten gemäß der <span
-                    class="text-[#00008B] underline cursor-pointer hover:text-[#0000CD]">Datenschutzrichtlinie</span>
-                  beschrieben.
-                </label>
-              </div>
-
-              <button type="submit"
-                class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-6 text-base font-medium rounded-md transition-all duration-300 mt-4">
-                FORMULAR ABSENDEN
-              </button>
-            </form>
-          </div>
         </div>
-      </div>
     </div>
 
-    <!-- Product Section -->
-    <div class="bg-white py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl text-center text-[#00008B] font-light mb-16">Wer gibt Ihnen MEHR für Ihr Gehalt
-          und Ihre Ersparnisse?</h2>
-
-        <div class="space-y-16">
-          <!-- EURAU/EURC Product with decorative circles -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <a href="digital-festgeld.html">
-              <div
-                class="bg-gradient-to-br from-[#00008B] to-[#0000CD] rounded-2xl p-10 text-white relative overflow-hidden cursor-pointer hover:from-[#0000A0] hover:to-[#0000E0] transition-all">
-                <!-- Decorative circles -->
-                <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2">
-                </div>
-                <div
-                  class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2">
-                </div>
-
-                <div class="flex items-center gap-3 mb-6">
-                  <svg class="w-8 h-8 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                  </svg>
-                  <span class="text-xs uppercase tracking-wider text-[#ffd000] font-semibold">DIGITALES FESTGELD</span>
+        </div>
+    <!-- Navigation -->
+    <nav class="bg-[#00008B] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0 font-medium">
+                <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
+                    <a href="index.html" class="text-[#ffd000] text-xs md:text-sm"
+                        data-i18n="nav_festgeld">Digital Festgeld</a>
+                    <a href="betrugsschutz.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
+                        data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+                    <a href="kontakt.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
+                        data-i18n="nav_kontakt">Kontakt</a>
+                    <a href="filialen.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
+                        data-i18n="nav_filialen">Filialen</a>
+                    <a href="kundenservice.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
+                        data-i18n="nav_kundenservice">Kundenservice</a>
                 </div>
 
-                <h3 class="text-4xl md:text-5xl font-light mb-2">EURAU bis <span class="text-[#ffd000]">6%</span></h3>
-                <h3 class="text-4xl md:text-5xl font-light mb-6">EURC bis <span class="text-[#ffd000]">6%</span></h3>
-
-                <!-- Ejemplo Bonus Box with 3 tiers -->
-                <div class="bg-white/10 rounded-lg p-4 mb-6 border border-white/20 space-y-3">
-                  <p class="text-white/90 text-sm font-medium">Beispiel Bonus</p>
-
-                  <div class="bg-white/5 rounded p-3 border border-white/10">
-                    <p class="text-white/70 text-xs font-semibold mb-1">25.000€ Anlage</p>
-                    <p class="text-white/90 text-sm"><span class="text-[#ffd000] font-bold">4%</span> Zins + <span
-                        class="text-[#ffd000] font-bold">2%</span> Cashback = <span
-                        class="text-[#ffd000] font-bold">1.500€</span> Bonus</p>
-                  </div>
-
-                  <div class="bg-white/5 rounded p-3 border border-white/10">
-                    <p class="text-white/70 text-xs font-semibold mb-1">50.000€ Anlage</p>
-                    <p class="text-white/90 text-sm"><span class="text-[#ffd000] font-bold">5%</span> Zins + <span
-                        class="text-[#ffd000] font-bold">2%</span> Cashback = <span
-                        class="text-[#ffd000] font-bold">3.500€</span> Bonus</p>
-                  </div>
-
-                  <div class="bg-white/5 rounded p-3 border border-white/10">
-                    <p class="text-white/70 text-xs font-semibold mb-1">100.000€ Anlage</p>
-                    <p class="text-white/90 text-sm"><span class="text-[#ffd000] font-bold">6%</span> Zins + <span
-                        class="text-[#ffd000] font-bold">2%</span> Cashback = <span
-                        class="text-[#ffd000] font-bold">8.000€</span> Bonus</p>
-                  </div>
-                </div>
-
-                <!-- Feature bullets with yellow circles -->
-                <div class="space-y-4">
-                  <div class="flex items-start gap-3">
-                    <div
-                      class="w-6 h-6 rounded-full bg-[#ffd000]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div class="w-3 h-3 rounded-full bg-[#ffd000]"></div>
+                <!-- Language Switcher -->
+                <div class="relative ml-4" id="lang-switcher">
+                    <button type="button"
+                        class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-md px-3 py-2 text-xs transition-colors"
+                        id="lang-btn">
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        <span id="current-lang">Deutsch</span>
+                        <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
+                        id="lang-menu">
+                        <a href="?lang=de"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span data-i18n="lang_deutsch">Deutsch</span></a>
+                        <a href="?lang=en"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span data-i18n="lang_english">English</span></a>
+                        <a href="?lang=fr"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span data-i18n="lang_francais">Français</span></a>
+                        <a href="?lang=es"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span data-i18n="lang_espanol">Español</span></a>
                     </div>
-                    <p class="text-white/90"><strong>Modern:</strong> Digitale Lösung mit Blockchain-Technologie</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <div
-                      class="w-6 h-6 rounded-full bg-[#ffd000]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div class="w-3 h-3 rounded-full bg-[#ffd000]"></div>
-                    </div>
-                    <p class="text-white/90"><strong>Mehr Zinsen:</strong> Bis zu 6% effektiver Jahreszins</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <div
-                      class="w-6 h-6 rounded-full bg-[#ffd000]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div class="w-3 h-3 rounded-full bg-[#ffd000]"></div>
-                    </div>
-                    <p class="text-white/90"><strong>Mehr Sicherheit:</strong> Vollständig durch Deutsche Bank
-                      garantiert</p>
-                  </div>
                 </div>
-              </div>
-            </a>
-
-            <div class="flex justify-center">
-              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=400&fit=crop"
-                alt="Deutsche Bank Karte" class="rounded-2xl shadow-lg max-w-full h-auto">
             </div>
-          </div>
+        </div>
+    </nav>
 
-          <!-- Traditional Savings -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="flex justify-center">
-              <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&h=400&fit=crop"
-                alt="Ersparnisse" class="rounded-2xl shadow-lg max-w-full h-auto">
+    <main>
+        <!-- Risk Indicator -->
+        <div class="bg-gradient-to-r from-green-50 to-blue-50 border-b border-green-200">
+            <div class="max-w-7xl mx-auto px-4 py-4 md:py-6">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-light text-[#00008B] mb-2" data-i18n="risk_title">1/6
+                        </div>
+                        <p class="text-xs md:text-sm font-semibold text-gray-800" data-i18n="risk_desc">Geringstes
+                            Produktrisiko - Höchste
+                            Sicherheit</p>
+                    </div>
+                    <div class="hidden md:block w-px h-20 bg-gray-300"></div>
+                    <div class="text-xs md:text-sm text-gray-700 max-w-lg text-center md:text-left px-4 md:px-0">
+                        <p><strong data-i18n="risk_info">Deutsche Bank ist Mitglied des
+                                Einlagensicherungsfonds.</strong></p>
+                        <p data-i18n="risk_guarantee">Der garantierte Betrag beträgt bis zu 100.000 € pro Einleger.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white overflow-hidden relative">
+            <!-- Decorative circles -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2">
+            </div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2">
             </div>
 
-            <div>
-              <div
-                class="bg-gradient-to-br from-[#f8f9fa] to-white border border-gray-200 rounded-2xl p-8 relative overflow-hidden">
-                <div
-                  class="absolute top-0 right-0 w-32 h-32 bg-[#00008B]/5 rounded-full -translate-y-1/2 translate-x-1/2">
+            <div class="max-w-7xl mx-auto px-4 py-12 md:py-20 relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div
+                        class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6">
+                        <p class="text-xs md:text-sm font-semibold" data-i18n="pioneer_badge">Festgeld Pionier</p>
+                    </div>
+
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-light mb-4 md:mb-6 px-4" data-i18n="hero_title">
+                        Revolutionäres Digital Festgeld
+                    </h1>
+
+                    <p class="text-base md:text-xl text-white/90 mb-8 md:mb-12 px-4" data-i18n="hero_subtitle">
+                        Wandeln Sie Ihr Geld in digitales, hochsicheres EURAU/EURC um. Erhalten Sie bis zu 6% Zinsen
+                        p.a. plus 2% Cashback-Bonus sofort nach Einzahlung.
+                    </p>
+
+                    <!-- Feature Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-12 px-2">
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
+                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat1_label">
+                                Einlagensicherung</p>
+                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat1_value">Bis zu 100k</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
+                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat2_label">Attraktive
+                                Zinsen</p>
+                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat2_value">4% bis 6% p.a.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
+                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat3_label">2%
+                                Cashback</p>
+                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat3_value">Sofort-Bonus</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
+                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat4_label">Maximale
+                                Sicherheit</p>
+                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat4_value">Dezentral</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interest Rates Table -->
+        <div class="bg-gray-50 py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-8 md:mb-12 px-4"
+                    data-i18n="table_title">
+                    EURAU & EURC Festgeld Digital - Attraktive Zinsen
+                </h2>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-x-auto mb-8">
+                    <table class="w-full min-w-[500px]">
+                        <thead class="bg-[#00008B] text-white">
+                            <tr>
+                                <th class="py-3 md:py-4 px-3 md:px-6 text-left text-xs md:text-base"
+                                    data-i18n="table_sum">Anlagesumme</th>
+                                <th class="py-3 md:py-4 px-3 md:px-6 text-left text-xs md:text-base"
+                                    data-i18n="table_term">Laufzeit</th>
+                                <th class="py-3 md:py-4 px-3 md:px-6 text-left text-xs md:text-base"
+                                    data-i18n="table_rate">Zinssatz p.a.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 md:py-4 px-3 md:px-6 font-semibold text-xs md:text-base"
+                                    data-i18n="table_range_1">10.000€ -
+                                    25.000€</td>
+                                <td class="py-3 md:py-4 px-3 md:px-6 text-xs md:text-base" data-i18n="table_months">12
+                                    Monate</td>
+                                <td class="py-3 md:py-4 px-3 md:px-6 text-[#00008B] font-bold text-base md:text-lg">
+                                    4.00%</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 md:py-4 px-3 md:px-6 font-semibold text-xs md:text-base"
+                                    data-i18n="table_range_2">50.000€ -
+                                    75.000€</td>
+                                <td class="py-3 md:py-4 px-3 md:px-6 text-xs md:text-base" data-i18n="table_months">12
+                                    Monate</td>
+                                <td class="py-3 md:py-4 px-3 md:px-6 text-[#00008B] font-bold text-base md:text-lg">
+                                    5.00%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 md:py-4 px-3 md:px-6 font-semibold text-xs md:text-base"
+                                    data-i18n="table_range_3">100.000€ -
+                                    200.000€</td>
+                                <td class="py-3 md:py-4 px-3 md:px-6 text-xs md:text-base" data-i18n="table_months">12
+                                    Monate</td>
+                                <td class="py-3 md:py-4 px-3 md:px-6 text-[#00008B] font-bold text-base md:text-lg">
+                                    6.00%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <span class="text-xs uppercase tracking-wider text-[#00008B] font-semibold">MEHR RENTABILITÄT</span>
-
-                <div class="mt-6">
-                  <span class="text-5xl md:text-6xl font-light text-[#00008B]">Bis zu 6.000 €</span>
+                <div class="bg-[#ffd000] rounded-lg p-6 text-center">
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="cashback_intro_title">
+                        Cashback Einzahlungsbonus: 2% sofort nach Einzahlung
+                    </h3>
+                    <p class="text-sm text-gray-700" data-i18n="cashback_intro_desc">
+                        Im Rahmen unserer Digital Festgeld Einführung - Deutsche Bank als Vorreiter
+                    </p>
                 </div>
+            </div>
+        </div>
 
-                <p class="text-xl mt-4 font-medium text-[#00008B]">für Ihre Ersparnisse</p>
+        <!-- Cashback Examples -->
+        <div class="bg-white py-12 md:py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+                    <div
+                        class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
+                        <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
+                        <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">25.000€</p>
+                        <div class="border-t border-white/20 pt-3 md:pt-4">
+                            <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">Sofortbonus
+                            </p>
+                            <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">500€</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
+                        <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
+                        <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">50.000€</p>
+                        <div class="border-t border-white/20 pt-3 md:pt-4">
+                            <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">Sofortbonus
+                            </p>
+                            <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">1.000€</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
+                        <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
+                        <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">100.000€</p>
+                        <div class="border-t border-white/20 pt-3 md:pt-4">
+                            <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">Sofortbonus
+                            </p>
+                            <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">2.000€</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
+                        <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
+                        <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">200.000€</p>
+                        <div class="border-t border-white/20 pt-3 md:pt-4">
+                            <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">Sofortbonus
+                            </p>
+                            <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">4.000€</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-gray-600" data-i18n="example_extra">+ Ihre Zinserträge von 4% bis 6% p.a.
+                    zusätzlich</p>
+            </div>
+        </div>
 
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
-                  6% effektiver Jahreszins<sup>2</sup>.
+        <!-- Benefits Section -->
+        <div class="bg-gray-50 py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-3 md:mb-4 px-4"
+                    data-i18n="benefits_title">
+                    Ihre Vorteile auf einen Blick
+                </h2>
+                <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4"
+                    data-i18n="benefits_subtitle">
+                    Deutsche Bank revolutioniert das Festgeld mit digitaler Innovation und maximaler Sicherheit
                 </p>
-              </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Group 1 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit1_title">
+                            Einlagensicherung bis
+                            100.000€</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit1_desc">Ihre Einlagen sind durch
+                            den Einlagensicherungsfonds
+                            vollständig geschützt. Deutsche Bank garantiert maximale Sicherheit.</p>
+                    </div>
+                    <!-- Group 2 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit2_title">
+                            Bis zu 6% Zinsen p.a.</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit2_desc">4% bei 10k-25k, 5% bei
+                            50k-75k, 6% bei 100k-200k.
+                            Deutlich höher als klassisches Festgeld.</p>
+                    </div>
+                    <!-- Group 3 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit3_title">2%
+                            Cashback Einzahlungsbonus
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit3_desc">Sofort nach Einzahlung
+                            erhalten Sie 2% Ihrer
+                            Anlagesumme als Bonus. Bei 100.000€ sind das 2.000€ extra!</p>
+                    </div>
+                    <!-- Group 4 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit4_title">
+                            Dezentrale Tresor-Lösung</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit4_desc">Ihr digitales Geld wird
+                            wie in einem Tresor
+                            gesichert. Höchste Sicherheitsstandards durch innovative Blockchain-Technologie.</p>
+                    </div>
+                    <!-- Group 5 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit5_title">
+                            Gratis IBAN mit EURAU/EURC
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit5_desc">Erhalten Sie eine
+                            kostenlose digitale IBAN.
+                            Empfangen und senden Sie Zahlungen - sicherer als klassisches Online-Banking.</p>
+                    </div>
+                    <!-- Group 6 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit6_title">
+                            Sofortige Kontoeröffnung</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit6_desc">Keine Wartezeiten. Füllen
+                            Sie das Formular aus und
+                            ein Berater kontaktiert Sie innerhalb von 24 Stunden unverbindlich.</p>
+                    </div>
+                    <!-- Group 7 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit7_title">
+                            100% auf Ihren Namen</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit7_desc">Volle Kontrolle über Ihr
+                            Geld. Nur Sie haben Zugriff
+                            auf Ihr Digital Festgeld Konto bei Deutsche Bank.</p>
+                    </div>
+                    <!-- Group 8 -->
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="benefit8_title">
+                            Komplett kostenlos</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit8_desc">Keine
+                            Kontoführungsgebühren, keine versteckten
+                            Kosten. Profitieren Sie von allen Vorteilen ohne Zusatzkosten.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
-        <!-- CTA Section -->
-        <div class="mt-16 text-center">
-          <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-            <strong class="text-[#00008B]">Nutzen Sie eine oder beide Angebote</strong> vor dem 02/03/2026, unter
-            Einhaltung der <span class="text-[#00008B] underline cursor-pointer">Bedingungen</span><sup>3</sup>.
-          </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              class="bg-[#00008B] hover:bg-[#0000CD] text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-300">
-              Mit Berater kontaktieren
-            </button>
-            <button
-              class="border-2 border-[#001e50] text-[#00008B] hover:bg-[#001e50] hover:text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-300 open-anlage-dialog">
-              Geld anlegen
-            </button>
-          </div>
+        <!-- How it Works -->
+        <div class="bg-white py-12 md:py-16">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-3 md:mb-4 px-4"
+                    data-i18n="how_it_works_title">
+                    So einfach funktioniert's
+                </h2>
+                <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4"
+                    data-i18n="how_it_works_subtitle">
+                    In nur 4 Schritten zu Ihrem hochverzinsten Digital Festgeld bei Deutsche Bank
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+                    <div class="text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
+                            1
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="how_step1_title">
+                            Formular ausfüllen</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step1_desc">Geben Sie Ihre Daten und
+                            gewünschte Anlagesumme an.
+                            Komplett unverbindlich und kostenlos.</p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
+                            2
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="how_step2_title">
+                            Beratungsgespräch</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step2_desc">Ein Berater der Deutschen
+                            Bank kontaktiert Sie
+                            innerhalb von 24 Stunden für eine persönliche Beratung.</p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
+                            3
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="how_step3_title">
+                            Konto eröffnen</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step3_desc">Nach Ihrer Zustimmung
+                            wird Ihr Digital Festgeld
+                            Konto bei Deutsche Bank eröffnet. Sie erhalten Ihre digitale IBAN.</p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
+                            4
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="how_step4_title">
+                            Einzahlung & Bonus</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step4_desc">Zahlen Sie Ihre
+                            Anlagesumme ein. Ihr Geld wird in
+                            sicheres EURAU/EURC umgewandelt. Sie erhalten sofort 2% Cashback-Bonus!</p>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6 mt-12 text-center max-w-3xl mx-auto">
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="how_status_free">100%
+                        Unverbindlich & Kostenlos</h3>
+                    <p class="text-sm text-gray-700" data-i18n="how_status_info">
+                        Die Kontoeröffnung ist komplett kostenlos und unverbindlich. Keine versteckten Gebühren.
+                        Sie entscheiden erst nach dem Beratungsgespräch, ob Sie das Digital Festgeld nutzen möchten.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        </div>
 
-    <!-- Bank Change Service -->
-    <div class="bg-white py-16 md:py-24 border-t border-gray-100">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl md:text-4xl text-[#001e50] font-light mb-6 leading-tight">
-              Wir helfen Ihnen, alle Ihre Bankabbuchungen zu wechseln
-            </h2>
 
-            <p class="text-gray-600 mb-8">
-              Der Prozess ist einfach, sicher und völlig kostenlos, und Sie können ihn digital oder über Ihren
-              persönlichen Berater durchführen.
+        <!-- Contact Form -->
+        <div id="contact-form" class="bg-gradient-to-br from-[#00008B] to-[#0000CD] py-12 md:py-16">
+            <div class="max-w-2xl mx-auto px-4">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+                    <h2 class="text-xl md:text-2xl font-semibold text-[#00008B] text-center mb-2"
+                        data-i18n="form_title">
+                        Jetzt Digital Festgeld Konto eröffnen
+                    </h2>
+                    <p class="text-center text-sm md:text-base text-gray-600 mb-6" data-i18n="form_subtitle">Deutsche
+                        Bank • Kostenlos &
+                        Unverbindlich</p>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <p class="text-sm text-gray-700 text-center" data-i18n="form_info">
+                            <strong>Unverbindliches Beratungsgespräch</strong><br />
+                            Ein Berater kontaktiert Sie innerhalb von 24 Stunden.
+                            Kostenlos und ohne Verpflichtung.
+                        </p>
+                    </div>
+
+                    <form id="festgeld-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700"
+                                    data-i18n="label_first_name">Vorname *</label>
+                                <input type="text" name="vorname" required
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#00008B] focus:ring-[#00008B] sm:text-sm px-3 py-2 border">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700"
+                                    data-i18n="label_last_name">Nachname *</label>
+                                <input type="text" name="nachname" required
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#00008B] focus:ring-[#00008B] sm:text-sm px-3 py-2 border">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" data-i18n="label_phone">Rufnummer
+                                *</label>
+                            <div class="flex gap-2 mt-1">
+                                <select class="w-24 rounded-md border-gray-300 border px-2 py-2 text-sm">
+                                    <option value="de">🇩🇪 +49</option>
+                                    <option value="at">🇦🇹 +43</option>
+                                    <option value="ch">🇨🇭 +41</option>
+                                    <option value="es">🇪🇸 +34</option>
+                                    <option value="fr">🇫🇷 +33</option>
+                                    <option value="uk">🇬🇧 +44</option>
+                                </select>
+                                <input type="tel" name="rufnummer" required
+                                    class="flex-1 rounded-md border-gray-300 border px-3 py-2 text-sm shadow-sm focus:border-[#00008B] focus:ring-[#00008B]">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" data-i18n="label_email">E-Mail
+                                *</label>
+                            <input type="email" name="email" required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#00008B] focus:ring-[#00008B] sm:text-sm px-3 py-2 border">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" data-i18n="label_currency">Währung
+                                *</label>
+                            <select name="waehrung" required
+                                class="mt-1 block w-full rounded-md border-gray-300 border px-3 py-2 text-sm focus:border-[#00008B] focus:ring-[#00008B]">
+                                <option value="" data-i18n="select_option_choose">Bitte wählen...</option>
+                                <option value="EURC">EURC</option>
+                                <option value="EURAU">EURAU</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" data-i18n="label_amount">Anlagesumme
+                                *</label>
+                            <select name="anlagebetrag" required
+                                class="mt-1 block w-full rounded-md border-gray-300 border px-3 py-2 text-sm focus:border-[#00008B] focus:ring-[#00008B]">
+                                <option value="" data-i18n="select_amount_placeholder">Bitte wählen Sie Ihre gewünschte
+                                    Anlagesumme...</option>
+                                <option value="10000" data-i18n="option_range_1">10.000€ - 25.000€ • 4% p.a. + 500€
+                                    Bonus</option>
+                                <option value="50000" data-i18n="option_range_2">50.000€ - 75.000€ • 5% p.a. + 1.000€
+                                    Bonus</option>
+                                <option value="100000" data-i18n="option_range_3">100.000€ - 200.000€ • 6% p.a. + 2.000€
+                                    Bonus</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-start space-x-3 pt-2">
+                            <input type="checkbox" id="autorizo" required
+                                class="mt-1 h-4 w-4 rounded border-gray-300 text-[#00008B] focus:ring-[#00008B]">
+                            <label for="autorizo" class="text-xs text-gray-600 leading-relaxed"
+                                data-i18n="form_consent">
+                                Ich autorisiere die Erhebung und Verarbeitung meiner Daten zur Kontoeröffnung und
+                                Kontaktaufnahme
+                                durch Deutsche Bank gemäß Datenschutzrichtlinie. Das Angebot ist unverbindlich und
+                                kostenlos.
+                            </label>
+                        </div>
+
+                        <button type="submit" data-i18n="form_submit"
+                            class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-3 md:py-4 text-sm md:text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all uppercase">
+                            JETZT UNVERBINDLICH BERATEN LASSEN
+                        </button>
+
+                        <div class="flex justify-center gap-6 pt-2">
+                            <span class="text-xs text-gray-500 flex items-center gap-1" data-i18n="form_status_free">
+                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg> 100% Kostenlos
+                            </span>
+                            <span class="text-xs text-gray-500 flex items-center gap-1"
+                                data-i18n="form_status_nonbinding">
+                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg> Unverbindlich
+                            </span>
+                            <span class="text-xs text-gray-500 flex items-center gap-1" data-i18n="form_status_secure">
+                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg> Sicher
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Section -->
+        <div class="bg-gray-50 py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-3 md:mb-4 px-4"
+                    data-i18n="security_title">
+                    Maximale Sicherheit garantiert
+                </h2>
+                <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4"
+                    data-i18n="security_subtitle">
+                    Deutsche Bank kombiniert bewährte Bankensicherheit mit innovativer Blockchain-Technologie
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec1_title">
+                            Deutsche Bank Garantie</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="sec1_desc">Alle EURAU/EURC Einlagen
+                            werden von der Deutschen
+                            Bank vollständig gesichert und garantiert.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec2_title">
+                            Einlagensicherung bis
+                            100.000€</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="sec2_desc">Mitglied des
+                            Einlagensicherungsfonds. Jeder Einleger
+                            ist bis zu 100.000€ vollständig geschützt.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec3_title">
+                            Dezentrale Tresor-Technologie
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="sec3_desc">Ihr digitales Geld wird wie in
+                            einem hochsicheren
+                            Tresor verwahrt. Höchste Sicherheitsstandards.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec4_title">
+                            Betrugsschutz auf höchstem
+                            Niveau</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="sec4_desc">Modernste
+                            Sicherheitstechnologie schützt jede
+                            Transaktion vor unbefugtem Zugriff.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec5_title">100%
+                            auf Ihren Namen</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="sec5_desc">Nur Sie haben Zugriff auf Ihr
+                            Konto. Vollständige
+                            Kontrolle über Ihr digitales Festgeld.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec6_title">
+                            Reguliert & Lizenziert</h3>
+                        <p class="text-xs md:text-sm text-gray-600" data-i18n="sec6_desc">Deutsche Bank ist vollständig
+                            reguliert und
+                            lizenziert. Ihre Sicherheit ist unsere Priorität.</p>
+                    </div>
+                </div>
+
+                <div class="bg-[#ffd000] rounded-lg p-6 text-center mt-12">
+                    <p class="text-[#00008B] font-semibold" data-i18n="security_trust_badge">
+                        🏆 Deutsche Bank - Ihr vertrauenswürdiger Partner seit Jahrzehnten.
+                        Jetzt Vorreiter im Digital Festgeld mit revolutionärer EURAU/EURC Technologie.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Dynamic Security Badges -->
+            <div class="bg-white py-12 border-t border-gray-100">
+                <div class="max-w-4xl mx-auto px-4">
+                    <h2 class="text-xl font-semibold text-[#00008B] text-center mb-8" data-i18n="badges_title">Maximale
+                        Sicherheit garantiert
+                    </h2>
+                    <p class="text-center text-sm text-gray-500 mb-12" data-i18n="badges_subtitle">Deutsche Bank
+                        kombiniert bewährte
+                        Bankensicherheit mit innovativer Blockchain-Technologie</p>
+                    <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+                        <div class="flex flex-col items-center group">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 group-hover:shadow-md transition-shadow">
+                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 group-hover:shadow-md transition-shadow">
+                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 group-hover:shadow-md transition-shadow">
+                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 003.208 4.53M19 10.166m2.147-3.346a11.963 11.963 0 012.353 7.964m-8 0a2 2 0 002 2h2a2 2 0 002-2M8 21h.01M3 9h.01M21 7h.01M12 7h.01">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FAQ Section -->
+            <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4" data-i18n="faq_subtitle">
+                Alle wichtigen Informationen zum Digital Festgeld bei Deutsche Bank
             </p>
 
             <div class="space-y-4">
-              <div class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#001e50] flex items-center justify-center mt-0.5">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <!-- FAQ 1 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q1">Was ist Digital Festgeld
+                            bei Deutsche
+                            Bank?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a1">
+                            Digital Festgeld ist eine innovative Anlageform, bei der Ihr Geld in hochsichere
+                            digitale Währungen
+                            (EURAU/EURC) umgewandelt wird. Sie profitieren von attraktiven Zinsen bis zu 6% p.a.
+                            plus 2% Cashback-Bonus.
+                        </div>
+                    </div>
                 </div>
-                <p class="text-gray-700">Ihre Lastschriften (Strom, Wasser, etc.)</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#001e50] flex items-center justify-center mt-0.5">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <!-- FAQ 2 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q2">Wie sicher ist mein
+                            Geld?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a2">
+                            Ihre Einlagen sind bis zu 100.000€ durch den Einlagensicherungsfonds vollständig
+                            geschützt.
+                            Deutsche Bank garantiert die Sicherheit durch bewährte Bankenstandards kombiniert
+                            mit
+                            moderner Blockchain-Technologie.
+                        </div>
+                    </div>
                 </div>
-                <p class="text-gray-700">Ihre periodischen Überweisungen</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#001e50] flex items-center justify-center mt-0.5">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <!-- FAQ 3 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q3">Was ist EURAU/EURC?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a3">
+                            EURAU und EURC sind digitale Stablecoins im Verhältnis 1:1 zum Euro. Jeder
+                            EURAU/EURC
+                            entspricht
+                            exakt 1€ und ist vollständig durch Deutsche Bank abgesichert.
+                        </div>
+                    </div>
                 </div>
-                <p class="text-gray-700">Übertragung Ihres Guthabens</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=400&fit=crop" alt="Bankwechsel"
-              class="rounded-2xl shadow-lg max-w-full h-auto">
-          </div>
-        </div>
-
-        <!-- Bottom CTA -->
-        <div
-          class="mt-16 text-center bg-gradient-to-r from-[#f8f9fa] to-white rounded-2xl p-8 shadow-sm border border-gray-100">
-          <p class="text-lg text-[#001e50]">
-            Werden Sie Kunde und profitieren Sie von allen Vorteilen
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="bg-white py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4">
-        <!-- Section Title -->
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl text-[#00008B] font-light">
-            Ein Konto für MEHR
-          </h2>
-        </div>
-
-        <!-- Feature Groups -->
-        <div class="space-y-20">
-          <!-- Group 1: More Freedom -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=350&fit=crop"
-                alt="Mehr Freiheit" class="rounded-2xl shadow-lg w-full h-auto">
-            </div>
-
-            <div>
-              <h3 class="text-2xl md:text-3xl text-[#00008B] font-light mb-8">Mehr Freiheit</h3>
-
-              <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-[#00008B] text-white flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Mehr Geldautomaten</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Zugang zu über 58.000 Geldautomaten in Deutschland
-                      und
-                      weltweit</p>
-                  </div>
+                <!-- FAQ 4 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q4">Wie funktioniert der 2%
+                            Cashback-Bonus?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a4">
+                            Sofort nach Ihrer Einzahlung erhalten Sie 2% Ihrer Anlagesumme als Bonus
+                            gutgeschrieben.
+                            Bei 100.000€ Anlage sind das 2.000€ extra - zusätzlich zu den Zinserträgen!
+                        </div>
+                    </div>
                 </div>
-
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 text-[#00008B] flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Keine Gebühren</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Kostenlose Kontoführung und keine versteckten
-                      Kosten
-                    </p>
-                  </div>
+                <!-- FAQ 5 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q5">Welche Zinsen erhalte
+                            ich?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a5">
+                            Die Zinsen sind gestaffelt: 4% p.a. bei 10k-25k, 5% p.a. bei 50k-75k und 6% p.a. bei
+                            100k-200k Anlagesumme.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Group 2: More Benefits -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="lg:order-2">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=350&fit=crop"
-                alt="Mehr Vorteile" class="rounded-2xl shadow-lg w-full h-auto">
-            </div>
-
-            <div class="lg:order-1">
-              <h3 class="text-2xl md:text-3xl text-[#00008B] font-light mb-8">Mehr Vorteile</h3>
-
-              <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-[#00008B] text-white flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Mehr Gewinn</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Bis zu 6% Zinsen auf Ihre Einlagen</p>
-                  </div>
+                <!-- FAQ 6 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q6">Kann ich Zahlungen
+                            empfangen und
+                            tätigen?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a6">
+                            Ja! Sie erhalten eine kostenlose digitale IBAN und können Zahlungen empfangen und
+                            tätigen -
+                            mit höherer Sicherheit als beim klassischen Online-Banking.
+                        </div>
+                    </div>
                 </div>
-
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 text-[#00008B] flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Globaler Zugang</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Zugriff auf Ihr Konto von überall auf der Welt</p>
-                  </div>
+                <!-- FAQ 7 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q7">Gibt es versteckte
+                            Kosten?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a7">
+                            Nein, die Kontoeröffnung und Kontoführung sind komplett kostenlos. Keine Gebühren,
+                            keine
+                            versteckten Kosten.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Group 3: More Safety -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=350&fit=crop"
-                alt="Mehr Sicherheit" class="rounded-2xl shadow-lg w-full h-auto">
-            </div>
-
-            <div>
-              <h3 class="text-2xl md:text-3xl text-[#00008B] font-light mb-8">Mehr Sicherheit & Tresor</h3>
-
-              <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-[#00008B] text-white flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Echte Tresorlösung</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Sichere Aufbewahrung Ihrer Wertsachen in unseren
-                      Tresoren</p>
-                  </div>
+                <!-- FAQ 8 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q8">Ist das Angebot wirklich
+                            unverbindlich?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a8">
+                            Ja, absolut! Das Beratungsgespräch ist kostenlos und unverbindlich.
+                            Sie entscheiden erst nach dem Gespräch, ob Sie das Digital Festgeld nutzen möchten.
+                        </div>
+                    </div>
                 </div>
-
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 text-[#00008B] flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Eigene digitale IBAN</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Ihre persönliche EURC/EURAU IBAN für sichere
-                      Transaktionen</p>
-                  </div>
+                <!-- FAQ 9 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q9">Was passiert nach dem
+                            Beratungsgespräch?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a9">
+                            Wenn Sie sich für das Konto entscheiden, erhalten Sie alle Zugangsdaten und können
+                            Ihre erste Einzahlung tätigen, um den Bonus zu aktivieren.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Group 4: More Flexibility -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="lg:order-2">
-              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop"
-                alt="Mehr Flexibilität" class="rounded-2xl shadow-lg w-full h-auto">
-            </div>
-
-            <div class="lg:order-1">
-              <h3 class="text-2xl md:text-3xl text-[#00008B] font-light mb-8">Mehr Flexibilität</h3>
-
-              <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-[#00008B] text-white flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">Flexible Öffnungszeiten Tresor</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Zugang zu Ihrem Tresor zu erweiterten
-                      Öffnungszeiten
-                    </p>
-                  </div>
+                <!-- FAQ 10 -->
+                <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-[#00008B]" data-i18n="faq_q10">Warum ist Deutsche Bank
+                            Vorreiter?</span>
+                        <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
+                        <div class="p-6 text-sm text-gray-600" data-i18n="faq_a10">
+                            Deutsche Bank kombiniert jahrzehntelange Bankerfahrung mit modernster
+                            Blockchain-Technologie.
+                            Wir sind die erste große Bank, die digitales Festgeld mit EURAU/EURC anbietet.
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        </div>
 
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 text-[#00008B] flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-[#00008B] mb-1">7 Tage verfügbar</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">24/7 Online-Banking und Kundenservice</p>
-                  </div>
+        <!-- Final CTA -->
+        <div class="bg-gradient-to-br from-[#00008B] to-[#0000CD] py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-2xl md:text-4xl font-light text-white mb-3 md:mb-4 px-4" data-i18n="final_cta_title">
+                    Bereit für Digital Festgeld der Zukunft?
+                </h2>
+                <p class="text-base md:text-xl text-white/90 mb-6 md:mb-8 px-4" data-i18n="final_cta_subtitle">
+                    Profitieren Sie von bis zu 6% Zinsen + 2% Cashback-Bonus. Starten Sie jetzt mit Deutsche Bank!
+                </p>
+                <button
+                    onclick="document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
+                    data-i18n="final_cta_btn"
+                    class="bg-[#ffd000] hover:bg-[#ffdb33] text-[#00008B] px-8 md:px-12 py-5 md:py-6 text-base md:text-lg font-semibold rounded-lg shadow-xl transition-all uppercase">
+                    JETZT KONTO ERÖFFNEN
+                </button>
+            </div>
+        </div>
+
+
+        <footer class="bg-[#00008B] text-white py-12 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="flex items-center gap-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                            alt="Logo" class="w-8 h-8 bg-white p-1">
+                        <p class="font-semibold">Deutsche Bank</p>
+                    </div>
+                    <div class="flex gap-6 text-sm text-white/60">
+                        <a href="index.html" class="hover:text-white">Home</a>
+                        <a href="betrugsschutz.html" class="hover:text-white">Betrugsschutz</a>
+                        <a href="kontakt.html" class="hover:text-white">Kontakt</a>
+                        <a href="filialen.html" class="hover:text-white">Filialen</a>
+                        <a href="kundenservice.html" class="hover:text-white">Kundenservice</a>
+                    </div>
                 </div>
-              </div>
+                <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
+                    <p data-i18n="footer_rights">© 2026 Deutsche Bank AG. Alle Rechte vorbehalten. Digital Festgeld
+                        mit EURAU/EURC.</p>
+                </div>
             </div>
-          </div>
-        </div>
+        </footer>
 
-        <!-- Trust Badges -->
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="text-center p-6 rounded-xl bg-[#f8f9fa] hover:bg-white hover:shadow-lg transition-all duration-300">
-            <div class="w-14 h-14 rounded-full bg-[#00008B]/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-7 h-7 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                </path>
-              </svg>
-            </div>
-            <h4 class="font-semibold text-[#00008B] mb-2">Sicherheit garantiert</h4>
-            <p class="text-gray-600 text-sm">Maximaler Schutz für Ihre Daten und Transaktionen</p>
-          </div>
+        <script src="assets/js/translations.js"></script>
+        <script>
+            // Language switcher
+            const langBtn = document.getElementById('lang-btn');
+            const langMenu = document.getElementById('lang-menu');
+            const currentLangLabel = document.getElementById('current-lang');
 
-          <div
-            class="text-center p-6 rounded-xl bg-[#f8f9fa] hover:bg-white hover:shadow-lg transition-all duration-300">
-            <div class="w-14 h-14 rounded-full bg-[#00008B]/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-7 h-7 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-              </svg>
-            </div>
-            <h4 class="font-semibold text-[#00008B] mb-2">Keine versteckten Kosten</h4>
-            <p class="text-gray-600 text-sm">Transparente Preise ohne versteckte Gebühren</p>
-          </div>
+            if (langBtn && langMenu) {
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    langMenu.classList.toggle('hidden');
+                });
 
-          <div
-            class="text-center p-6 rounded-xl bg-[#f8f9fa] hover:bg-white hover:shadow-lg transition-all duration-300">
-            <div class="w-14 h-14 rounded-full bg-[#00008B]/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-7 h-7 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                </path>
-              </svg>
-            </div>
-            <h4 class="font-semibold text-[#00008B] mb-2">Globale Präsenz</h4>
-            <p class="text-gray-600 text-sm">Weltweiter Zugang zu Ihrem Konto und Ihren Finanzen</p>
-          </div>
-        </div>
-      </div>
-    </div>
+                document.addEventListener('click', (e) => {
+                    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                        langMenu.classList.add('hidden');
+                    }
+                });
+            }
 
-    <!-- Security Section -->
-    <div class="bg-gradient-to-br from-[#f8f9fa] to-white py-16 md:py-24 border-t border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4">
-        <!-- Title -->
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl text-[#00008B] font-light mb-4">
-            Ihr EURAU ist sicher
-          </h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ihr EURAU gehört Ihnen und wird von Deutsche Bank garantiert
-          </p>
-        </div>
+            // selectLang is now defined in translations.js
+            // window.selectLang = ...
 
-        <!-- Security Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <!-- Feature 1 -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 rounded-full bg-[#00008B] flex items-center justify-center mb-6 mx-auto">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                </path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-[#00008B] mb-3 text-center">
-              Teil der Deutschen Bank
-            </h3>
-            <p class="text-gray-600 text-center text-sm leading-relaxed">
-              Als Teil der Deutschen Bank profitieren Sie von over 150 Jahren Bankerfahrung und Stabilität
-            </p>
-          </div>
-
-          <!-- Feature 2 -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center mb-6 mx-auto">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                </path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-[#00008B] mb-3 text-center">
-              100% Einlagensicherung
-            </h3>
-            <p class="text-gray-600 text-center text-sm leading-relaxed">
-              Ihre Einlagen sind bis zu 100.000€ durch den deutschen Einlagensicherungsfonds vollständig geschützt
-            </p>
-          </div>
-
-          <!-- Feature 3 -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center mb-6 mx-auto">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                </path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-[#00008B] mb-3 text-center">
-              Betrugsschutz
-            </h3>
-            <p class="text-gray-600 text-center text-sm leading-relaxed">
-              Modernste Sicherheitstechnologie schützt Sie vor Betrug und unbefugtem Zugriff
-            </p>
-          </div>
-        </div>
-
-        <!-- Trust Banner -->
-        <div class="bg-gradient-to-r from-[#00008B] to-[#0000CD] rounded-2xl p-8 md:p-12 text-white text-center">
-          <div class="flex items-center justify-center gap-3 mb-4">
-            <svg class="w-8 h-8 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
-              </path>
-            </svg>
-            <h3 class="text-2xl md:text-3xl font-light">Sicher und zuverlässig</h3>
-          </div>
-          <p class="text-white/80 text-lg max-w-3xl mx-auto leading-relaxed">
-            Mit Deutsche Bank können Sie sicher sein, dass Ihr Geld in den besten Händen ist. Wir sind reguliert,
-            lizenziert
-            und bieten Ihnen maximalen Schutz.
-          </p>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="flex items-center justify-center gap-2">
-              <svg class="w-5 h-5 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
-                </path>
-              </svg>
-              <span class="text-sm">Reguliert und lizenziert</span>
-            </div>
-            <div class="flex items-center justify-center gap-2">
-              <svg class="w-5 h-5 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
-                </path>
-              </svg>
-              <span class="text-sm">Einlagensicherung</span>
-            </div>
-            <div class="flex items-center justify-center gap-2">
-              <svg class="w-5 h-5 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
-                </path>
-              </svg>
-              <span class="text-sm">Betrugsschutz</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-[#00008B] text-white">
-    <div class="border-b border-white/10">
-      <div class="max-w-7xl mx-auto px-4 py-8">
-        <div class="space-y-4 text-xs text-white/60">
-          <p><sup>1</sup> Aktion gültig für Gehaltsüberweisungen von mindestens 2.000 € pro Monat. Vollständige
-            Bedingungen auf der Website einsehen.</p>
-          <p><sup>2</sup> Effektiver Jahreszins von 4% bis 6% anwendbar auf Guthaben zwischen 10.000 € und 150.000 €. 4%
-            ab 25.000€, 5% ab 50.000€, 6% ab 100.000€.</p>
-          <p><sup>3</sup> Aktionen gültig bis 02.03.2026. Vorbehaltlich der allgemeinen Geschäftsbedingungen.
-            Vollständige rechtliche Grundlagen einsehen.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 py-12">
-      <div class="flex items-center gap-3 mb-6">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
-          alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1">
-        <div>
-          <p class="font-semibold text-lg">Deutsche Bank</p>
-        </div>
-      </div>
-      <p class="text-sm text-white/70 max-w-2xl mb-8">
-        Deutsche Bank bietet hochwertige Finanzlösungen für Privatkunden und Unternehmen, unterstützt durch die Stärke
-        einer globalen Bank.
-      </p>
-
-      <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-xs text-white/50">© 2026 Deutsche Bank AG. Alle Rechte vorbehalten.</p>
-        <div class="flex flex-wrap gap-4 md:gap-6 justify-center">
-          <a href="index.html" class="text-xs text-white/50 hover:text-white transition-colors cursor-pointer">Home</a>
-          <a href="digital-festgeld.html"
-            class="text-xs text-white/50 hover:text-white transition-colors cursor-pointer">Digital Festgeld</a>
-          <a href="kontakt.html"
-            class="text-xs text-white/50 hover:text-white transition-colors cursor-pointer">Kontakt</a>
-          <a href="filialen.html"
-            class="text-xs text-white/50 hover:text-white transition-colors cursor-pointer">Filialen</a>
-          <a href="kundenservice.html"
-            class="text-xs text-white/50 hover:text-white transition-colors cursor-pointer">Kundenservice</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Anlage Dialog (Hidden) -->
-  <div id="anlage-dialog" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog"
-    aria-modal="true">
-    <div id="anlage-backdrop" class="fixed inset-0 bg-[#00008B]/20 backdrop-blur-sm transition-opacity"></div>
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-      <div class="flex min-h-full items-center justify-center p-4">
-        <div
-          class="relative transform overflow-hidden rounded-xl bg-white text-left shadow-2xl transition-all w-full max-w-md p-6">
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center gap-3">
-              <div
-                class="w-10 h-10 bg-white border border-gray-200 flex items-center justify-center p-1.5 rounded shadow-sm">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
-                  alt="DB" class="w-full h-full object-contain">
-              </div>
-              <p class="font-semibold text-[#001e50]">Deutsche Bank</p>
-            </div>
-            <button id="close-anlage-btn" class="text-gray-400 hover:text-gray-600 transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-
-          <h3 class="text-2xl font-light text-[#001e50] mb-6">Geld anlegen</h3>
-
-          <form id="anlage-form" class="space-y-4">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-1">
-                <label class="text-sm font-medium text-gray-700">Vorname *</label>
-                <input type="text" name="vorname" required
-                  class="w-full h-10 px-3 rounded-md border border-gray-300 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none">
-              </div>
-              <div class="space-y-1">
-                <label class="text-sm font-medium text-gray-700">Nachname *</label>
-                <input type="text" name="nachname" required
-                  class="w-full h-10 px-3 rounded-md border border-gray-300 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none">
-              </div>
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-gray-700">E-Mail *</label>
-              <input type="email" name="email" required
-                class="w-full h-10 px-3 rounded-md border border-gray-300 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none">
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-gray-700">Rufnummer *</label>
-              <input type="tel" name="rufnummer" required
-                class="w-full h-10 px-3 rounded-md border border-gray-300 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none">
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-gray-700">Währung *</label>
-              <select name="waehrung"
-                class="w-full h-10 px-3 rounded-md border border-gray-300 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none bg-white">
-                <option value="EURC">EURC</option>
-                <option value="EURAU">EURAU</option>
-              </select>
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-gray-700">Anlagebetrag (€) *</label>
-              <input type="number" name="anlagebetrag" min="0" step="0.01" required
-                class="w-full h-10 px-3 rounded-md border border-gray-300 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none">
-            </div>
-
-            <button type="submit"
-              class="w-full bg-[#001e50] hover:bg-[#003087] text-white py-3 rounded-md font-medium transition-all duration-300 mt-6 active:scale-[0.98]">
-              Anlage einreichen
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="assets/js/translations.js"></script>
-  <script>
-    // Language switcher
-    const langBtn = document.getElementById('lang-btn');
-    const langMenu = document.getElementById('lang-menu');
-    const currentLangLabel = document.getElementById('current-lang');
-
-    if (langBtn && langMenu) {
-      langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langMenu.classList.toggle('hidden');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
-          langMenu.classList.add('hidden');
-        }
-      });
-    }
-
-    // Form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Formular wurde abgesendet! (Demo)');
-      });
-    }
-
-    // Anlage Dialog Logic
-    const anlageDialog = document.getElementById('anlage-dialog');
-    const closeAnlageBtn = document.getElementById('close-anlage-btn');
-    const anlageBackdrop = document.getElementById('anlage-backdrop');
-    const openAnlageBtns = document.querySelectorAll('.open-anlage-dialog');
-    const anlageForm = document.getElementById('anlage-form');
-
-    function openAnlage() {
-      anlageDialog.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeAnlage() {
-      anlageDialog.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    openAnlageBtns.forEach(btn => btn.addEventListener('click', openAnlage));
-    if (closeAnlageBtn) closeAnlageBtn.addEventListener('click', closeAnlage);
-    if (anlageBackdrop) anlageBackdrop.addEventListener('click', closeAnlage);
-
-    if (anlageForm) {
-      anlageForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(anlageForm);
-        console.log('Anlage Data:', Object.fromEntries(formData));
-        alert('Ihre Anlage wurde erfolgreich eingereicht! (Demo)');
-        closeAnlage();
-        anlageForm.reset();
-      });
-    }
-  </script>
+            const festgeldForm = document.getElementById('festgeld-form');
+            if (festgeldForm) {
+                festgeldForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Vielen Dank! Ein Berater wird Sie in Kürze kontaktieren.');
+                });
+            }
+        </script>
 
 </body>
 
