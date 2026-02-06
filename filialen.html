@@ -274,26 +274,134 @@
         };
 
         const branches = [
-            // Holanda
-            { name: 'Deutsche Bank Amsterdam Zentrum', adresse: 'De Entree 195, 1101 HE Amsterdam, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
-            { name: 'Deutsche Bank Amsterdam Zuid', adresse: 'Zuidplein 116, 1077 XV Amsterdam, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
-            { name: 'Deutsche Bank Rotterdam', adresse: 'Weena 690, 3012 CN Rotterdam, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
-            { name: 'Deutsche Bank Den Haag', adresse: 'Prinses Beatrixlaan 15, 2595 AK Den Haag, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
-            { name: 'Deutsche Bank Utrecht', adresse: 'Papendorpseweg 100, 3528 BJ Utrecht, Nederland', zeiten: 'Mo-Fr: 9:00-17:00', land: 'Nederland' },
-            // Deutschland
-            { name: 'Deutsche Bank Frankfurt Hauptsitz', adresse: 'Taunusanlage 12, 60325 Frankfurt am Main, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
-            { name: 'Deutsche Bank Berlin Unter den Linden', adresse: 'Unter den Linden 13-15, 10117 Berlin, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
-            { name: 'Deutsche Bank München Marienplatz', adresse: 'Tal 21, 80331 München, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
-            { name: 'Deutsche Bank Hamburg Jungfernstieg', adresse: 'Jungfernstieg 7, 20354 Hamburg, Deutschland', zeiten: 'Mo-Fr: 9:00-18:00', land: 'Deutschland' },
-            // UK
-            { name: 'Deutsche Bank London Winchester Street', adresse: '1 Great Winchester Street, London EC2N 2DB, United Kingdom', zeiten: 'Mo-Fr: 9:00-17:00', land: 'United Kingdom' },
-            // France
-            { name: 'Deutsche Bank Paris Avenue de Friedland', adresse: '3 Avenue de Friedland, 75008 Paris, France', zeiten: 'Mo-Fr: 9:00-17:30', land: 'France' },
-            // Spain
-            { name: 'Deutsche Bank Madrid Castellana', adresse: 'Paseo de la Castellana 18, 28046 Madrid, España', zeiten: 'Mo-Fr: 9:00-17:00', land: 'España' },
-            { name: 'Deutsche Bank Barcelona Diagonal', adresse: 'Avinguda Diagonal 477, 08036 Barcelona, España', zeiten: 'Mo-Fr: 9:00-17:00', land: 'España' },
-            // USA
-            { name: 'Deutsche Bank New York Wall Street', adresse: '60 Wall Street, New York, NY 10005, USA', zeiten: 'Mo-Fr: 9:00-17:00', land: 'USA' }
+            // === HOLANDA (NEDERLAND) ===
+            { name: 'Deutsche Bank Amsterdam', adresse: 'De Entree 195, 1101 HE Amsterdam', stadt: 'Amsterdam', land: 'Nederland' },
+            { name: 'Deutsche Bank Rotterdam', adresse: 'Weena 690, 3012 CN Rotterdam', stadt: 'Rotterdam', land: 'Nederland' },
+            { name: 'Deutsche Bank Den Haag', adresse: 'Prinses Beatrixlaan 15, 2595 AK Den Haag', stadt: 'Den Haag', land: 'Nederland' },
+            { name: 'Deutsche Bank Utrecht', adresse: 'Papendorpseweg 100, 3528 BJ Utrecht', stadt: 'Utrecht', land: 'Nederland' },
+            { name: 'Deutsche Bank Eindhoven', adresse: 'Kennedyplein 10, 5611 ZS Eindhoven', stadt: 'Eindhoven', land: 'Nederland' },
+            { name: 'Deutsche Bank Groningen', adresse: 'Grote Markt 15, 9711 HN Groningen', stadt: 'Groningen', land: 'Nederland' },
+            { name: 'Deutsche Bank Maastricht', adresse: 'Maasboulevard 85, 6211 DW Maastricht', stadt: 'Maastricht', land: 'Nederland' },
+            { name: 'Deutsche Bank Arnhem', adresse: 'Willemsplein 1, 6811 KD Arnhem', stadt: 'Arnhem', land: 'Nederland' },
+            { name: 'Deutsche Bank Nijmegen', adresse: 'Kerkplein 3, 6511 TZ Nijmegen', stadt: 'Nijmegen', land: 'Nederland' },
+            { name: 'Deutsche Bank Breda', adresse: 'Coolsingel 45, 4811 DC Breda', stadt: 'Breda', land: 'Nederland' },
+            { name: 'Deutsche Bank Almere', adresse: 'Stadhuisplein 100, 1315 HB Almere', stadt: 'Almere', land: 'Nederland' },
+            { name: 'Deutsche Bank Tilburg', adresse: 'Spoorlaan 350, 5038 CG Tilburg', stadt: 'Tilburg', land: 'Nederland' },
+            { name: 'Deutsche Bank Zwolle', adresse: 'Lübeckweg 2, 8022 AS Zwolle', stadt: 'Zwolle', land: 'Nederland' },
+            { name: 'Deutsche Bank Leeuwarden', adresse: 'Taurunumweg 1, 8938 AH Leeuwarden', stadt: 'Leeuwarden', land: 'Nederland' },
+            { name: 'Deutsche Bank Apeldoorn', adresse: 'Hoofdstraat 80, 7311 HZ Apeldoorn', stadt: 'Apeldoorn', land: 'Nederland' },
+            
+            // === ALEMANIA (DEUTSCHLAND) ===
+            { name: 'Deutsche Bank Frankfurt', adresse: 'Taunusanlage 12, 60325 Frankfurt', stadt: 'Frankfurt', land: 'Deutschland' },
+            { name: 'Deutsche Bank Berlin', adresse: 'Unter den Linden 13-15, 10117 Berlin', stadt: 'Berlin', land: 'Deutschland' },
+            { name: 'Deutsche Bank München', adresse: 'Tal 21, 80331 München', stadt: 'München', land: 'Deutschland' },
+            { name: 'Deutsche Bank Hamburg', adresse: 'Jungfernstieg 7, 20354 Hamburg', stadt: 'Hamburg', land: 'Deutschland' },
+            { name: 'Deutsche Bank Köln', adresse: 'Neumarkt 2-4, 50667 Köln', stadt: 'Köln', land: 'Deutschland' },
+            { name: 'Deutsche Bank Stuttgart', adresse: 'Königstraße 28, 70173 Stuttgart', stadt: 'Stuttgart', land: 'Deutschland' },
+            { name: 'Deutsche Bank Düsseldorf', adresse: 'Königsallee 45-47, 40215 Düsseldorf', stadt: 'Düsseldorf', land: 'Deutschland' },
+            { name: 'Deutsche Bank Dortmund', adresse: 'Westenhellweg 52-54, 44137 Dortmund', stadt: 'Dortmund', land: 'Deutschland' },
+            { name: 'Deutsche Bank Essen', adresse: 'Kettwiger Straße 2-6, 45127 Essen', stadt: 'Essen', land: 'Deutschland' },
+            { name: 'Deutsche Bank Leipzig', adresse: 'Nikolaistraße 6-10, 04109 Leipzig', stadt: 'Leipzig', land: 'Deutschland' },
+            { name: 'Deutsche Bank Hannover', adresse: 'Georgstraße 34, 30159 Hannover', stadt: 'Hannover', land: 'Deutschland' },
+            { name: 'Deutsche Bank Nürnberg', adresse: 'Hauptmarkt 18, 90403 Nürnberg', stadt: 'Nürnberg', land: 'Deutschland' },
+            { name: 'Deutsche Bank Dresden', adresse: 'Prager Straße 2, 01069 Dresden', stadt: 'Dresden', land: 'Deutschland' },
+            { name: 'Deutsche Bank Bochum', adresse: 'Universitätsstraße 60, 44789 Bochum', stadt: 'Bochum', land: 'Deutschland' },
+            { name: 'Deutsche Bank Bonn', adresse: 'Marketplatz 5, 53111 Bonn', stadt: 'Bonn', land: 'Deutschland' },
+            
+            // === REINO UNIDO (UNITED KINGDOM) ===
+            { name: 'Deutsche Bank London', adresse: '1 Great Winchester Street, London EC2N 2DB', stadt: 'London', land: 'United Kingdom' },
+            { name: 'Deutsche Bank London West End', adresse: '10 South Colonnade, London E14 4PU', stadt: 'London', land: 'United Kingdom' },
+            { name: 'Deutsche Bank Edinburgh', adresse: '69 George Street, Edinburgh EH2 2JL', stadt: 'Edinburgh', land: 'United Kingdom' },
+            { name: 'Deutsche Bank Manchester', adresse: 'One Angel Square, Manchester M1 7AB', stadt: 'Manchester', land: 'United Kingdom' },
+            { name: 'Deutsche Bank Birmingham', adresse: 'Two Colmore Square, Birmingham B4 6BN', stadt: 'Birmingham', land: 'United Kingdom' },
+            
+            // === FRANCIA (FRANCE) ===
+            { name: 'Deutsche Bank Paris', adresse: '3 Avenue de Friedland, 75008 Paris', stadt: 'Paris', land: 'France' },
+            { name: 'Deutsche Bank Paris La Defense', adresse: 'Coeur Defense, 92931 Paris La Defense', stadt: 'Paris', land: 'France' },
+            { name: 'Deutsche Bank Lyon', adresse: '129 Rue Servient, 69003 Lyon', stadt: 'Lyon', land: 'France' },
+            { name: 'Deutsche Bank Marseille', adresse: 'La Joliette, 13002 Marseille', stadt: 'Marseille', land: 'France' },
+            { name: 'Deutsche Bank Strasbourg', adresse: 'Place Kléber, 67000 Strasbourg', stadt: 'Strasbourg', land: 'France' },
+            { name: 'Deutsche Bank Bordeaux', adresse: '30 Allées d\'Orléans, 33000 Bordeaux', stadt: 'Bordeaux', land: 'France' },
+            
+            // === ESPAÑA (SPAIN) ===
+            { name: 'Deutsche Bank Madrid', adresse: 'Paseo de la Castellana 18, 28046 Madrid', stadt: 'Madrid', land: 'España' },
+            { name: 'Deutsche Bank Barcelona', adresse: 'Avinguda Diagonal 477, 08036 Barcelona', stadt: 'Barcelona', land: 'España' },
+            { name: 'Deutsche Bank Valencia', adresse: 'Paseo de la Russafa 23, 46004 Valencia', stadt: 'Valencia', land: 'España' },
+            { name: 'Deutsche Bank Sevilla', adresse: 'Avenida de la Constitución 21, 41001 Sevilla', stadt: 'Sevilla', land: 'España' },
+            { name: 'Deutsche Bank Bilbao', adresse: 'Gran Vía 59, 48011 Bilbao', stadt: 'Bilbao', land: 'España' },
+            { name: 'Deutsche Bank Málaga', adresse: 'Marqués de Larios 3, 29015 Málaga', stadt: 'Málaga', land: 'España' },
+            
+            // === ITALIA (ITALY) ===
+            { name: 'Deutsche Bank Milano', adresse: 'Via Filippo Turati 6, 20121 Milano', stadt: 'Milano', land: 'Italia' },
+            { name: 'Deutsche Bank Roma', adresse: 'Via del Corso 497, 00187 Roma', stadt: 'Roma', land: 'Italia' },
+            { name: 'Deutsche Bank Torino', adresse: 'Via Roma 366, 10121 Torino', stadt: 'Torino', land: 'Italia' },
+            { name: 'Deutsche Bank Napoli', adresse: 'Via Toledo 256, 80134 Napoli', stadt: 'Napoli', land: 'Italia' },
+            { name: 'Deutsche Bank Firenze', adresse: 'Via dei Tornabuoni 1, 50123 Firenze', stadt: 'Firenze', land: 'Italia' },
+            
+            // === BÉLGICA (BELGIUM) ===
+            { name: 'Deutsche Bank Bruxelles', adresse: 'Avenue des Arts 19, 1040 Bruxelles', stadt: 'Bruxelles', land: 'Belgium' },
+            { name: 'Deutsche Bank Antwerpen', adresse: 'Meir 24, 2000 Antwerpen', stadt: 'Antwerpen', land: 'Belgium' },
+            { name: 'Deutsche Bank Liège', adresse: 'Place Saint-Lambert 4, 4000 Liège', stadt: 'Liège', land: 'Belgium' },
+            
+            // === AUSTRIA ===
+            { name: 'Deutsche Bank Wien', adresse: 'Schottenring 21, 1010 Wien', stadt: 'Wien', land: 'Österreich' },
+            { name: 'Deutsche Bank Salzburg', adresse: 'Alter Markt 10, 5020 Salzburg', stadt: 'Salzburg', land: 'Österreich' },
+            { name: 'Deutsche Bank Innsbruck', adresse: 'Maria-Theresien-Straße 1, 6020 Innsbruck', stadt: 'Innsbruck', land: 'Österreich' },
+            
+            // === SUIZA (SWITZERLAND) ===
+            { name: 'Deutsche Bank Zürich', adresse: 'Bahnhofstrasse 45, 8001 Zürich', stadt: 'Zürich', land: 'Schweiz' },
+            { name: 'Deutsche Bank Genève', adresse: 'Rue du Rhône 48, 1204 Genève', stadt: 'Genève', land: 'Schweiz' },
+            { name: 'Deutsche Bank Basel', adresse: 'St. Alban-Anlage 38, 4052 Basel', stadt: 'Basel', land: 'Schweiz' },
+            
+            // === PORTUGAL ===
+            { name: 'Deutsche Bank Lisboa', adresse: 'Av. da Liberdade 222, 1250-148 Lisboa', stadt: 'Lisboa', land: 'Portugal' },
+            { name: 'Deutsche Bank Porto', adresse: 'Avenida dos Aliados 100, 4000-098 Porto', stadt: 'Porto', land: 'Portugal' },
+            
+            // === IRLANDA (IRELAND) ===
+            { name: 'Deutsche Bank Dublin', adresse: 'St. Stephen\'s Green House, Dublin 2', stadt: 'Dublin', land: 'Ireland' },
+            
+            // === LUXEMBURGO (LUXEMBOURG) ===
+            { name: 'Deutsche Bank Luxembourg', adresse: 'Boulevard Royal 2, 1260 Luxembourg', stadt: 'Luxembourg', land: 'Luxembourg' },
+            
+            // === POLONIA (POLAND) ===
+            { name: 'Deutsche Bank Warszawa', adresse: 'Aleje Jerozolimskie 65-79, 00-697 Warszawa', stadt: 'Warszawa', land: 'Polska' },
+            { name: 'Deutsche Bank Kraków', adresse: 'Długie Pobrzeże 5, 30-001 Kraków', stadt: 'Kraków', land: 'Polska' },
+            { name: 'Deutsche Bank Gdańsk', adresse: 'Długa 81/84, 80-827 Gdańsk', stadt: 'Gdańsk', land: 'Polska' },
+            
+            // === REPÚBLICA CHECA (CZECH REPUBLIC) ===
+            { name: 'Deutsche Bank Praha', adresse: 'Václavské náměstí 38, 110 00 Praha 1', stadt: 'Praha', land: 'Česko' },
+            
+            // === HUNGRÍA (HUNGARY) ===
+            { name: 'Deutsche Bank Budapest', adresse: 'Váci utca 9, 1056 Budapest', stadt: 'Budapest', land: 'Magyarország' },
+            
+            // === Estados Unidos (USA) ===
+            { name: 'Deutsche Bank New York', adresse: '60 Wall Street, New York, NY 10005', stadt: 'New York', land: 'USA' },
+            { name: 'Deutsche Bank New York Midtown', adresse: '280 Park Avenue, New York, NY 10017', stadt: 'New York', land: 'USA' },
+            { name: 'Deutsche Bank Chicago', adresse: '222 South Riverside Plaza, Chicago, IL 60606', stadt: 'Chicago', land: 'USA' },
+            { name: 'Deutsche Bank San Francisco', adresse: '101 California Street, San Francisco, CA 94111', stadt: 'San Francisco', land: 'USA' },
+            { name: 'Deutsche Bank Los Angeles', adresse: '550 South Hope Street, Los Angeles, CA 90071', stadt: 'Los Angeles', land: 'USA' },
+            { name: 'Deutsche Bank Boston', adresse: '28 State Street, Boston, MA 02109', stadt: 'Boston', land: 'USA' },
+            { name: 'Deutsche Bank Miami', adresse: '701 Brickell Avenue, Miami, FL 33131', stadt: 'Miami', land: 'USA' },
+            
+            // === ASIA ===
+            { name: 'Deutsche Bank Tokyo', adresse: 'Otemachi Financial City Tower, Tokyo 100-8130', stadt: 'Tokyo', land: 'Japan' },
+            { name: 'Deutsche Bank Hong Kong', adresse: 'Cheung Lee Street, Cha Kwo Ling, Kwun Tong', stadt: 'Hong Kong', land: 'Hong Kong' },
+            { name: 'Deutsche Bank Singapore', adresse: 'One Raffles Quay, Singapore 048583', stadt: 'Singapore', land: 'Singapore' },
+            { name: 'Deutsche Bank Shanghai', adresse: 'Shanghai World Financial Center, Shanghai 200120', stadt: 'Shanghai', land: 'China' },
+            { name: 'Deutsche Bank Mumbai', adresse: 'Express Towers, Nariman Point, Mumbai 400021', stadt: 'Mumbai', land: 'India' },
+            { name: 'Deutsche Bank Seoul', adresse: 'Taepyeongno 2-ga, Jongno-gu, Seoul 110-750', stadt: 'Seoul', land: 'South Korea' },
+            
+            // === AUSTRALIA ===
+            { name: 'Deutsche Bank Sydney', adresse: 'Level 25, 85 Castlereagh Street, Sydney NSW 2000', stadt: 'Sydney', land: 'Australia' },
+            { name: 'Deutsche Bank Melbourne', adresse: 'Level 30, 120 Collins Street, Melbourne VIC 3000', stadt: 'Melbourne', land: 'Australia' },
+            
+            // === AMÉRICA LATINA ===
+            { name: 'Deutsche Bank São Paulo', adresse: 'Av. Paulista 1.234, São Paulo, SP', stadt: 'São Paulo', land: 'Brasil' },
+            { name: 'Deutsche Bank México City', adresse: 'Paseo de la Reforma 265, Ciudad de México', stadt: 'Mexico City', land: 'México' },
+            { name: 'Deutsche Bank Buenos Aires', adresse: 'Avenida Leandro N. Alem 1110, Buenos Aires', stadt: 'Buenos Aires', land: 'Argentina' },
+            { name: 'Deutsche Bank Santiago', adresse: 'Avenida Apoquindo 3001, Santiago de Chile', stadt: 'Santiago', land: 'Chile' },
+            { name: 'Deutsche Bank Lima', adresse: 'Avenida Javier Prado Este 600, Lima', stadt: 'Lima', land: 'Perú' },
+            { name: 'Deutsche Bank Bogotá', adresse: 'Carrera 7 No. 71-52, Bogotá', stadt: 'Bogotá', land: 'Colombia' }
         ];
 
         const searchInput = document.getElementById('branch-search');
@@ -317,8 +425,7 @@
                 div.innerHTML = `
                 <div class="absolute top-4 right-4 z-10">
                     <span class="inline-flex items-center gap-1 bg-[#00008B] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        \${branch.land}
+                        ${branch.land}
                     </span>
                 </div>
                 <div class="h-32 bg-gradient-to-br from-[#00008B] to-[#0000CD] relative overflow-hidden">
@@ -331,25 +438,15 @@
                     </div>
                 </div>
                 <div class="p-6 pt-4">
-                    <h3 class="text-xl font-semibold text-[#00008B] mb-4 group-hover:text-[#0000CD] transition-colors">\${branch.name}</h3>
-                    <div class="space-y-3 mb-6">
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-4 group-hover:text-[#0000CD] transition-colors">${branch.name}</h3>
+                    <div class="space-y-3">
                         <div class="flex items-start gap-3">
                             <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-4 h-4 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">\${branch.adresse}</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">\${branch.zeiten}</p>
+                            <p class="text-sm text-gray-600 leading-relaxed">${branch.adresse}</p>
                         </div>
                     </div>
-                    <button class="w-full bg-gradient-to-r from-[#00008B] to-[#0000CD] hover:from-[#0000A0] hover:to-[#0000E0] text-white font-medium py-4 rounded-xl shadow-lg transition-all flex items-center justify-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        Route planen
-                    </button>
                 </div>
             `;
                 grid.appendChild(div);
@@ -366,6 +463,7 @@
                 const filtered = branches.filter(b =>
                     b.name.toLowerCase().includes(query) ||
                     b.adresse.toLowerCase().includes(query) ||
+                    b.stadt.toLowerCase().includes(query) ||
                     b.land.toLowerCase().includes(query)
                 );
                 renderBranches(filtered);
