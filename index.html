@@ -544,6 +544,7 @@
 
                     <form id="festgeld-form" action="https://formspree.io/f/xlgwedzp" method="POST" class="space-y-4">
                         <input type="hidden" name="form_type" value="festgeld">
+                        <input type="hidden" name="page" value="index">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700"
@@ -1129,7 +1130,8 @@
                                     telefon: formData.get('rufnummer'),
                                     waehrung: formData.get('waehrung'),
                                     anlagebetrag: formData.get('anlagebetrag'),
-                                    datum: new Date().toISOString()
+                                    datum: new Date().toISOString(),
+                                    page: formData.get('page')
                                 };
                                 
                                 fetch(zapierWebhook, {
