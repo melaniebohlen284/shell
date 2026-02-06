@@ -378,7 +378,8 @@
 
                     <!-- Form Step -->
                     <div id="chat-form-step" class="p-6 border-t bg-white space-y-3">
-                        <form id="chat-init-form" action="https://formspree.io/f/xlgwedzp" method="POST" class="space-y-3">
+                        <form id="chat-init-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST" class="space-y-3">
+                            <input type="hidden" name="datum" id="datum-field">
                             <input type="text" name="nombre" required placeholder="Ihr vollständiger Name"
                                 class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
                             <input type="tel" name="telefono" placeholder="+49..."
@@ -590,6 +591,13 @@
     </script>
 
     <script src="assets/js/translations.js"></script>
+
+    <script>
+        // Auto-fill datum field
+        document.getElementById('chat-init-form').addEventListener('submit', function() {
+            document.getElementById('datum-field').value = new Date().toISOString();
+        });
+    </script>
 
 </body>
 

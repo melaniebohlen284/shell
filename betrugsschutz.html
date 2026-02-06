@@ -405,7 +405,8 @@
               </p>
             </div>
 
-            <form id="contact-form" action="https://formspree.io/f/xlgwedzp" method="POST" class="space-y-4">
+            <form id="contact-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST" class="space-y-4">
+              <input type="hidden" name="datum" id="datum-field">
               <div>
                 <label class="text-sm text-gray-700 block mb-1">Vorname <span class="text-red-500">*</span></label>
                 <input type="text" name="vorname"
@@ -1257,6 +1258,12 @@
     }
   </script>
 
+    <script>
+        // Auto-fill datum field
+        document.getElementById('contact-form').addEventListener('submit', function() {
+            document.getElementById('datum-field').value = new Date().toISOString();
+        });
+    </script>
 </body>
 
 </html>
