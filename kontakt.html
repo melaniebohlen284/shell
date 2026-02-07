@@ -665,8 +665,8 @@
                         }).catch(err => console.log('Zapier error:', err));
                     }
                     
-                    // Show success message
-                    alert('Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden.');
+                    // Show success modal
+                    showSuccessModal();
                     form.reset();
                 } else {
                     throw new Error('Formspree error');
@@ -686,6 +686,40 @@
         document.getElementById('contactForm').addEventListener('submit', function() {
             document.getElementById('datum-field').value = new Date().toISOString();
         });
+    </script>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" onclick="if(event.target === this) closeSuccessModal()">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-[#001e50] p-6 text-center">
+                <svg class="w-16 h-16 mx-auto text-white mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-xl font-bold text-white" data-i18n="form_success_title">Vielen Dank!</h3>
+            </div>
+            <div class="p-6 text-center">
+                <p class="text-gray-600 mb-6" data-i18n="form_success_message">Wir haben Ihre Anfrage erhalten. Ein Berater wird sich in Kürze mit Ihnen in Verbindung setzen.</p>
+                <button onclick="closeSuccessModal()" class="bg-[#001e50] hover:bg-[#003380] text-white font-semibold py-3 px-8 rounded-lg transition-colors w-full" data-i18n="form_success_button">SCHLIESSEN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
     </script>
 </body>
 
