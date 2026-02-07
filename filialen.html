@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sucursales - Deutsche Bank</title>
+    <script src="assets/js/translations.js"></script>
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,13 +113,13 @@
                             d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                         </path>
                     </svg>
-                    <span class="text-white/90 text-sm font-medium">Weltweit für Sie da</span>
+                    <span class="text-white/90 text-sm font-medium" data-i18n="filialen_hero_subtitle">Weltweit für Sie da</span>
                 </div>
 
-                <h1 class="text-4xl md:text-6xl font-light text-white mb-6">
+                <h1 class="text-4xl md:text-6xl font-light text-white mb-6" data-i18n="filialen_title">
                     Filiale finden
                 </h1>
-                <p class="text-lg md:text-xl text-white/80 mb-12 px-4">
+                <p class="text-lg md:text-xl text-white/80 mb-12 px-4" data-i18n="filialen_subtitle">
                     Unsere Bank ist stolz darauf, Sie in den Niederlanden und an vielen weiteren internationalen
                     Standorten begrüßen zu dürfen.
                 </p>
@@ -131,11 +132,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        <input type="text" id="branch-search" placeholder="Stadt, Straße oder Land eingeben..."
+                        <input type="text" id="branch-search" data-i18n="filialen_search_placeholder" placeholder="Stadt, Straße oder Land eingeben..."
                             class="w-full pl-14 pr-6 py-4 md:py-6 text-sm md:text-base bg-white/95 backdrop-blur-sm border-0 shadow-2xl rounded-2xl focus:ring-2 focus:ring-[#ffd000] focus:outline-none transition-all placeholder:text-gray-400 text-gray-800" />
                     </div>
                     <p id="search-results-count" class="text-white/70 text-sm mt-4 hidden">
-                        <span id="count">0</span> Filialen gefunden
+                        <span id="count">0</span> <span data-i18n="filialen_results_count">Filialen gefunden</span>
                     </p>
                 </div>
             </div>
@@ -146,10 +147,10 @@
     <div class="max-w-7xl mx-auto px-4 py-20">
         <div id="default-message" class="mb-12">
             <div class="text-center">
-                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] mb-3">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] mb-3" data-i18n="filialen_default_title">
                     Deutsche Bank in den Niederlanden
                 </h2>
-                <p class="text-gray-600">Besuchen Sie uns in einer unserer Filialen.</p>
+                <p class="text-gray-600" data-i18n="filialen_default_subtitle">Besuchen Sie uns in einer unserer Filialen.</p>
             </div>
         </div>
 
@@ -164,8 +165,8 @@
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
-            <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Keine Filialen gefunden</h3>
-            <p class="text-gray-500">Bitte versuchen Sie es mit einem anderen Suchbegriff.</p>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2" data-i18n="filialen_no_results_title">Keine Filialen gefunden</h3>
+            <p class="text-gray-500" data-i18n="filialen_no_results_subtitle">Bitte versuchen Sie es mit einem anderen Suchbegriff.</p>
         </div>
     </div>
 
@@ -173,8 +174,8 @@
     <div class="bg-gray-50 py-20 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-light text-[#00008B] mb-4">Warum Deutsche Bank?</h2>
-                <p class="text-lg text-gray-600">Ihr vertrauenswürdiger Finanzpartner weltweit</p>
+                <h2 class="text-3xl md:text-4xl font-light text-[#00008B] mb-4" data-i18n="filialen_why_title">Warum Deutsche Bank?</h2>
+                <p class="text-lg text-gray-600" data-i18n="filialen_why_subtitle">Ihr vertrauenswürdiger Finanzpartner weltweit</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -188,8 +189,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-[#00008B] mb-3">Globale Präsenz</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Präsenz in über 70 Ländern für nahtlose
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3" data-i18n="filialen_feature1_title">Globale Präsenz</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n="filialen_feature1_desc">Präsenz in über 70 Ländern für nahtlose
                         internationale Geschäfte.</p>
                 </div>
 
@@ -203,8 +204,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-[#00008B] mb-3">Persönlicher Service</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Individuelle Beratung durch unsere Experten vor
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3" data-i18n="filialen_feature2_title">Persönlicher Service</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n="filialen_feature2_desc">Individuelle Beratung durch unsere Experten vor
                         Ort.</p>
                 </div>
 
@@ -218,8 +219,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-[#00008B] mb-3">Maximale Sicherheit</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Höchste Sicherheitsstandards durch digitale
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3" data-i18n="filialen_feature3_title">Maximale Sicherheit</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n="filialen_feature3_desc">Höchste Sicherheitsstandards durch digitale
                         Tresor-Lösungen.</p>
                 </div>
             </div>
@@ -269,9 +270,37 @@
 
         window.selectLang = (label, code) => {
             if (currentLangLabel) currentLangLabel.innerText = label;
+            localStorage.setItem('selectedLang', code);
             langMenu.classList.add('hidden');
+            
+            // Apply translations
+            if (typeof translations !== 'undefined' && translations[code]) {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[code][key]) {
+                        el.textContent = translations[code][key];
+                    }
+                });
+            }
+            
             console.log(`Language changed to: ${label} (${code})`);
         };
+
+        // Apply saved language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLang') || 'de';
+            const langLabels = { de: 'Deutsch', en: 'English', fr: 'Français', es: 'Español' };
+            if (currentLangLabel) currentLangLabel.innerText = langLabels[savedLang] || 'Deutsch';
+            
+            if (typeof translations !== 'undefined' && translations[savedLang]) {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[savedLang][key]) {
+                        el.textContent = translations[savedLang][key];
+                    }
+                });
+            }
+        });
 
         const branches = [
             // === HOLANDA (NEDERLAND) ===
