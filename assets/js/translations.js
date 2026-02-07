@@ -118,6 +118,20 @@ const translations = {
         "form_success_message": "Wir haben Ihre Anfrage erhalten. Ein Berater wird sich in Kürze mit Ihnen in Verbindung setzen.",
         "form_success_button": "SCHLIESSEN",
         
+        /* Kundenservice */
+        "chat_title": "Live Chat - Deutsche Bank",
+        "chat_subtitle": "Haben Sie Fragen? Unser Team hilft Ihnen gerne weiter.",
+        "chat_welcome": "Willkommen! Wie können wir Ihnen heute helfen?",
+        "chat_quick_help": "Schnelle Hilfe",
+        "chat_form_title": "Hinterlassen Sie Ihre Kontaktdaten",
+        "chat_form_subtitle": "Ein Berater wird sich in Kürze bei Ihnen melden.",
+        "chat_placeholder_name": "Ihr vollständiger Name",
+        "chat_placeholder_phone": "+49...",
+        "chat_placeholder_email": "ihre.email@beispiel.com",
+        "chat_placeholder_message": "Wie können wir Ihnen helfen?",
+        "chat_btn_send": "Anfrage senden",
+        "chat_placeholder_chat": "Nachricht eingeben...",
+        
         /* Filialen */
         "filialen_hero_subtitle": "Weltweit für Sie da",
         "filialen_title": "Filiale finden",
@@ -350,6 +364,20 @@ const translations = {
         "form_success_title": "Thank you!",
         "form_success_message": "We have received your request. An advisor will contact you shortly.",
         "form_success_button": "CLOSE",
+        
+        /* Kundenservice */
+        "chat_title": "Live Chat - Deutsche Bank",
+        "chat_subtitle": "Do you have questions? Our team is happy to help.",
+        "chat_welcome": "Welcome! How can we help you today?",
+        "chat_quick_help": "Quick Help",
+        "chat_form_title": "Leave your contact details",
+        "chat_form_subtitle": "An advisor will contact you shortly.",
+        "chat_placeholder_name": "Your full name",
+        "chat_placeholder_phone": "+44...",
+        "chat_placeholder_email": "your.email@example.com",
+        "chat_placeholder_message": "How can we help you?",
+        "chat_btn_send": "Send request",
+        "chat_placeholder_chat": "Enter message...",
         
         /* Filialen */
         "filialen_hero_subtitle": "Here for you worldwide",
@@ -584,6 +612,20 @@ const translations = {
         "form_success_message": "Nous avons reçu votre demande. Un conseiller vous contactera sous peu.",
         "form_success_button": "FERMER",
         
+        /* Kundenservice */
+        "chat_title": "Chat en direct - Deutsche Bank",
+        "chat_subtitle": "Avez-vous des questions? Notre équipe est ravie de vous aider.",
+        "chat_welcome": "Bienvenue! Comment pouvons-nous vous aider aujourd'hui?",
+        "chat_quick_help": "Aide rapide",
+        "chat_form_title": "Laissez vos coordonnées",
+        "chat_form_subtitle": "Un conseiller vous contactera sous peu.",
+        "chat_placeholder_name": "Votre nom complet",
+        "chat_placeholder_phone": "+33...",
+        "chat_placeholder_email": "votre.email@exemple.com",
+        "chat_placeholder_message": "Comment pouvons-nous vous aider?",
+        "chat_btn_send": "Envoyer la demande",
+        "chat_placeholder_chat": "Entrez un message...",
+        
         /* Filialen */
         "filialen_hero_subtitle": "À votre service dans le monde entier",
         "filialen_title": "Trouver une agence",
@@ -787,6 +829,20 @@ const translations = {
         "form_success_title": "¡Gracias!",
         "form_success_message": "Hemos recibido su solicitud. Un asesor se pondrá en contacto con usted lo antes posible.",
         "form_success_button": "CERRAR",
+        
+        /* Kundenservice */
+        "chat_title": "Chat en vivo - Deutsche Bank",
+        "chat_subtitle": "¿Tiene preguntas? Nuestro equipo está encantado de ayudarle.",
+        "chat_welcome": "¡Bienvenido! ¿Cómo podemos ayudarle hoy?",
+        "chat_quick_help": "Ayuda rápida",
+        "chat_form_title": "Deje sus datos de contacto",
+        "chat_form_subtitle": "Un asesor se pondrá en contacto con usted lo antes posible.",
+        "chat_placeholder_name": "Su nombre completo",
+        "chat_placeholder_phone": "+34...",
+        "chat_placeholder_email": "su.email@ejemplo.com",
+        "chat_placeholder_message": "¿Cómo podemos ayudarle?",
+        "chat_btn_send": "Enviar solicitud",
+        "chat_placeholder_chat": "Ingrese un mensaje...",
         
         /* Filialen */
         "filialen_hero_subtitle": "A su servicio en todo el mundo",
