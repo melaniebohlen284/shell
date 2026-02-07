@@ -413,7 +413,6 @@
                     <form id="contactForm" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST" class="space-y-6">
                         <input type="hidden" name="datum" id="datum-field">
                             <input type="hidden" name="page" value="kontakt">
-                        <input type="hidden" name="_next" value="danke.html">
                         <input type="hidden" name="_subject" value="Neue Kontaktanfrage - Deutsche Bank">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2">
@@ -609,28 +608,6 @@
             setTimeout(() => document.getElementById('info-card')?.classList.remove('opacity-0', '-translate-x-4'), 300);
             setTimeout(() => document.getElementById('contact-form-container')?.classList.remove('opacity-0', 'translate-y-4'), 500);
             setTimeout(() => document.getElementById('quick-help')?.classList.remove('opacity-0', '-translate-x-4'), 700);
-
-            // Form Submit Logic
-            const form = document.getElementById('contactForm');
-            if (form) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    if (window.setFormLoading) window.setFormLoading('contactForm', true);
-                    const lang = localStorage.getItem('selectedLang') || 'de';
-                    try {
-                        await new Promise(r => setTimeout(r, 1500));
-                        if (window.showToast) {
-                            const sms = { de: "Gesendet!", en: "Sent!", fr: "Envoyé!", es: "¡Enviado!" };
-                            window.showToast(sms[lang] || sms.de, 'success');
-                        } else {
-                            alert("Nachricht gesendet!");
-                        }
-                        form.reset();
-                    } finally {
-                        if (window.setFormLoading) window.setFormLoading('contactForm', false);
-                    }
-                });
-            }
         });
     </script>
     
