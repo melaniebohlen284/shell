@@ -1,10 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Festgeld - Deutsche Bank</title>
+    <title>Plazo Fijo Digital - Deutsche Bank</title>
+    <meta name="description" content="Deutsche Bank bietet Digitales Festgeld mit bis zu 6% Jahreszins + 2% Cashback. Sichere Anlage geschützt bis €100.000.">
+    
+    <!-- Open Graph / Facebook / WhatsApp / Telegram -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deutschebank-netherlands.com/">
+    <meta property="og:title" content="Deutsche Bank - Digitales Festgeld">
+    <meta property="og:description" content="Investieren Sie mit bis zu 6% Jahreszins + 2% Cashback. Sicher bis €100.000.">
+    <meta property="og:image" content="https://imagizer.imageshack.com/v2/1600x1200q70/921/Ztgv5J.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:alt" content="Deutsche Bank Logo">
+    <meta property="og:site_name" content="Deutsche Bank">
+    <meta property="og:locale" content="de_DE">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://deutschebank-netherlands.com/">
+    <meta property="twitter:title" content="Deutsche Bank - Digitales Festgeld">
+    <meta property="twitter:description" content="Investieren Sie mit bis zu 6% Jahreszins + 2% Cashback. Sicher bis €100.000.">
+    <meta property="twitter:image" content="https://imagizer.imageshack.com/v2/1600x1200q70/921/Ztgv5J.png">
+    <meta property="twitter:image:alt" content="Deutsche Bank Logo">
+    <meta property="twitter:site" content="@DeutscheBank">
+    
+    <!-- Additional Meta Tags for Social Sharing -->
+    <meta name="twitter:creator" content="@DeutscheBank">
+    <meta name="keywords" content="Deutsche Bank, Festgeld, Digitales Festgeld, Zinsen, Cashback, EURAU, EURC, Investition, Bank">
+    <link rel="canonical" href="https://deutschebank-netherlands.com/">
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,8 +92,6 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0 font-medium">
                 <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
-                    <a href="index.html" class="text-[#ffd000] text-xs md:text-sm"
-                        data-i18n="nav_festgeld">Digital Festgeld</a>
                     <a href="betrugsschutz.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
                         data-i18n="nav_betrugsschutz">Betrugsschutz</a>
                     <a href="kontakt.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
@@ -89,7 +115,7 @@
                                 d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                             </path>
                         </svg>
-                        <span id="current-lang">Deutsch</span>
+                        <span id="current-lang">Español</span>
                         <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                             </path>
@@ -207,6 +233,15 @@
                             <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat4_value">Dezentral</p>
                         </div>
                     </div>
+
+                    <div class="bg-[#ffd000] rounded-lg p-4 md:p-6 text-center mt-6 md:mt-8">
+                        <h3 class="text-base md:text-xl font-semibold text-[#00008B] mb-1 md:mb-2" data-i18n="cashback_intro_title">
+                            Cashback Einzahlungsbonus: 2% sofort nach Einzahlung
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-700" data-i18n="cashback_intro_desc">
+                            Im Rahmen unserer Digital Festgeld Einführung - Deutsche Bank als Vorreiter
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -261,15 +296,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-
-                <div class="bg-[#ffd000] rounded-lg p-6 text-center">
-                    <h3 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="cashback_intro_title">
-                        Cashback Einzahlungsbonus: 2% sofort nach Einzahlung
-                    </h3>
-                    <p class="text-sm text-gray-700" data-i18n="cashback_intro_desc">
-                        Im Rahmen unserer Digital Festgeld Einführung - Deutsche Bank als Vorreiter
-                    </p>
                 </div>
             </div>
         </div>
@@ -544,7 +570,9 @@
                         </p>
                     </div>
 
-                    <form id="festgeld-form" class="space-y-4">
+                    <form id="festgeld-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST" class="space-y-4">
+                        <input type="hidden" name="form_type" value="festgeld">
+                        <input type="hidden" name="page" value="index">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700"
@@ -572,7 +600,7 @@
                                     <option value="fr">🇫🇷 +33</option>
                                     <option value="uk">🇬🇧 +44</option>
                                 </select>
-                                <input type="tel" name="rufnummer" required
+                                <input type="tel" name="telefon" required
                                     class="flex-1 rounded-md border-gray-300 border px-3 py-2 text-sm shadow-sm focus:border-[#00008B] focus:ring-[#00008B]">
                             </div>
                         </div>
@@ -1055,14 +1083,15 @@
                     <div class="flex items-center gap-3">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
                             alt="Logo" class="w-8 h-8 bg-white p-1">
-                        <p class="font-semibold">Deutsche Bank</p>
+                        <p class="font-semibold" data-i18n="nav_brand">Deutsche Bank</p>
                     </div>
                     <div class="flex gap-6 text-sm text-white/60">
-                        <a href="index.html" class="hover:text-white">Home</a>
-                        <a href="betrugsschutz.html" class="hover:text-white">Betrugsschutz</a>
-                        <a href="kontakt.html" class="hover:text-white">Kontakt</a>
-                        <a href="filialen.html" class="hover:text-white">Filialen</a>
-                        <a href="kundenservice.html" class="hover:text-white">Kundenservice</a>
+                        <a href="index.html" class="hover:text-white" data-i18n="nav_home">Home</a>
+                        <a href="betrugsschutz.html" class="hover:text-white" data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+                        <a href="digital-festgeld.html" class="hover:text-white" data-i18n="nav_festgeld">Digital Festgeld</a>
+                        <a href="kontakt.html" class="hover:text-white" data-i18n="nav_kontakt">Kontakt</a>
+                        <a href="filialen.html" class="hover:text-white" data-i18n="nav_filialen">Filialen</a>
+                        <a href="kundenservice.html" class="hover:text-white" data-i18n="nav_kundenservice">Kundenservice</a>
                     </div>
                 </div>
                 <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
@@ -1097,13 +1126,68 @@
 
             const festgeldForm = document.getElementById('festgeld-form');
             if (festgeldForm) {
-                festgeldForm.addEventListener('submit', function (e) {
+                festgeldForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    alert('Vielen Dank! Ein Berater wird Sie in Kürze kontaktieren.');
+                    
+                    const form = this;
+                    const formData = new FormData(form);
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    submitBtn.innerHTML = 'Wird gesendet...';
+                    submitBtn.disabled = true;
+                    
+                    // Send to Zapier
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        showSuccessModal();
+                        form.reset();
+                    })
+                    .catch(error => {
+                        alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+                    })
+                    .finally(() => {
+                        submitBtn.innerHTML = 'JETZT UNVERBINDLICH BERATEN LASSEN';
+                        submitBtn.disabled = false;
+                    });
                 });
             }
         </script>
 
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" onclick="if(event.target === this) closeSuccessModal()">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-[#001e50] p-6 text-center">
+                <svg class="w-16 h-16 mx-auto text-white mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-xl font-bold text-white" data-i18n="form_success_title">Vielen Dank!</h3>
+            </div>
+            <div class="p-6 text-center">
+                <p class="text-gray-600 mb-6" data-i18n="form_success_message">Wir haben Ihre Anfrage erhalten. Ein Berater wird sich in Kürze mit Ihnen in Verbindung setzen.</p>
+                <button onclick="closeSuccessModal()" class="bg-[#001e50] hover:bg-[#003380] text-white font-semibold py-3 px-8 rounded-lg transition-colors w-full" data-i18n="form_success_button">SCHLIESSEN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 </body>
 
 </html>

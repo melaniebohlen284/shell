@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucursales - Deutsche Bank</title>
+    <script src="assets/js/translations.js"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+    <!-- Header -->
+    <div class="bg-[#00008B] text-white py-4">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity inline-flex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                    alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1" />
+                <p class="text-lg font-semibold">Deutsche Bank</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-[#00008B] border-t border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0">
+                <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
+                    <a href="betrugsschutz.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+                    <a href="kontakt.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_kontakt">Kontakt</a>
+                    <a href="filialen.html"
+                        class="text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_filialen">Filialen</a>
+                    <a href="kundenservice.html"
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_kundenservice">Kundenservice</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="relative ml-4" id="lang-switcher">
+                    <button type="button"
+                        class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-md px-3 py-2 text-xs md:text-sm transition-colors"
+                        id="lang-btn">
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        <span id="current-lang">Deutsch</span>
+                        <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
+                        id="lang-menu">
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span data-i18n="lang_deutsch">Deutsch</span></a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span data-i18n="lang_english">English</span></a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span data-i18n="lang_francais">Français</span></a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span data-i18n="lang_espanol">Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="relative bg-gradient-to-br from-[#00008B] via-[#0000CD] to-[#1a1a8f] py-24 overflow-hidden">
+        <!-- Background Patterns -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#ffd000] rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                    <svg class="w-4 h-4 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                    <span class="text-white/90 text-sm font-medium" data-i18n="filialen_hero_subtitle">Weltweit für Sie da</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-light text-white mb-6" data-i18n="filialen_title">
+                    Filiale finden
+                </h1>
+                <p class="text-lg md:text-xl text-white/80 mb-12 px-4" data-i18n="filialen_subtitle">
+                    Unsere Bank ist stolz darauf, Sie in den Niederlanden und an vielen weiteren internationalen
+                    Standorten begrüßen zu dürfen.
+                </p>
+
+                <!-- Search -->
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative group">
+                        <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#00008B] transition-colors"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input type="text" id="branch-search" data-i18n="filialen_search_placeholder" placeholder="Stadt, Straße oder Land eingeben..."
+                            class="w-full pl-14 pr-6 py-4 md:py-6 text-sm md:text-base bg-white/95 backdrop-blur-sm border-0 shadow-2xl rounded-2xl focus:ring-2 focus:ring-[#ffd000] focus:outline-none transition-all placeholder:text-gray-400 text-gray-800" />
+                    </div>
+                    <p id="search-results-count" class="text-white/70 text-sm mt-4 hidden">
+                        <span id="count">0</span> <span data-i18n="filialen_results_count">Filialen gefunden</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filialen List -->
+    <div class="max-w-7xl mx-auto px-4 py-20">
+        <div id="default-message" class="mb-12">
+            <div class="text-center">
+                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] mb-3" data-i18n="filialen_default_title">
+                    Deutsche Bank in den Niederlanden
+                </h2>
+                <p class="text-gray-600" data-i18n="filialen_default_subtitle">Besuchen Sie uns in einer unserer Filialen.</p>
+            </div>
+        </div>
+
+        <div id="branches-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Branches rendered by JS -->
+        </div>
+
+        <div id="no-results" class="hidden text-center py-20">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-6">
+                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2" data-i18n="filialen_no_results_title">Keine Filialen gefunden</h3>
+            <p class="text-gray-500" data-i18n="filialen_no_results_subtitle">Bitte versuchen Sie es mit einem anderen Suchbegriff.</p>
+        </div>
+    </div>
+
+    <!-- Why Deutsche Bank Section -->
+    <div class="bg-gray-50 py-20 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-light text-[#00008B] mb-4" data-i18n="filialen_why_title">Warum Deutsche Bank?</h2>
+                <p class="text-lg text-gray-600" data-i18n="filialen_why_subtitle">Ihr vertrauenswürdiger Finanzpartner weltweit</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-6 text-[#00008B]">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3" data-i18n="filialen_feature1_title">Globale Präsenz</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n="filialen_feature1_desc">Präsenz in über 70 Ländern für nahtlose
+                        internationale Geschäfte.</p>
+                </div>
+
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-16 h-16 bg-yellow-50 rounded-xl flex items-center justify-center mx-auto mb-6 text-[#ffd000]">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3" data-i18n="filialen_feature2_title">Persönlicher Service</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n="filialen_feature2_desc">Individuelle Beratung durch unsere Experten vor
+                        Ort.</p>
+                </div>
+
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mx-auto mb-6 text-green-600">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3" data-i18n="filialen_feature3_title">Maximale Sicherheit</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n="filialen_feature3_desc">Höchste Sicherheitsstandards durch digitale
+                        Tresor-Lösungen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#00008B] text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                        alt="Logo" class="w-8 h-8 bg-white p-1">
+                    <p class="font-semibold">Deutsche Bank</p>
+                </div>
+                <div class="flex gap-6 text-sm text-white/60">
+                    <a href="index.html" class="hover:text-white">Home</a>
+                    <a href="betrugsschutz.html" class="hover:text-white">Betrugsschutz</a>
+                    <a href="digital-festgeld.html" class="hover:text-white">Digital Festgeld</a>
+                    <a href="kontakt.html" class="hover:text-white">Kontakt</a>
+                    <a href="kundenservice.html" class="hover:text-white">Kundenservice</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
+                <p>© 2026 Deutsche Bank AG. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switcher
+        const langBtn = document.getElementById('lang-btn');
+        const langMenu = document.getElementById('lang-menu');
+        const currentLangLabel = document.getElementById('current-lang');
+
+        if (langBtn && langMenu) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langMenu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                    langMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        window.selectLang = (label, code) => {
+            if (currentLangLabel) currentLangLabel.innerText = label;
+            localStorage.setItem('selectedLang', code);
+            langMenu.classList.add('hidden');
+            
+            // Apply translations
+            if (typeof translations !== 'undefined' && translations[code]) {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[code][key]) {
+                        el.textContent = translations[code][key];
+                    }
+                });
+            }
+            
+            console.log(`Language changed to: ${label} (${code})`);
+        };
+
+        // Apply saved language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLang') || 'de';
+            const langLabels = { de: 'Deutsch', en: 'English', fr: 'Français', es: 'Español' };
+            if (currentLangLabel) currentLangLabel.innerText = langLabels[savedLang] || 'Deutsch';
+            
+            if (typeof translations !== 'undefined' && translations[savedLang]) {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[savedLang][key]) {
+                        el.textContent = translations[savedLang][key];
+                    }
+                });
+            }
+        });
+
+        const branches = [
+            // === HOLANDA (NEDERLAND) ===
+            { name: 'Deutsche Bank Amsterdam', adresse: 'De Entree 195, 1101 HE Amsterdam', stadt: 'Amsterdam', land: 'Nederland' },
+            { name: 'Deutsche Bank Rotterdam', adresse: 'Weena 690, 3012 CN Rotterdam', stadt: 'Rotterdam', land: 'Nederland' },
+            { name: 'Deutsche Bank Den Haag', adresse: 'Prinses Beatrixlaan 15, 2595 AK Den Haag', stadt: 'Den Haag', land: 'Nederland' },
+            { name: 'Deutsche Bank Utrecht', adresse: 'Papendorpseweg 100, 3528 BJ Utrecht', stadt: 'Utrecht', land: 'Nederland' },
+            { name: 'Deutsche Bank Eindhoven', adresse: 'Kennedyplein 10, 5611 ZS Eindhoven', stadt: 'Eindhoven', land: 'Nederland' },
+            { name: 'Deutsche Bank Groningen', adresse: 'Grote Markt 15, 9711 HN Groningen', stadt: 'Groningen', land: 'Nederland' },
+            { name: 'Deutsche Bank Maastricht', adresse: 'Maasboulevard 85, 6211 DW Maastricht', stadt: 'Maastricht', land: 'Nederland' },
+            { name: 'Deutsche Bank Arnhem', adresse: 'Willemsplein 1, 6811 KD Arnhem', stadt: 'Arnhem', land: 'Nederland' },
+            { name: 'Deutsche Bank Nijmegen', adresse: 'Kerkplein 3, 6511 TZ Nijmegen', stadt: 'Nijmegen', land: 'Nederland' },
+            { name: 'Deutsche Bank Breda', adresse: 'Coolsingel 45, 4811 DC Breda', stadt: 'Breda', land: 'Nederland' },
+            { name: 'Deutsche Bank Almere', adresse: 'Stadhuisplein 100, 1315 HB Almere', stadt: 'Almere', land: 'Nederland' },
+            { name: 'Deutsche Bank Tilburg', adresse: 'Spoorlaan 350, 5038 CG Tilburg', stadt: 'Tilburg', land: 'Nederland' },
+            { name: 'Deutsche Bank Zwolle', adresse: 'Lübeckweg 2, 8022 AS Zwolle', stadt: 'Zwolle', land: 'Nederland' },
+            { name: 'Deutsche Bank Leeuwarden', adresse: 'Taurunumweg 1, 8938 AH Leeuwarden', stadt: 'Leeuwarden', land: 'Nederland' },
+            { name: 'Deutsche Bank Apeldoorn', adresse: 'Hoofdstraat 80, 7311 HZ Apeldoorn', stadt: 'Apeldoorn', land: 'Nederland' },
+            
+            // === ALEMANIA (DEUTSCHLAND) ===
+            { name: 'Deutsche Bank Frankfurt', adresse: 'Taunusanlage 12, 60325 Frankfurt', stadt: 'Frankfurt', land: 'Deutschland' },
+            { name: 'Deutsche Bank Berlin', adresse: 'Unter den Linden 13-15, 10117 Berlin', stadt: 'Berlin', land: 'Deutschland' },
+            { name: 'Deutsche Bank München', adresse: 'Tal 21, 80331 München', stadt: 'München', land: 'Deutschland' },
+            { name: 'Deutsche Bank Hamburg', adresse: 'Jungfernstieg 7, 20354 Hamburg', stadt: 'Hamburg', land: 'Deutschland' },
+            { name: 'Deutsche Bank Köln', adresse: 'Neumarkt 2-4, 50667 Köln', stadt: 'Köln', land: 'Deutschland' },
+            { name: 'Deutsche Bank Stuttgart', adresse: 'Königstraße 28, 70173 Stuttgart', stadt: 'Stuttgart', land: 'Deutschland' },
+            { name: 'Deutsche Bank Düsseldorf', adresse: 'Königsallee 45-47, 40215 Düsseldorf', stadt: 'Düsseldorf', land: 'Deutschland' },
+            { name: 'Deutsche Bank Dortmund', adresse: 'Westenhellweg 52-54, 44137 Dortmund', stadt: 'Dortmund', land: 'Deutschland' },
+            { name: 'Deutsche Bank Essen', adresse: 'Kettwiger Straße 2-6, 45127 Essen', stadt: 'Essen', land: 'Deutschland' },
+            { name: 'Deutsche Bank Leipzig', adresse: 'Nikolaistraße 6-10, 04109 Leipzig', stadt: 'Leipzig', land: 'Deutschland' },
+            { name: 'Deutsche Bank Hannover', adresse: 'Georgstraße 34, 30159 Hannover', stadt: 'Hannover', land: 'Deutschland' },
+            { name: 'Deutsche Bank Nürnberg', adresse: 'Hauptmarkt 18, 90403 Nürnberg', stadt: 'Nürnberg', land: 'Deutschland' },
+            { name: 'Deutsche Bank Dresden', adresse: 'Prager Straße 2, 01069 Dresden', stadt: 'Dresden', land: 'Deutschland' },
+            { name: 'Deutsche Bank Bochum', adresse: 'Universitätsstraße 60, 44789 Bochum', stadt: 'Bochum', land: 'Deutschland' },
+            { name: 'Deutsche Bank Bonn', adresse: 'Marketplatz 5, 53111 Bonn', stadt: 'Bonn', land: 'Deutschland' },
+            
+            // === REINO UNIDO (UNITED KINGDOM) ===
+            { name: 'Deutsche Bank London', adresse: '1 Great Winchester Street, London EC2N 2DB', stadt: 'London', land: 'United Kingdom' },
+            { name: 'Deutsche Bank London West End', adresse: '10 South Colonnade, London E14 4PU', stadt: 'London', land: 'United Kingdom' },
+            { name: 'Deutsche Bank Edinburgh', adresse: '69 George Street, Edinburgh EH2 2JL', stadt: 'Edinburgh', land: 'United Kingdom' },
+            { name: 'Deutsche Bank Manchester', adresse: 'One Angel Square, Manchester M1 7AB', stadt: 'Manchester', land: 'United Kingdom' },
+            { name: 'Deutsche Bank Birmingham', adresse: 'Two Colmore Square, Birmingham B4 6BN', stadt: 'Birmingham', land: 'United Kingdom' },
+            
+            // === FRANCIA (FRANCE) ===
+            { name: 'Deutsche Bank Paris', adresse: '3 Avenue de Friedland, 75008 Paris', stadt: 'Paris', land: 'France' },
+            { name: 'Deutsche Bank Paris La Defense', adresse: 'Coeur Defense, 92931 Paris La Defense', stadt: 'Paris', land: 'France' },
+            { name: 'Deutsche Bank Lyon', adresse: '129 Rue Servient, 69003 Lyon', stadt: 'Lyon', land: 'France' },
+            { name: 'Deutsche Bank Marseille', adresse: 'La Joliette, 13002 Marseille', stadt: 'Marseille', land: 'France' },
+            { name: 'Deutsche Bank Strasbourg', adresse: 'Place Kléber, 67000 Strasbourg', stadt: 'Strasbourg', land: 'France' },
+            { name: 'Deutsche Bank Bordeaux', adresse: '30 Allées d\'Orléans, 33000 Bordeaux', stadt: 'Bordeaux', land: 'France' },
+            
+            // === ESPAÑA (SPAIN) ===
+            { name: 'Deutsche Bank Madrid', adresse: 'Paseo de la Castellana 18, 28046 Madrid', stadt: 'Madrid', land: 'España' },
+            { name: 'Deutsche Bank Barcelona', adresse: 'Avinguda Diagonal 477, 08036 Barcelona', stadt: 'Barcelona', land: 'España' },
+            { name: 'Deutsche Bank Valencia', adresse: 'Paseo de la Russafa 23, 46004 Valencia', stadt: 'Valencia', land: 'España' },
+            { name: 'Deutsche Bank Sevilla', adresse: 'Avenida de la Constitución 21, 41001 Sevilla', stadt: 'Sevilla', land: 'España' },
+            { name: 'Deutsche Bank Bilbao', adresse: 'Gran Vía 59, 48011 Bilbao', stadt: 'Bilbao', land: 'España' },
+            { name: 'Deutsche Bank Málaga', adresse: 'Marqués de Larios 3, 29015 Málaga', stadt: 'Málaga', land: 'España' },
+            
+            // === ITALIA (ITALY) ===
+            { name: 'Deutsche Bank Milano', adresse: 'Via Filippo Turati 6, 20121 Milano', stadt: 'Milano', land: 'Italia' },
+            { name: 'Deutsche Bank Roma', adresse: 'Via del Corso 497, 00187 Roma', stadt: 'Roma', land: 'Italia' },
+            { name: 'Deutsche Bank Torino', adresse: 'Via Roma 366, 10121 Torino', stadt: 'Torino', land: 'Italia' },
+            { name: 'Deutsche Bank Napoli', adresse: 'Via Toledo 256, 80134 Napoli', stadt: 'Napoli', land: 'Italia' },
+            { name: 'Deutsche Bank Firenze', adresse: 'Via dei Tornabuoni 1, 50123 Firenze', stadt: 'Firenze', land: 'Italia' },
+            
+            // === BÉLGICA (BELGIUM) ===
+            { name: 'Deutsche Bank Bruxelles', adresse: 'Avenue des Arts 19, 1040 Bruxelles', stadt: 'Bruxelles', land: 'Belgium' },
+            { name: 'Deutsche Bank Antwerpen', adresse: 'Meir 24, 2000 Antwerpen', stadt: 'Antwerpen', land: 'Belgium' },
+            { name: 'Deutsche Bank Liège', adresse: 'Place Saint-Lambert 4, 4000 Liège', stadt: 'Liège', land: 'Belgium' },
+            
+            // === AUSTRIA ===
+            { name: 'Deutsche Bank Wien', adresse: 'Schottenring 21, 1010 Wien', stadt: 'Wien', land: 'Österreich' },
+            { name: 'Deutsche Bank Salzburg', adresse: 'Alter Markt 10, 5020 Salzburg', stadt: 'Salzburg', land: 'Österreich' },
+            { name: 'Deutsche Bank Innsbruck', adresse: 'Maria-Theresien-Straße 1, 6020 Innsbruck', stadt: 'Innsbruck', land: 'Österreich' },
+            
+            // === SUIZA (SWITZERLAND) ===
+            { name: 'Deutsche Bank Zürich', adresse: 'Bahnhofstrasse 45, 8001 Zürich', stadt: 'Zürich', land: 'Schweiz' },
+            { name: 'Deutsche Bank Genève', adresse: 'Rue du Rhône 48, 1204 Genève', stadt: 'Genève', land: 'Schweiz' },
+            { name: 'Deutsche Bank Basel', adresse: 'St. Alban-Anlage 38, 4052 Basel', stadt: 'Basel', land: 'Schweiz' },
+            
+            // === PORTUGAL ===
+            { name: 'Deutsche Bank Lisboa', adresse: 'Av. da Liberdade 222, 1250-148 Lisboa', stadt: 'Lisboa', land: 'Portugal' },
+            { name: 'Deutsche Bank Porto', adresse: 'Avenida dos Aliados 100, 4000-098 Porto', stadt: 'Porto', land: 'Portugal' },
+            
+            // === IRLANDA (IRELAND) ===
+            { name: 'Deutsche Bank Dublin', adresse: 'St. Stephen\'s Green House, Dublin 2', stadt: 'Dublin', land: 'Ireland' },
+            
+            // === LUXEMBURGO (LUXEMBOURG) ===
+            { name: 'Deutsche Bank Luxembourg', adresse: 'Boulevard Royal 2, 1260 Luxembourg', stadt: 'Luxembourg', land: 'Luxembourg' },
+            
+            // === POLONIA (POLAND) ===
+            { name: 'Deutsche Bank Warszawa', adresse: 'Aleje Jerozolimskie 65-79, 00-697 Warszawa', stadt: 'Warszawa', land: 'Polska' },
+            { name: 'Deutsche Bank Kraków', adresse: 'Długie Pobrzeże 5, 30-001 Kraków', stadt: 'Kraków', land: 'Polska' },
+            { name: 'Deutsche Bank Gdańsk', adresse: 'Długa 81/84, 80-827 Gdańsk', stadt: 'Gdańsk', land: 'Polska' },
+            
+            // === REPÚBLICA CHECA (CZECH REPUBLIC) ===
+            { name: 'Deutsche Bank Praha', adresse: 'Václavské náměstí 38, 110 00 Praha 1', stadt: 'Praha', land: 'Česko' },
+            
+            // === HUNGRÍA (HUNGARY) ===
+            { name: 'Deutsche Bank Budapest', adresse: 'Váci utca 9, 1056 Budapest', stadt: 'Budapest', land: 'Magyarország' },
+            
+            // === Estados Unidos (USA) ===
+            { name: 'Deutsche Bank New York', adresse: '60 Wall Street, New York, NY 10005', stadt: 'New York', land: 'USA' },
+            { name: 'Deutsche Bank New York Midtown', adresse: '280 Park Avenue, New York, NY 10017', stadt: 'New York', land: 'USA' },
+            { name: 'Deutsche Bank Chicago', adresse: '222 South Riverside Plaza, Chicago, IL 60606', stadt: 'Chicago', land: 'USA' },
+            { name: 'Deutsche Bank San Francisco', adresse: '101 California Street, San Francisco, CA 94111', stadt: 'San Francisco', land: 'USA' },
+            { name: 'Deutsche Bank Los Angeles', adresse: '550 South Hope Street, Los Angeles, CA 90071', stadt: 'Los Angeles', land: 'USA' },
+            { name: 'Deutsche Bank Boston', adresse: '28 State Street, Boston, MA 02109', stadt: 'Boston', land: 'USA' },
+            { name: 'Deutsche Bank Miami', adresse: '701 Brickell Avenue, Miami, FL 33131', stadt: 'Miami', land: 'USA' },
+            
+            // === ASIA ===
+            { name: 'Deutsche Bank Tokyo', adresse: 'Otemachi Financial City Tower, Tokyo 100-8130', stadt: 'Tokyo', land: 'Japan' },
+            { name: 'Deutsche Bank Hong Kong', adresse: 'Cheung Lee Street, Cha Kwo Ling, Kwun Tong', stadt: 'Hong Kong', land: 'Hong Kong' },
+            { name: 'Deutsche Bank Singapore', adresse: 'One Raffles Quay, Singapore 048583', stadt: 'Singapore', land: 'Singapore' },
+            { name: 'Deutsche Bank Shanghai', adresse: 'Shanghai World Financial Center, Shanghai 200120', stadt: 'Shanghai', land: 'China' },
+            { name: 'Deutsche Bank Mumbai', adresse: 'Express Towers, Nariman Point, Mumbai 400021', stadt: 'Mumbai', land: 'India' },
+            { name: 'Deutsche Bank Seoul', adresse: 'Taepyeongno 2-ga, Jongno-gu, Seoul 110-750', stadt: 'Seoul', land: 'South Korea' },
+            
+            // === AUSTRALIA ===
+            { name: 'Deutsche Bank Sydney', adresse: 'Level 25, 85 Castlereagh Street, Sydney NSW 2000', stadt: 'Sydney', land: 'Australia' },
+            { name: 'Deutsche Bank Melbourne', adresse: 'Level 30, 120 Collins Street, Melbourne VIC 3000', stadt: 'Melbourne', land: 'Australia' },
+            
+            // === AMÉRICA LATINA ===
+            { name: 'Deutsche Bank São Paulo', adresse: 'Av. Paulista 1.234, São Paulo, SP', stadt: 'São Paulo', land: 'Brasil' },
+            { name: 'Deutsche Bank México City', adresse: 'Paseo de la Reforma 265, Ciudad de México', stadt: 'Mexico City', land: 'México' },
+            { name: 'Deutsche Bank Buenos Aires', adresse: 'Avenida Leandro N. Alem 1110, Buenos Aires', stadt: 'Buenos Aires', land: 'Argentina' },
+            { name: 'Deutsche Bank Santiago', adresse: 'Avenida Apoquindo 3001, Santiago de Chile', stadt: 'Santiago', land: 'Chile' },
+            { name: 'Deutsche Bank Lima', adresse: 'Avenida Javier Prado Este 600, Lima', stadt: 'Lima', land: 'Perú' },
+            { name: 'Deutsche Bank Bogotá', adresse: 'Carrera 7 No. 71-52, Bogotá', stadt: 'Bogotá', land: 'Colombia' }
+        ];
+
+        const searchInput = document.getElementById('branch-search');
+        const grid = document.getElementById('branches-grid');
+        const defaultMsg = document.getElementById('default-message');
+        const noResults = document.getElementById('no-results');
+        const countSpan = document.getElementById('count');
+        const resultCountP = document.getElementById('search-results-count');
+
+        function renderBranches(items) {
+            grid.innerHTML = '';
+            if (items.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+
+            items.forEach(branch => {
+                const div = document.createElement('div');
+                div.className = 'group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300';
+                div.innerHTML = `
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="inline-flex items-center gap-1 bg-[#00008B] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                        ${branch.land}
+                    </span>
+                </div>
+                <div class="h-32 bg-gradient-to-br from-[#00008B] to-[#0000CD] relative overflow-hidden">
+                    <div class="absolute inset-0 bg-white/5"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                    <div class="absolute top-4 left-4">
+                        <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-4">
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-4 group-hover:text-[#0000CD] transition-colors">${branch.name}</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">${branch.adresse}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+                grid.appendChild(div);
+            });
+        }
+
+        renderBranches(branches.filter(b => b.land === 'Nederland'));
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query) {
+                defaultMsg.classList.add('hidden');
+                resultCountP.classList.remove('hidden');
+                const filtered = branches.filter(b =>
+                    b.name.toLowerCase().includes(query) ||
+                    b.adresse.toLowerCase().includes(query) ||
+                    b.stadt.toLowerCase().includes(query) ||
+                    b.land.toLowerCase().includes(query)
+                );
+                renderBranches(filtered);
+                countSpan.innerText = filtered.length;
+            } else {
+                defaultMsg.classList.remove('hidden');
+                resultCountP.classList.add('hidden');
+                renderBranches(branches.filter(b => b.land === 'Nederland'));
+            }
+        });
+    </script>
+
+    <script src="assets/js/translations.js"></script>
+
+</body>
+
+</html>
