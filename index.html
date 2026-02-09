@@ -10,26 +10,16 @@
     <meta property="og:url" content="https://deutschebank-netherlands.com/">
     <meta property="og:title" content="Deutsche Bank - Digitaler Festzins">
     <meta property="og:description"
-        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-    <meta property="og:image" content="https://imagizer.imageshack.com/v2/1600x1200q70/923/KVA2Un.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert..">
+    <meta property="og:image" content="https://deutschebank-netherlands.com/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="@DeutscheBank">
     <meta property="twitter:url" content="https://deutschebank-netherlands.com/">
     <meta property="twitter:title" content="Deutsche Bank - Digitaler Festzins">
     <meta property="twitter:description"
-        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-    <meta property="twitter:image" content="https://imagizer.imageshack.com/v2/1600x1200q70/923/KVA2Un.png">
-
-    <!-- Telegram -->
-    <meta property="tg:channel" content="@deutschebank_netherlands">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png"
-        href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/32px-Deutsche_Bank_logo_without_wordmark.svg.png">
+        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert..">
+    <meta property="twitter:image" content="https://deutschebank-netherlands.com/images/og-image.jpg">
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,84 +39,6 @@
                 }
             }
         }
-    </script>
-
-    <!-- Language Switcher Toggle -->
-    <script>
-        document.getElementById('lang-btn').addEventListener('click', function () {
-            var menu = document.getElementById('lang-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function (event) {
-            var langSwitcher = document.getElementById('lang-switcher');
-            var menu = document.getElementById('lang-menu');
-
-            if (!langSwitcher.contains(event.target)) {
-                menu.classList.add('hidden');
-            }
-        });
-    </script>
-
-    <!-- Automatic Language Detection -->
-    <script>
-        // Language names mapping
-        const languageNames = {
-            'de': 'Deutsch',
-            'en': 'English',
-            'fr': 'Français',
-            'es': 'Español'
-        };
-
-        // Get current language from URL parameter
-        function getLanguageFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('lang') || 'de'; // Default to German
-        }
-
-        // Apply translations for a given language
-        function applyTranslations(lang) {
-            if (!translations[lang]) {
-                console.warn('Translations not found for language:', lang);
-                return;
-            }
-
-            const langTranslations = translations[lang];
-
-            // Update all elements with data-i18n attribute
-            document.querySelectorAll('[data-i18n]').forEach(function (element) {
-                const key = element.getAttribute('data-i18n');
-                if (langTranslations[key]) {
-                    element.textContent = langTranslations[key];
-                }
-            });
-
-            // Update HTML lang attribute
-            document.documentElement.lang = lang;
-
-            // Update current language display in switcher
-            const currentLangDisplay = document.getElementById('current-lang');
-            if (currentLangDisplay) {
-                currentLangDisplay.textContent = languageNames[lang] || lang;
-            }
-        }
-
-        // Language selection function
-        function selectLang(langName, langCode) {
-            applyTranslations(langCode);
-
-            // Update URL without reload
-            const url = new URL(window.location);
-            url.searchParams.set('lang', langCode);
-            window.history.pushState({}, '', url);
-        }
-
-        // Initialize language on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            const lang = getLanguageFromURL();
-            applyTranslations(lang);
-        });
     </script>
 
     <!-- Form Submission Handler for Zapier -->
@@ -236,17 +148,21 @@
                     </button>
                     <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
                         id="lang-menu">
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Deutsch', 'de'); return false;"><span>🇩🇪</span> <span
+                        <a href="?lang=de"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span
                                 data-i18n="lang_deutsch">Deutsch</span></a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('English', 'en'); return false;"><span>🇬🇧</span> <span
+                        <a href="?lang=en"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span
                                 data-i18n="lang_english">English</span></a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Français', 'fr'); return false;"><span>🇫🇷</span> <span
+                        <a href="?lang=fr"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span
                                 data-i18n="lang_francais">Français</span></a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Español', 'es'); return false;"><span>🇪🇸</span> <span
+                        <a href="?lang=es"
+                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span
                                 data-i18n="lang_espanol">Español</span></a>
                     </div>
                 </div>
