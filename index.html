@@ -41,6 +41,84 @@
         }
     </script>
 
+    <!-- Language Switcher Toggle -->
+    <script>
+        document.getElementById('lang-btn').addEventListener('click', function () {
+            var menu = document.getElementById('lang-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            var langSwitcher = document.getElementById('lang-switcher');
+            var menu = document.getElementById('lang-menu');
+
+            if (!langSwitcher.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- Automatic Language Detection -->
+    <script>
+        // Language names mapping
+        const languageNames = {
+            'de': 'Deutsch',
+            'en': 'English',
+            'fr': 'Français',
+            'es': 'Español'
+        };
+
+        // Get current language from URL parameter
+        function getLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('lang') || 'de'; // Default to German
+        }
+
+        // Apply translations for a given language
+        function applyTranslations(lang) {
+            if (!translations[lang]) {
+                console.warn('Translations not found for language:', lang);
+                return;
+            }
+
+            const langTranslations = translations[lang];
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(function (element) {
+                const key = element.getAttribute('data-i18n');
+                if (langTranslations[key]) {
+                    element.textContent = langTranslations[key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Update current language display in switcher
+            const currentLangDisplay = document.getElementById('current-lang');
+            if (currentLangDisplay) {
+                currentLangDisplay.textContent = languageNames[lang] || lang;
+            }
+        }
+
+        // Language selection function
+        function selectLang(langName, langCode) {
+            applyTranslations(langCode);
+
+            // Update URL without reload
+            const url = new URL(window.location);
+            url.searchParams.set('lang', langCode);
+            window.history.pushState({}, '', url);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const lang = getLanguageFromURL();
+            applyTranslations(lang);
+        });
+    </script>
+
     <!-- Form Submission Handler for Zapier -->
     <script>
         document.getElementById('festgeld-form').addEventListener('submit', function (e) {
@@ -148,21 +226,17 @@
                     </button>
                     <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
                         id="lang-menu">
-                        <a href="?lang=de"
-                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Deutsch', 'de'); return false;"><span>🇩🇪</span> <span
                                 data-i18n="lang_deutsch">Deutsch</span></a>
-                        <a href="?lang=en"
-                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('English', 'en'); return false;"><span>🇬🇧</span> <span
                                 data-i18n="lang_english">English</span></a>
-                        <a href="?lang=fr"
-                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Français', 'fr'); return false;"><span>🇫🇷</span> <span
                                 data-i18n="lang_francais">Français</span></a>
-                        <a href="?lang=es"
-                            class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
+                            onclick="selectLang('Español', 'es'); return false;"><span>🇪🇸</span> <span
                                 data-i18n="lang_espanol">Español</span></a>
                     </div>
                 </div>
