@@ -13,6 +13,7 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="translations.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -78,8 +79,7 @@
         <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
           <a href="betrugsschutz.html" class="text-[#ffd000] text-xs md:text-sm"
             data-i18n="nav_betrugsschutz">Betrugsschutz</a>
-          <a href="digital-festgeld.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
-            data-i18n="nav_festgeld">Digital Festgeld</a>
+
           <a href="kontakt.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
             data-i18n="nav_kontakt">Kontakt</a>
           <a href="filialen.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
@@ -112,7 +112,8 @@
             <a href="?lang=en" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
               onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span data-i18n="lang_english">English</span></a>
             <a href="?lang=fr" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-              onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span data-i18n="lang_francais">Français</span></a>
+              onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span
+                data-i18n="lang_francais">Français</span></a>
             <a href="?lang=es" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
               onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span data-i18n="lang_espanol">Español</span></a>
           </div>
@@ -129,16 +130,18 @@
         <div
           class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 border border-[#00008B] rounded-sm p-4">
           <div class="flex flex-col items-center">
-            <span class="text-4xl font-light text-[#00008B]">1/6</span>
-            <p class="text-xs text-gray-600 text-center max-w-md mt-1">
+            <span class="text-4xl font-light text-[#00008B]" data-i18n="risk_indicator_title">1/6</span>
+            <p class="text-xs text-gray-600 text-center max-w-md mt-1" data-i18n="risk_indicator_desc">
               Diese Zahl ist ein Indikator für das Produktrisiko, wobei 1/6 das geringste Risiko und 6/6 das höchste
               Risiko anzeigt.
             </p>
           </div>
           <div class="hidden md:block w-px h-16 bg-gray-300"></div>
           <p class="text-xs text-gray-600 text-center md:text-left max-w-md">
-            Deutsche Bank ist Mitglied des Einlagensicherungsfonds für Kreditinstitute.
-            <span class="text-[#00008B] font-medium"> Der garantierte Betrag beträgt bis zu 100.000 € pro
+            <span data-i18n="risk_indicator_info">Deutsche Bank ist Mitglied des Einlagensicherungsfonds für
+              Kreditinstitute.</span>
+            <span class="text-[#00008B] font-medium" data-i18n="risk_indicator_guarantee"> Der garantierte Betrag
+              beträgt bis zu 100.000 € pro
               Einleger.</span>
           </p>
         </div>
@@ -152,7 +155,8 @@
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-[#00008B]">Sicherheit & Betrugsschutzgarantien</h3>
+            <h3 class="text-lg font-semibold text-[#00008B]" data-i18n="security_title">Sicherheit &
+              Betrugsschutzgarantien</h3>
           </div>
 
           <div class="grid md:grid-cols-2 gap-4 text-sm">
@@ -164,8 +168,9 @@
                 </path>
               </svg>
               <div>
-                <p class="font-semibold text-gray-900 mb-1">100% Betrugsschutz</p>
-                <p class="text-gray-600">Sie sind vollständig gegen betrügerische Transaktionen geschützt. Bei
+                <p class="font-semibold text-gray-900 mb-1" data-i18n="fraud_protection_title">100% Betrugsschutz</p>
+                <p class="text-gray-600" data-i18n="fraud_protection_desc">Sie sind vollständig gegen betrügerische
+                  Transaktionen geschützt. Bei
                   Missbrauch erstatten wir Ihnen den vollständigen Betrag zurück.</p>
               </div>
             </div>
@@ -177,8 +182,9 @@
                 </path>
               </svg>
               <div>
-                <p class="font-semibold text-gray-900 mb-1">Echtzeit-Überwachung</p>
-                <p class="text-gray-600">Unsere KI-gestützten Systeme überwachen alle Transaktionen rund um die Uhr auf
+                <p class="font-semibold text-gray-900 mb-1" data-i18n="monitoring_title">Echtzeit-Überwachung</p>
+                <p class="text-gray-600" data-i18n="monitoring_desc">Unsere KI-gestützten Systeme überwachen alle
+                  Transaktionen rund um die Uhr auf
                   verdächtige Aktivitäten.</p>
               </div>
             </div>
@@ -190,8 +196,9 @@
                 </path>
               </svg>
               <div>
-                <p class="font-semibold text-gray-900 mb-1">Sichere Verschlüsselung</p>
-                <p class="text-gray-600">Alle Ihre Daten werden mit modernster Verschlüsselungstechnologie geschützt.
+                <p class="font-semibold text-gray-900 mb-1" data-i18n="encryption_title">Sichere Verschlüsselung</p>
+                <p class="text-gray-600" data-i18n="encryption_desc">Alle Ihre Daten werden mit modernster
+                  Verschlüsselungstechnologie geschützt.
                 </p>
               </div>
             </div>
@@ -203,8 +210,10 @@
                 </path>
               </svg>
               <div>
-                <p class="font-semibold text-gray-900 mb-1">Sofortige Benachrichtigungen</p>
-                <p class="text-gray-600">Erhalten Sie Echtzeit-Benachrichtigungen über alle Kontobewegungen.</p>
+                <p class="font-semibold text-gray-900 mb-1" data-i18n="notifications_title">Sofortige Benachrichtigungen
+                </p>
+                <p class="text-gray-600" data-i18n="notifications_desc">Erhalten Sie Echtzeit-Benachrichtigungen über
+                  alle Kontobewegungen.</p>
               </div>
             </div>
             <div class="flex items-start gap-3">
@@ -215,8 +224,10 @@
                 </path>
               </svg>
               <div>
-                <p class="font-semibold text-gray-900 mb-1">Einlagensicherung bis 100.000€</p>
-                <p class="text-gray-600">Ihre Einlagen sind durch den deutschen Einlagensicherungsfonds vollständig
+                <p class="font-semibold text-gray-900 mb-1" data-i18n="deposit_protection_title">Einlagensicherung bis
+                  100.000€</p>
+                <p class="text-gray-600" data-i18n="deposit_protection_desc">Ihre Einlagen sind durch den deutschen
+                  Einlagensicherungsfonds vollständig
                   geschützt.</p>
               </div>
             </div>
@@ -229,7 +240,8 @@
               d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
             </path>
           </svg>
-          <p>Die Rückzahlung, Rücknahme oder vorzeitige Rückgabe eines Teils oder des gesamten investierten Kapitals
+          <p data-i18n="disclaimer_text">Die Rückzahlung, Rücknahme oder vorzeitige Rückgabe eines Teils oder des
+            gesamten investierten Kapitals
             unterliegt Gebühren oder Strafen.</p>
         </div>
       </div>
@@ -250,11 +262,12 @@
               </div>
             </div>
 
-            <h1 class="text-4xl md:text-5xl font-light mb-8 leading-tight">Ihr Geld ist hier MEHR wert</h1>
+            <h1 class="text-4xl md:text-5xl font-light mb-8 leading-tight" data-i18n="hero_title">Ihr Geld ist hier MEHR
+              wert</h1>
 
             <a href="digital-festgeld.html">
               <div class="bg-[#0000A0] rounded-lg p-8 inline-block cursor-pointer hover:bg-[#0000B5] transition-colors">
-                <p class="text-white/80 text-lg mb-2">Erhalten Sie bis zu</p>
+                <p class="text-white/80 text-lg mb-2" data-i18n="hero_bonus_up_to">Erhalten Sie bis zu</p>
                 <p class="text-[#ffd000] text-6xl md:text-7xl font-light mb-2">8.000€</p>
                 <p class="text-white text-lg">Bonus in EURC</p>
                 <div class="text-white/70 text-xs mt-3 space-y-1">
@@ -265,9 +278,10 @@
               </div>
             </a>
 
-            <p class="mt-8 text-white/80 text-sm">
+            <p class="mt-8 text-white/80 text-sm" data-i18n="hero_account_open">
               Wählen Sie, wie Sie Ihr Konto eröffnen möchten, über einen Berater oder direkt über
-              <span class="text-white underline cursor-pointer hover:text-[#ffd000] transition-colors">FORMULAR
+              <span class="text-white underline cursor-pointer hover:text-[#ffd000] transition-colors"
+                data-i18n="hero_submit_form">FORMULAR
                 ABSENDEN</span>
             </p>
 
@@ -283,8 +297,10 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-white font-semibold text-lg">Maximale Sicherheit</h3>
-                    <p class="text-white/70 text-sm">Von Deutsche Bank garantiert</p>
+                    <h3 class="text-white font-semibold text-lg" data-i18n="security_badge_title">Maximale Sicherheit
+                    </h3>
+                    <p class="text-white/70 text-sm" data-i18n="security_badge_subtitle">Von Deutsche Bank garantiert
+                    </p>
                   </div>
                 </div>
 
@@ -359,8 +375,10 @@
 
           <!-- Right Form -->
           <div class="bg-white rounded-lg shadow-2xl p-8">
-            <h2 class="text-xl font-semibold text-[#00008B] mb-2">Konto eröffnen bei Deutsche Bank</h2>
-            <p class="text-gray-600 text-sm mb-4">Füllen Sie dieses Formular aus und wir werden uns unverbindlich mit
+            <h2 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="form_title">Konto eröffnen bei Deutsche
+              Bank</h2>
+            <p class="text-gray-600 text-sm mb-4" data-i18n="form_subtitle">Füllen Sie dieses Formular aus und wir
+              werden uns unverbindlich mit
               Ihnen in Verbindung setzen.</p>
 
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
@@ -407,23 +425,30 @@
               </p>
             </div>
 
-            <form id="contact-form" class="space-y-4">
+            <form id="contact-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST"
+              class="space-y-4">
+              <input type="hidden" name="page" value="betrugsschutz">
+              <input type="hidden" name="datum" id="form-datum">
+              <input type="hidden" name="betreff" value="Kontoeröffnung">
+              <input type="hidden" name="nachricht" value="Anfrage über Betrugsschutz-Seite">
               <div>
-                <label class="text-sm text-gray-700 block mb-1">Vorname <span class="text-red-500">*</span></label>
+                <label class="text-sm text-gray-700 block mb-1" data-i18n="label_firstname">Vorname <span
+                    class="text-red-500">*</span></label>
                 <input type="text" name="vorname"
                   class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
                   placeholder="Ihr Vorname" required>
               </div>
 
               <div>
-                <label class="text-sm text-gray-700 block mb-1">Nachname <span class="text-red-500">*</span></label>
+                <label class="text-sm text-gray-700 block mb-1" data-i18n="label_lastname">Nachname <span
+                    class="text-red-500">*</span></label>
                 <input type="text" name="nachname"
                   class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
                   placeholder="Ihr Nachname" required>
               </div>
 
               <div>
-                <label class="text-sm text-gray-700 block mb-1">Personalausweis <span
+                <label class="text-sm text-gray-700 block mb-1" data-i18n="label_id">Personalausweis <span
                     class="text-red-500">*</span></label>
                 <input type="text" name="personalausweis"
                   class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
@@ -431,21 +456,24 @@
               </div>
 
               <div>
-                <label class="text-sm text-gray-700 block mb-1">Telefon <span class="text-red-500">*</span></label>
+                <label class="text-sm text-gray-700 block mb-1" data-i18n="label_phone">Telefon <span
+                    class="text-red-500">*</span></label>
                 <input type="tel" name="telefon"
                   class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
                   placeholder="612 34 56 78" required>
               </div>
 
               <div>
-                <label class="text-sm text-gray-700 block mb-1">E-Mail <span class="text-red-500">*</span></label>
+                <label class="text-sm text-gray-700 block mb-1" data-i18n="label_email">E-Mail <span
+                    class="text-red-500">*</span></label>
                 <input type="email" name="email"
                   class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
                   placeholder="Beispiel: email@domain.de" required>
               </div>
 
               <div>
-                <label class="text-sm text-gray-700 block mb-1">Postleitzahl <span class="text-red-500">*</span></label>
+                <label class="text-sm text-gray-700 block mb-1" data-i18n="label_zipcode">Postleitzahl <span
+                    class="text-red-500">*</span></label>
                 <input type="text" name="postleitzahl"
                   class="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00008B] focus:border-[#00008B]"
                   placeholder="Beispiel: 10115" required>
@@ -454,15 +482,17 @@
               <div class="flex items-start space-x-3 pt-2">
                 <input type="checkbox" name="autorizo" id="autorizo"
                   class="mt-1 h-4 w-4 rounded border-gray-300 text-[#00008B] focus:ring-[#00008B]" required>
-                <label for="autorizo" class="text-xs text-gray-600 leading-relaxed">
+                <label for="autorizo" class="text-xs text-gray-600 leading-relaxed" data-i18n="checkbox_authorization">
                   Ich autorisiere die Verarbeitung meiner Daten gemäß der <span
-                    class="text-[#00008B] underline cursor-pointer hover:text-[#0000CD]">Datenschutzrichtlinie</span>
+                    class="text-[#00008B] underline cursor-pointer hover:text-[#0000CD]"
+                    data-i18n="privacy_policy">Datenschutzrichtlinie</span>
                   beschrieben.
                 </label>
               </div>
 
-              <button type="submit"
-                class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-6 text-base font-medium rounded-md transition-all duration-300 mt-4">
+              <button type="submit" id="submit-btn"
+                class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-6 text-base font-medium rounded-md transition-all duration-300 mt-4"
+                data-i18n="button_submit">
                 FORMULAR ABSENDEN
               </button>
             </form>
@@ -471,10 +501,74 @@
       </div>
     </div>
 
-    <!-- Product Section -->
+    <!-- Success Message -->
+    <div id="success-message" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div class="relative bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Vielen Dank!</h3>
+        <p class="text-gray-600">Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen melden.</p>
+        <button onclick="closeSuccessMessage()"
+          class="mt-6 bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-3 px-8 rounded-xl transition-all">OK</button>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('form-datum').value = new Date().toISOString().split('T')[0];
+
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var submitBtn = document.getElementById('submit-btn');
+        var originalContent = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Wird gesendet...';
+        submitBtn.disabled = true;
+
+        var formData = new FormData(this);
+        var data = {};
+        formData.forEach(function (value, key) {
+          data[key] = value;
+        });
+
+        fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data).toString()
+        })
+          .then(function (response) {
+            if (response.ok) {
+              document.getElementById('success-message').classList.remove('hidden');
+              submitBtn.innerHTML = originalContent;
+              submitBtn.disabled = false;
+            } else {
+              alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
+              submitBtn.innerHTML = originalContent;
+              submitBtn.disabled = false;
+            }
+          })
+          .catch(function (error) {
+            console.error('Error:', error);
+            alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
+            submitBtn.innerHTML = originalContent;
+            submitBtn.disabled = false;
+          });
+      });
+
+      function closeSuccessMessage() {
+        document.getElementById('success-message').classList.add('hidden');
+        document.getElementById('contact-form').reset();
+      }
+    </script>
     <div class="bg-white py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl text-center text-[#00008B] font-light mb-16">Wer gibt Ihnen MEHR für Ihr Gehalt
+        <h2 class="text-3xl md:text-4xl text-center text-[#00008B] font-light mb-16" data-i18n="product_section_title">
+          Wer gibt Ihnen MEHR für Ihr Gehalt
           und Ihre Ersparnisse?</h2>
 
         <div class="space-y-16">
@@ -495,7 +589,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                   </svg>
-                  <span class="text-xs uppercase tracking-wider text-[#ffd000] font-semibold">DIGITALES FESTGELD</span>
+                  <span class="text-xs uppercase tracking-wider text-[#ffd000] font-semibold"
+                    data-i18n="digital_festgeld_label">DIGITALES FESTGELD</span>
                 </div>
 
                 <h3 class="text-4xl md:text-5xl font-light mb-2">EURAU bis <span class="text-[#ffd000]">6%</span></h3>
@@ -575,13 +670,14 @@
                   class="absolute top-0 right-0 w-32 h-32 bg-[#00008B]/5 rounded-full -translate-y-1/2 translate-x-1/2">
                 </div>
 
-                <span class="text-xs uppercase tracking-wider text-[#00008B] font-semibold">MEHR RENTABILITÄT</span>
+                <span class="text-xs uppercase tracking-wider text-[#00008B] font-semibold"
+                  data-i18n="savings_title">MEHR RENTABILITÄT</span>
 
                 <div class="mt-6">
                   <span class="text-5xl md:text-6xl font-light text-[#00008B]">Bis zu 6.000 €</span>
                 </div>
 
-                <p class="text-xl mt-4 font-medium text-[#00008B]">für Ihre Ersparnisse</p>
+                <p class="text-xl mt-4 font-medium text-[#00008B]" data-i18n="savings_subtitle">für Ihre Ersparnisse</p>
 
                 <p class="text-gray-600 mt-4 text-sm leading-relaxed">
                   6% effektiver Jahreszins<sup>2</sup>.
@@ -600,11 +696,13 @@
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              class="bg-[#00008B] hover:bg-[#0000CD] text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-300">
+              class="bg-[#00008B] hover:bg-[#0000CD] text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-300"
+              data-i18n="button_contact_advisor">
               Mit Berater kontaktieren
             </button>
             <button
-              class="border-2 border-[#001e50] text-[#00008B] hover:bg-[#001e50] hover:text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-300 open-anlage-dialog">
+              class="border-2 border-[#001e50] text-[#00008B] hover:bg-[#001e50] hover:text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-300 open-anlage-dialog"
+              data-i18n="button_invest_money">
               Geld anlegen
             </button>
           </div>
@@ -617,11 +715,11 @@
       <div class="max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="text-3xl md:text-4xl text-[#001e50] font-light mb-6 leading-tight">
+            <h2 class="text-3xl md:text-4xl text-[#001e50] font-light mb-6 leading-tight" data-i18n="bank_change_title">
               Wir helfen Ihnen, alle Ihre Bankabbuchungen zu wechseln
             </h2>
 
-            <p class="text-gray-600 mb-8">
+            <p class="text-gray-600 mb-8" data-i18n="bank_change_desc">
               Der Prozess ist einfach, sicher und völlig kostenlos, und Sie können ihn digital oder über Ihren
               persönlichen Berater durchführen.
             </p>
@@ -722,7 +820,7 @@
                     <h4 class="font-semibold text-[#00008B] mb-1">Keine Gebühren</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">Kostenlose Kontoführung und keine versteckten
                       Kosten
-                      </p>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -843,7 +941,7 @@
                     <h4 class="font-semibold text-[#00008B] mb-1">Flexible Öffnungszeiten Tresor</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">Zugang zu Ihrem Tresor zu erweiterten
                       Öffnungszeiten
-                      </p>
+                    </p>
                   </div>
                 </div>
 
@@ -1150,7 +1248,7 @@
     </div>
   </div>
 
-  <script src="assets/js/translations.js"></script>
+  <script src="translations.js"></script>
   <script>
     // Language switcher
     const langBtn = document.getElementById('lang-btn');
@@ -1170,12 +1268,105 @@
       });
     }
 
+    // Language selection function
+    function selectLang(langName, langCode) {
+      if (currentLangLabel) {
+        currentLangLabel.textContent = langName;
+      }
+
+      // Get current URL and update language parameter
+      const url = new URL(window.location);
+      url.searchParams.set('lang', langCode);
+
+      // Apply translations
+      applyTranslations(langCode);
+
+      // Update URL without reloading
+      window.history.pushState({}, '', url);
+
+      // Close menu
+      if (langMenu) {
+        langMenu.classList.add('hidden');
+      }
+
+      return false;
+    }
+
+    // Apply translations to all elements with data-i18n attribute
+    function applyTranslations(langCode) {
+      // Default to German if language not found
+      const lang = translations[langCode] || translations['de'];
+
+      // Find all elements with data-i18n attribute
+      const elements = document.querySelectorAll('[data-i18n]');
+
+      elements.forEach(function (element) {
+        const key = element.getAttribute('data-i18n');
+        if (lang[key]) {
+          element.textContent = lang[key];
+        }
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = langCode;
+    }
+
+    // Initialize language from URL parameter or default to German
+    function initializeLanguage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+
+      // Check if language is valid
+      if (langParam && translations[langParam]) {
+        const langNames = {
+          'de': 'Deutsch',
+          'en': 'English',
+          'fr': 'Français',
+          'es': 'Español'
+        };
+        selectLang(langNames[langParam], langParam);
+      }
+    }
+
+    // Run initialization when DOM is ready
+    document.addEventListener('DOMContentLoaded', initializeLanguage);
+
     // Form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
+      contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert('Formular wurde abgesendet! (Demo)');
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Wird gesendet...';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(contactForm);
+          const data = Object.fromEntries(formData.entries());
+
+          const response = await fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            alert('Formular wurde erfolgreich abgesendet!');
+            contactForm.reset();
+          } else {
+            alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+        }
+
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
       });
     }
 
@@ -1211,7 +1402,6 @@
       });
     }
   </script>
-
 </body>
 
 </html>

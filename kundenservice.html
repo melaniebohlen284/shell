@@ -13,6 +13,7 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="translations.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -58,16 +59,17 @@
             <div class="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-3 md:gap-0">
                 <div class="flex justify-center items-center gap-4 md:gap-8 flex-1 flex-wrap">
                     <a href="betrugsschutz.html"
-                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_betrugsschutz">Betrugsschutz</a>
-                    <a href="index.html"
-                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_festgeld">Digital
-                        Festgeld</a>
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium"
+                        data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+
                     <a href="kontakt.html"
-                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_kontakt">Kontakt</a>
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium"
+                        data-i18n="nav_kontakt">Kontakt</a>
                     <a href="filialen.html"
-                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_filialen">Filialen</a>
-                    <a href="kundenservice.html"
-                        class="text-[#ffd000] transition-colors text-xs md:text-sm font-medium" data-i18n="nav_kundenservice">Kundenservice</a>
+                        class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm font-medium"
+                        data-i18n="nav_filialen">Filialen</a>
+                    <a href="kundenservice.html" class="text-[#ffd000] transition-colors text-xs md:text-sm font-medium"
+                        data-i18n="nav_kundenservice">Kundenservice</a>
                 </div>
 
                 <!-- Language Switcher -->
@@ -93,13 +95,17 @@
                     <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
                         id="lang-menu">
                         <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span data-i18n="lang_deutsch">Deutsch</span></a>
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span
+                                data-i18n="lang_deutsch">Deutsch</span></a>
                         <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span data-i18n="lang_english">English</span></a>
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span
+                                data-i18n="lang_english">English</span></a>
                         <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span data-i18n="lang_francais">Français</span></a>
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span
+                                data-i18n="lang_francais">Français</span></a>
                         <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span data-i18n="lang_espanol">Español</span></a>
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span
+                                data-i18n="lang_espanol">Español</span></a>
                     </div>
                 </div>
             </div>
@@ -381,21 +387,98 @@
 
                     <!-- Form Step -->
                     <div id="chat-form-step" class="p-6 border-t bg-white space-y-3">
-                        <form id="chat-init-form" class="space-y-3">
-                            <input type="text" name="nombre" required placeholder="Ihr vollständiger Name"
+                        <form id="chat-init-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/"
+                            method="POST" class="space-y-3">
+                            <input type="hidden" name="page" value="kundenservice">
+                            <input type="hidden" name="datum" id="form-datum">
+                            <input type="hidden" name="betreff" value="Kundenservice Anfrage">
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" name="vorname" required placeholder="Vorname *"
+                                    class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
+                                <input type="text" name="nachname" required placeholder="Nachname *"
+                                    class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
+                            </div>
+                            <input type="tel" name="telefon" placeholder="Telefon"
                                 class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
-                            <input type="tel" name="telefono" placeholder="+49..."
+                            <input type="email" name="email" required placeholder="E-Mail *"
                                 class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
-                            <input type="email" name="email" required placeholder="ihre.email@beispiel.com"
-                                class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all">
-                            <textarea name="observacion" placeholder="Wie können wir Ihnen helfen?"
+                            <textarea name="nachricht" placeholder="Wie können wir Ihnen helfen?"
                                 class="w-full border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-[#00008B] focus:border-[#00008B] outline-none border transition-all h-20"></textarea>
-                            <button type="submit"
+                            <button type="submit" id="submit-btn"
                                 class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-2 rounded-md font-semibold transition-all">
                                 Anfrage senden
                             </button>
                         </form>
                     </div>
+
+                    <!-- Success Message -->
+                    <div id="success-message" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                        <div class="relative bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Vielen Dank!</h3>
+                            <p class="text-gray-600">Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze
+                                bei Ihnen melden.</p>
+                            <button onclick="closeSuccessMessage()"
+                                class="mt-6 bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-3 px-8 rounded-xl transition-all">OK</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.getElementById('form-datum').value = new Date().toISOString().split('T')[0];
+
+                        document.getElementById('chat-init-form').addEventListener('submit', function (e) {
+                            e.preventDefault();
+
+                            var submitBtn = document.getElementById('submit-btn');
+                            var originalContent = submitBtn.innerHTML;
+                            submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Wird gesendet...';
+                            submitBtn.disabled = true;
+
+                            var formData = new FormData(this);
+                            var data = {};
+                            formData.forEach(function (value, key) {
+                                data[key] = value;
+                            });
+
+                            fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                },
+                                body: new URLSearchParams(data).toString()
+                            })
+                                .then(function (response) {
+                                    if (response.ok) {
+                                        document.getElementById('success-message').classList.remove('hidden');
+                                        submitBtn.innerHTML = originalContent;
+                                        submitBtn.disabled = false;
+                                    } else {
+                                        alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
+                                        submitBtn.innerHTML = originalContent;
+                                        submitBtn.disabled = false;
+                                    }
+                                })
+                                .catch(function (error) {
+                                    console.error('Error:', error);
+                                    alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
+                                    submitBtn.innerHTML = originalContent;
+                                    submitBtn.disabled = false;
+                                });
+                        });
+
+                        function closeSuccessMessage() {
+                            document.getElementById('success-message').classList.add('hidden');
+                            document.getElementById('chat-init-form').reset();
+                        }
+                    </script>
 
                     <!-- Chat Input Step (Hidden initially) -->
                     <div id="chat-input-step" class="hidden p-4 border-t bg-white">
@@ -516,13 +599,39 @@
             closeBtn?.addEventListener('click', closeModal);
             backdrop?.addEventListener('click', closeModal);
 
-            chatForm.addEventListener('submit', (e) => {
+            chatForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const formData = new FormData(chatForm);
                 const nombre = formData.get('nombre');
                 const email = formData.get('email');
                 const telefono = formData.get('telefono');
                 const observacion = formData.get('observacion');
+
+                // Send to Zapier
+                try {
+                    const data = {
+                        nombre: nombre,
+                        email: email,
+                        telefono: telefono,
+                        observacion: observacion
+                    };
+
+                    const response = await fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        console.log('Daten erfolgreich an Zapier gesendet');
+                    } else {
+                        console.error('Fehler beim Senden an Zapier');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
 
                 // User message summary
                 let userMsg = `Name: ${nombre}\nEmail: ${email}`;
