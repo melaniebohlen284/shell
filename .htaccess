@@ -1,0 +1,14 @@
+# Apache .htaccess - Redirección HTTP 301 de "/" hacia "/?lang=de"
+
+RewriteEngine On
+
+# Redirección permanente (301) de la raíz a la versión con parámetro de idioma
+RewriteRule ^$ /?lang=de [R=301,L]
+
+# Opcional: Redirección también sin www a www (y viceversa)
+# RewriteCond %{HTTP_HOST} !^www\.deutschebank-netherlands\.com$ [NC]
+# RewriteRule ^(.*)$ https://www.deutschebank-netherlands.com/$1 [R=301,L]
+
+# Redirección de HTTP a HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]

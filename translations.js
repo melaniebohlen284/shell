@@ -207,7 +207,6 @@ const translations = {
 
         label_firstname: "Vorname",
         label_lastname: "Nachname",
-        label_id: "Personalausweis",
         label_phone: "Telefon",
         label_email: "E-Mail",
         label_zipcode: "Postleitzahl",
@@ -531,7 +530,6 @@ const translations = {
 
         label_firstname: "First Name",
         label_lastname: "Last Name",
-        label_id: "ID Card",
         label_phone: "Phone",
         label_email: "Email",
         label_zipcode: "Zip Code",
@@ -857,7 +855,6 @@ const translations = {
 
         label_firstname: "Prénom",
         label_lastname: "Nom",
-        label_id: "Carte d'Identité",
         label_phone: "Téléphone",
         label_email: "E-Mail",
         label_zipcode: "Code Postal",
@@ -1182,7 +1179,6 @@ const translations = {
 
         label_firstname: "Nombre",
         label_lastname: "Apellido",
-        label_id: "DNI",
         label_phone: "Teléfono",
         label_email: "Correo Electrónico",
         label_zipcode: "Código Postal",
