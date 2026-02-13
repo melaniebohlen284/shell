@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deutsche Bank</title>
-    <link rel="canonical" href="https://deutschebank-netherlands.com/?lang=de">
+    <link rel="canonical" href="https://deutschebank-netherlands.com/">
 
-    <!-- Open Graph / WhatsApp -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deutschebank-netherlands.com/?lang=de">
+    <meta property="og:url" content="https://deutschebank-netherlands.com/">
     <meta property="og:title" content="Deutsche Bank - Digitaler Festzins">
     <meta property="og:description"
         content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-    <meta property="og:image" content="https://imagizer.imageshack.com/v2/1600x1200q70/923/KVA2Un.png?v=2">
+    <meta property="og:image" content="https://deutschebank-netherlands.com/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Deutsche Bank Netherlands">
@@ -30,13 +30,10 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@DeutscheBank">
-    <meta name="twitter:url" content="https://deutschebank-netherlands.com/?lang=de">
     <meta name="twitter:title" content="Deutsche Bank - Digitaler Festzins">
     <meta name="twitter:description"
         content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-    <meta name="twitter:image" content="https://imagizer.imageshack.com/v2/1600x1200q70/923/KVA2Un.png">
-    <meta name="twitter:image:width" content="1200">
-    <meta name="twitter:image:height" content="630">
+    <meta name="twitter:image" content="https://deutschebank-netherlands.com/assets/og-image.png">
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -165,21 +162,21 @@
                     </button>
                     <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
                         id="lang-menu">
-                        <a href="?lang=de"
+                        <a href="javascript:void(0)"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> <span
+                            onclick="selectLang('Deutsch', 'de', true)"><span>🇩🇪</span> <span
                                 data-i18n="lang_deutsch">Deutsch</span></a>
-                        <a href="?lang=en"
+                        <a href="javascript:void(0)"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> <span
+                            onclick="selectLang('English', 'en', true)"><span>🇬🇧</span> <span
                                 data-i18n="lang_english">English</span></a>
-                        <a href="?lang=fr"
+                        <a href="javascript:void(0)"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> <span
+                            onclick="selectLang('Français', 'fr', true)"><span>🇫🇷</span> <span
                                 data-i18n="lang_francais">Français</span></a>
-                        <a href="?lang=es"
+                        <a href="javascript:void(0)"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> <span
+                            onclick="selectLang('Español', 'es', true)"><span>🇪🇸</span> <span
                                 data-i18n="lang_espanol">Español</span></a>
                     </div>
                 </div>
@@ -284,10 +281,10 @@
 
                     <!-- Cashback Banner -->
                     <div class="bg-[#ffd000] rounded-lg p-6 text-center mb-8">
-                        <h3 class="text-xl font-semibold text-[#00008B] mb-2">
+                        <h3 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="cashback_banner_title">
                             Cashback Einzahlungsbonus: 2% sofort nach Einzahlung
                         </h3>
-                        <p class="text-sm text-[#00008B]">
+                        <p class="text-sm text-[#00008B]" data-i18n="cashback_banner_desc">
                             Im Rahmen unserer Digital Festgeld Einführung - Deutsche Bank als Vorreiter
                         </p>
                     </div>
@@ -782,11 +779,11 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Vielen Dank!</h3>
-                    <p class="text-gray-600">Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="success_title">Vielen Dank!</h3>
+                    <p class="text-gray-600" data-i18n="success_message">Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen
                         melden.</p>
                     <button onclick="closeSuccessMessage()"
-                        class="mt-6 bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-3 px-8 rounded-xl transition-all">OK</button>
+                        class="mt-6 bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-3 px-8 rounded-xl transition-all" data-i18n="success_button">OK</button>
                 </div>
             </div>
 
@@ -1252,14 +1249,14 @@
                     <div class="flex items-center gap-3">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
                             alt="Logo" class="w-8 h-8 bg-white p-1">
-                        <p class="font-semibold">Deutsche Bank</p>
+                        <p class="font-semibold" data-i18n="nav_brand">Deutsche Bank</p>
                     </div>
                     <div class="flex gap-6 text-sm text-white/60">
-                        <a href="index.html" class="hover:text-white">Home</a>
-                        <a href="betrugsschutz.html" class="hover:text-white">Betrugsschutz</a>
-                        <a href="kontakt.html" class="hover:text-white">Kontakt</a>
-                        <a href="filialen.html" class="hover:text-white">Filialen</a>
-                        <a href="kundenservice.html" class="hover:text-white">Kundenservice</a>
+                        <a href="index.html" class="hover:text-white" data-i18n="footer_home">Home</a>
+                        <a href="betrugsschutz.html" class="hover:text-white" data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+                        <a href="kontakt.html" class="hover:text-white" data-i18n="nav_kontakt">Kontakt</a>
+                        <a href="filialen.html" class="hover:text-white" data-i18n="nav_filialen">Filialen</a>
+                        <a href="kundenservice.html" class="hover:text-white" data-i18n="nav_kundenservice">Kundenservice</a>
                     </div>
                 </div>
                 <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
