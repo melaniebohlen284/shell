@@ -4,40 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deutsche Bank</title>
-    <link rel="canonical" href="https://deutschebank-netherlands.com/">
-
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deutschebank-netherlands.com/">
-    <meta property="og:title" content="Deutsche Bank - Digitaler Festzins">
-    <meta property="og:description"
-        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-    <meta property="og:image" content="https://deutschebank-netherlands.com/assets/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Deutsche Bank Netherlands">
-    <meta property="og:locale" content="de_DE">
-
-    <!-- WhatsApp -->
-    <meta property="whatsapp:title" content="Deutsche Bank - Digitaler Festzins">
-    <meta property="whatsapp:description"
-        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-
-    <!-- Telegram -->
-    <meta property="telegram:channel" content="@deutschebank_netherlands">
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@DeutscheBank">
-    <meta name="twitter:title" content="Deutsche Bank - Digitaler Festzins">
-    <meta name="twitter:description"
-        content="Investieren Sie mit bis zu 6 % Jahreszinsen + 2 % Cashback. Einlagen bis zu 100.000 € sind versichert.">
-    <meta name="twitter:image" content="https://deutschebank-netherlands.com/assets/og-image.png">
+    <title>Kontakt - Deutsche Bank</title>
 
     <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -54,42 +23,6 @@
             }
         }
     </script>
-
-    <!-- Form Submission Handler for Zapier -->
-    <script>
-        document.getElementById('festgeld-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            var formData = new FormData(this);
-            var data = {};
-            formData.forEach(function (value, key) {
-                data[key] = value;
-            });
-
-            // Add timestamp
-            data.timestamp = new Date().toISOString();
-
-            fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(function (response) {
-                    if (response.ok) {
-                        // Redirect to thank you page or show success message
-                        window.location.href = '?success=true';
-                    } else {
-                        alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
-                    }
-                })
-                .catch(function (error) {
-                    console.error('Error:', error);
-                    alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
-                });
-        });
-    </script>
     <!-- Responsive Styles -->
     <link rel="stylesheet" href="styles.css">
     
@@ -97,24 +30,10 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-
-        .accordion-content {
-            transition: max-height 0.3s ease-out;
-            overflow: hidden;
-            max-height: 0;
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 200px;
-        }
-
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
     </style>
 </head>
 
-<body class="bg-white">
+<body class="min-h-screen bg-white text-slate-900">
 
     <!-- Top Bar Logo (Matches Kontakt.jsx) -->
     <div class="bg-[#00008B] text-white py-4 border-b border-white/10">
@@ -122,7 +41,7 @@
             <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity inline-flex">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
                     alt="Deutsche Bank Logo" class="w-10 h-10 bg-white p-1" />
-                <p class="text-lg font-semibold" data-i18n="nav_brand">Deutsche Bank</p>
+                <p class="text-lg font-semibold">Deutsche Bank</p>
             </a>
         </div>
     </div>
@@ -135,10 +54,11 @@
                     <a href="betrugsschutz.html"
                         class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
                         data-i18n="nav_betrugsschutz">Betrugsschutz</a>
-                    <a href="kontakt.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
-                        data-i18n="nav_kontakt">Kontakt</a>
+
                     <a href="filialen.html" class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
                         data-i18n="nav_filialen">Filialen</a>
+                    <a href="kontakt.html" class="text-[#ffd000] font-semibold transition-colors text-xs md:text-sm"
+                        data-i18n="nav_kontakt">Kontakt</a>
                     <a href="kundenservice.html"
                         class="text-white hover:text-[#ffd000] transition-colors text-xs md:text-sm"
                         data-i18n="nav_kundenservice">Kundenservice</a>
@@ -164,1146 +84,616 @@
                     </button>
                     <div class="absolute right-0 mt-2 w-40 bg-[#00008B] border border-white/10 rounded-md shadow-lg hidden z-50 py-1"
                         id="lang-menu">
-                        <a href="javascript:void(0)"
+                        <a href="?lang=de"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Deutsch', 'de', true)"><span>🇩🇪</span> <span
-                                data-i18n="lang_deutsch">Deutsch</span></a>
-                        <a href="javascript:void(0)"
+                            onclick="selectLang('Deutsch', 'de')"><span>🇩🇪</span> Deutsch</a>
+                        <a href="?lang=en"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('English', 'en', true)"><span>🇬🇧</span> <span
-                                data-i18n="lang_english">English</span></a>
-                        <a href="javascript:void(0)"
+                            onclick="selectLang('English', 'en')"><span>🇬🇧</span> English</a>
+                        <a href="?lang=fr"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Français', 'fr', true)"><span>🇫🇷</span> <span
-                                data-i18n="lang_francais">Français</span></a>
-                        <a href="javascript:void(0)"
+                            onclick="selectLang('Français', 'fr')"><span>🇫🇷</span> Français</a>
+                        <a href="?lang=es"
                             class="block px-4 py-2 text-sm text-white hover:bg-white/10 flex items-center gap-2"
-                            onclick="selectLang('Español', 'es', true)"><span>🇪🇸</span> <span
-                                data-i18n="lang_espanol">Español</span></a>
+                            onclick="selectLang('Español', 'es')"><span>🇪🇸</span> Español</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main>
-        <!-- Risk Indicator -->
-        <div class="bg-gradient-to-r from-green-50 to-blue-50 border-b border-green-200">
-            <div class="max-w-7xl mx-auto px-4 py-4 md:py-6">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
-                    <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-light text-[#00008B] mb-2" data-i18n="risk_title">1/6
-                        </div>
-                        <p class="text-xs md:text-sm font-semibold text-gray-800" data-i18n="risk_desc">Geringstes
-                            Produktrisiko - Höchste
-                            Sicherheit</p>
-                    </div>
-                    <div class="hidden md:block w-px h-20 bg-gray-300"></div>
-                    <div class="text-xs md:text-sm text-gray-700 max-w-lg text-center md:text-left px-4 md:px-0">
-                        <p><strong data-i18n="risk_info">Deutsche Bank ist Mitglied des
-                                Einlagensicherungsfonds.</strong></p>
-                        <p data-i18n="risk_guarantee">Der garantierte Betrag beträgt bis zu 100.000 € pro Einleger.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero -->
+    <div class="relative bg-gradient-to-br from-[#00008B] via-[#0000CD] to-[#1a1a8f] py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#ffd000] rounded-full blur-3xl"></div>
         </div>
 
-        <!-- Hero Section -->
-        <div class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white overflow-hidden relative">
-            <!-- Decorative circles -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2">
-            </div>
-            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2">
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 py-12 md:py-20 relative z-10">
-                <div class="text-center max-w-4xl mx-auto">
-                    <div
-                        class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6">
-                        <p class="text-xs md:text-sm font-semibold" data-i18n="pioneer_badge">Festgeld Pionier</p>
-                    </div>
-
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-light mb-4 md:mb-6 px-4" data-i18n="hero_title">
-                        Revolutionäres Digital Festgeld
-                    </h1>
-
-                    <p class="text-base md:text-xl text-white/90 mb-8 md:mb-12 px-4" data-i18n="hero_subtitle">
-                        Wandeln Sie Ihr Geld in digitales, hochsicheres EURAU/EURC um. Erhalten Sie bis zu 6% Zinsen
-                        p.a. plus 2% Cashback-Bonus sofort nach Einzahlung.
-                    </p>
-
-
-
-                    <!-- Feature Grid -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-12 px-2">
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
-                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                </path>
-                            </svg>
-                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat1_label">
-                                Einlagensicherung</p>
-                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat1_value">Bis zu 100k</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
-                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                            </svg>
-                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat2_label">Attraktive
-                                Zinsen</p>
-                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat2_value">4% bis 6% p.a.</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
-                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                </path>
-                            </svg>
-                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat3_label">2%
-                                Cashback</p>
-                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat3_value">Sofort-Bonus</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4">
-                            <svg class="w-6 h-6 md:w-8 md:h-8 text-[#ffd000] mb-2 mx-auto" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                                </path>
-                            </svg>
-                            <p class="text-[10px] md:text-xs text-white/70 mb-1" data-i18n="hero_feat4_label">Maximale
-                                Sicherheit</p>
-                            <p class="text-xs md:text-sm font-semibold" data-i18n="hero_feat4_value">Dezentral</p>
-                        </div>
-                    </div>
-
-                    <!-- Cashback Banner -->
-                    <div class="bg-[#ffd000] rounded-lg p-6 text-center mb-8">
-                        <h3 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="cashback_banner_title">
-                            Cashback Einzahlungsbonus: 2% sofort nach Einzahlung
-                        </h3>
-                        <p class="text-sm text-[#00008B]" data-i18n="cashback_banner_desc">
-                            Im Rahmen unserer Digital Festgeld Einführung - Deutsche Bank als Vorreiter
-                        </p>
-                    </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto opacity-0 translate-y-4 transition-all duration-700 ease-out"
+                id="hero-content">
+                <div
+                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                    <svg class="w-4 h-4 text-[#ffd000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    <span class="text-white/90 text-sm font-medium">24/7 Erreichbar</span>
                 </div>
+                <h1 class="text-4xl md:text-6xl font-light text-white mb-6" data-i18n="contact_title">Kontaktieren Sie
+                    uns</h1>
+                <p class="text-lg md:text-xl text-white/80" data-i18n="contact_subtitle">Unser Team steht Ihnen rund um
+                    die Uhr zur Verfügung, um Ihre Fragen zu beantworten.</p>
             </div>
         </div>
+    </div>
 
-        <!-- Interest Rates Table -->
-        <div class="bg-gray-50 py-12 md:py-16">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-8 md:mb-12 px-4"
-                    data-i18n="table_title">
-                    EURAU & EURC Festgeld Digital - Attraktive Zinsen
-                </h2>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-x-auto mb-8">
-                    <table class="w-full min-w-[500px]">
-                        <thead class="bg-[#00008B] text-white">
-                            <tr>
-                                <th class="py-3 md:py-4 px-3 md:px-6 text-left text-xs md:text-base"
-                                    data-i18n="table_sum">Anlagesumme</th>
-                                <th class="py-3 md:py-4 px-3 md:px-6 text-left text-xs md:text-base"
-                                    data-i18n="table_term">Laufzeit</th>
-                                <th class="py-3 md:py-4 px-3 md:px-6 text-left text-xs md:text-base"
-                                    data-i18n="table_rate">Zinssatz p.a.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 md:py-4 px-3 md:px-6 font-semibold text-xs md:text-base"
-                                    data-i18n="table_range_1">10.000€ -
-                                    25.000€</td>
-                                <td class="py-3 md:py-4 px-3 md:px-6 text-xs md:text-base" data-i18n="table_months">12
-                                    Monate</td>
-                                <td class="py-3 md:py-4 px-3 md:px-6 text-[#00008B] font-bold text-base md:text-lg">
-                                    4.00%</td>
-                            </tr>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 md:py-4 px-3 md:px-6 font-semibold text-xs md:text-base"
-                                    data-i18n="table_range_2">50.000€ -
-                                    75.000€</td>
-                                <td class="py-3 md:py-4 px-3 md:px-6 text-xs md:text-base" data-i18n="table_months">12
-                                    Monate</td>
-                                <td class="py-3 md:py-4 px-3 md:px-6 text-[#00008B] font-bold text-base md:text-lg">
-                                    5.00%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 md:py-4 px-3 md:px-6 font-semibold text-xs md:text-base"
-                                    data-i18n="table_range_3">100.000€ -
-                                    200.000€</td>
-                                <td class="py-3 md:py-4 px-3 md:px-6 text-xs md:text-base" data-i18n="table_months">12
-                                    Monate</td>
-                                <td class="py-3 md:py-4 px-3 md:px-6 text-[#00008B] font-bold text-base md:text-lg">
-                                    6.00%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Cashback Examples -->
-                <div class="bg-white py-12 md:py-16">
-                    <div class="max-w-6xl mx-auto px-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
-                            <div
-                                class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
-                                <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
-                                <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">25.000€</p>
-                                <div class="border-t border-white/20 pt-3 md:pt-4">
-                                    <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">
-                                        Sofortbonus
-                                    </p>
-                                    <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">500€</p>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
-                                <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
-                                <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">50.000€</p>
-                                <div class="border-t border-white/20 pt-3 md:pt-4">
-                                    <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">
-                                        Sofortbonus
-                                    </p>
-                                    <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">1.000€</p>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
-                                <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
-                                <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">100.000€</p>
-                                <div class="border-t border-white/20 pt-3 md:pt-4">
-                                    <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">
-                                        Sofortbonus
-                                    </p>
-                                    <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">2.000€</p>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-xl p-4 md:p-6 text-center">
-                                <p class="text-xs md:text-sm text-white/70 mb-2" data-i18n="example_label">Anlage</p>
-                                <p class="text-2xl md:text-3xl font-light mb-3 md:mb-4">200.000€</p>
-                                <div class="border-t border-white/20 pt-3 md:pt-4">
-                                    <p class="text-[10px] md:text-xs text-[#ffd000] mb-1" data-i18n="example_bonus">
-                                        Sofortbonus
-                                    </p>
-                                    <p class="text-xl md:text-2xl font-semibold text-[#ffd000]">4.000€</p>
-                                </div>
-                            </div>
+    <!-- Contact Info & Form -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Contact Information -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-gradient-to-br from-[#00008B] to-[#0000CD] text-white rounded-2xl p-8 shadow-xl transition-all duration-700 ease-out"
+                    id="info-card">
+                    <h2 class="text-2xl font-semibold mb-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-[#ffd000] rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-[#00008B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
                         </div>
-                        <p class="text-center text-gray-600" data-i18n="example_extra">+ Ihre Zinserträge von 4% bis 6%
-                            p.a.
-                            zusätzlich</p>
-                    </div>
-                </div>
+                        <span data-i18n="contact_info_title">Kontaktinformationen</span>
+                    </h2>
 
-                <!-- Benefits Section -->
-                <div class="bg-gray-50 py-12 md:py-16">
-                    <div class="max-w-7xl mx-auto px-4">
-                        <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-3 md:mb-4 px-4"
-                            data-i18n="benefits_title">
-                            Ihre Vorteile auf einen Blick
-                        </h2>
-                        <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4"
-                            data-i18n="benefits_subtitle">
-                            Deutsche Bank revolutioniert das Festgeld mit digitaler Innovation und maximaler Sicherheit
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                            <!-- Group 1 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="space-y-6">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all">
+                            <div
+                                class="w-10 h-10 bg-[#ffd000] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#00008B]" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                                     </path>
                                 </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit1_title">
-                                    Einlagensicherung bis
-                                    100.000€</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit1_desc">Ihre Einlagen sind
-                                    durch
-                                    den Einlagensicherungsfonds
-                                    vollständig geschützt. Deutsche Bank garantiert maximale Sicherheit.</p>
                             </div>
-                            <!-- Group 2 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit2_title">
-                                    Bis zu 6% Zinsen p.a.</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit2_desc">4% bei 10k-25k, 5%
-                                    bei
-                                    50k-75k, 6% bei 100k-200k.
-                                    Deutlich höher als klassisches Festgeld.</p>
-                            </div>
-                            <!-- Group 3 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit3_title">2%
-                                    Cashback Einzahlungsbonus
-                                </h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit3_desc">Sofort nach
-                                    Einzahlung
-                                    erhalten Sie 2% Ihrer
-                                    Anlagesumme als Bonus. Bei 100.000€ sind das 2.000€ extra!</p>
-                            </div>
-                            <!-- Group 4 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                                    </path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit4_title">
-                                    Dezentrale Tresor-Lösung</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit4_desc">Ihr digitales Geld
-                                    wird
-                                    wie in einem Tresor
-                                    gesichert. Höchste Sicherheitsstandards durch innovative Blockchain-Technologie.</p>
-                            </div>
-                            <!-- Group 5 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
-                                    </path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit5_title">
-                                    Gratis IBAN mit EURAU/EURC
-                                </h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit5_desc">Erhalten Sie eine
-                                    kostenlose digitale IBAN.
-                                    Empfangen und senden Sie Zahlungen - sicherer als klassisches Online-Banking.</p>
-                            </div>
-                            <!-- Group 6 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit6_title">
-                                    Sofortige Kontoeröffnung</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit6_desc">Keine Wartezeiten.
-                                    Füllen
-                                    Sie das Formular aus und
-                                    ein Berater kontaktiert Sie innerhalb von 24 Stunden unverbindlich.</p>
-                            </div>
-                            <!-- Group 7 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit7_title">
-                                    100% auf Ihren Namen</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit7_desc">Volle Kontrolle
-                                    über Ihr
-                                    Geld. Nur Sie haben Zugriff
-                                    auf Ihr Digital Festgeld Konto bei Deutsche Bank.</p>
-                            </div>
-                            <!-- Group 8 -->
-                            <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <svg class="w-8 h-8 md:w-10 md:h-10 text-[#00008B] mb-3 md:mb-4" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="benefit8_title">
-                                    Komplett kostenlos</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="benefit8_desc">Keine
-                                    Kontoführungsgebühren, keine versteckten
-                                    Kosten. Profitieren Sie von allen Vorteilen ohne Zusatzkosten.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- How it Works -->
-                <div class="bg-white py-12 md:py-16">
-                    <div class="max-w-5xl mx-auto px-4">
-                        <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-3 md:mb-4 px-4"
-                            data-i18n="how_it_works_title">
-                            So einfach funktioniert's
-                        </h2>
-                        <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4"
-                            data-i18n="how_it_works_subtitle">
-                            In nur 4 Schritten zu Ihrem hochverzinsten Digital Festgeld bei Deutsche Bank
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-                            <div class="text-center">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
-                                    1
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="font-semibold text-[#ffd000]" data-i18n="contact_phone">Telefon</p>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button" onclick="switchPhone('de')"
+                                            class="p-1 rounded hover:bg-white/10 transition-colors border border-transparent"
+                                            id="btn-phone-de" title="Deutschland">
+                                            <img src="https://flagcdn.com/w20/de.png" alt="DE"
+                                                class="w-5 h-auto opacity-100">
+                                        </button>
+                                        <button type="button" onclick="switchPhone('nl')"
+                                            class="p-1 rounded hover:bg-white/10 transition-colors border border-transparent opacity-50"
+                                            id="btn-phone-nl" title="Niederlande">
+                                            <img src="https://flagcdn.com/w20/nl.png" alt="NL" class="w-5 h-auto">
+                                        </button>
+                                    </div>
                                 </div>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="how_step1_title">
-                                    Formular ausfüllen</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step1_desc">Geben Sie Ihre
-                                    Daten und
-                                    gewünschte Anlagesumme an.
-                                    Komplett unverbindlich und kostenlos.</p>
-                            </div>
-                            <div class="text-center">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
-                                    2
+                                <p class="text-white text-lg font-medium transition-all duration-300" id="display-phone"
+                                    data-i18n="contact_phone_de">+31 970 102 55546</p>
+                                <p class="text-xs text-white/70 mt-1" data-i18n="contact_hours_mon_fri">Montag -
+                                    Freitag: 9:00 - 18:00 Uhr</p>
+                                <div id="de-lang-notice"
+                                    class="mt-3 p-2 bg-green-400/20 border border-green-400/30 rounded text-[10px] leading-tight text-white/90 italic"
+                                    data-i18n="contact_lang_notice_de">
+                                    Hinweis: Persönlicher Support für diese Rufnummer ist in deutscher Sprache verfügbar.
                                 </div>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="how_step2_title">
-                                    Beratungsgespräch</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step2_desc">Ein Berater der
-                                    Deutschen
-                                    Bank kontaktiert Sie
-                                    innerhalb von 24 Stunden für eine persönliche Beratung.</p>
-                            </div>
-                            <div class="text-center">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
-                                    3
+                                <div id="nl-lang-notice"
+                                    class="hidden mt-3 p-2 bg-yellow-400/20 border border-yellow-400/30 rounded text-[10px] leading-tight text-white/90 italic"
+                                    data-i18n="contact_lang_notice_nl">
+                                    Hinweis: Persönlicher Support für diese Rufnummer ist nur in Englisch und Niederländisch verfügbar.
                                 </div>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="how_step3_title">
-                                    Konto eröffnen</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step3_desc">Nach Ihrer
-                                    Zustimmung
-                                    wird Ihr Digital Festgeld
-                                    Konto bei Deutsche Bank eröffnet. Sie erhalten Ihre digitale IBAN.</p>
-                            </div>
-                            <div class="text-center">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 bg-[#00008B] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-light mb-3 md:mb-4 mx-auto">
-                                    4
-                                </div>
-                                <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2"
-                                    data-i18n="how_step4_title">
-                                    Einzahlung & Bonus</h3>
-                                <p class="text-xs md:text-sm text-gray-600" data-i18n="how_step4_desc">Zahlen Sie Ihre
-                                    Anlagesumme ein. Ihr Geld wird in
-                                    sicheres EURAU/EURC umgewandelt. Sie erhalten sofort 2% Cashback-Bonus!</p>
                             </div>
                         </div>
 
                         <div
-                            class="bg-green-50 border border-green-200 rounded-lg p-6 mt-12 text-center max-w-3xl mx-auto">
-                            <h3 class="text-xl font-semibold text-[#00008B] mb-2" data-i18n="how_status_free">100%
-                                Unverbindlich & Kostenlos</h3>
-                            <p class="text-sm text-gray-700" data-i18n="how_status_info">
-                                Die Kontoeröffnung ist komplett kostenlos und unverbindlich. Keine versteckten Gebühren.
-                                Sie entscheiden erst nach dem Beratungsgespräch, ob Sie das Digital Festgeld nutzen
-                                möchten.
-                            </p>
+                            class="flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all">
+                            <div
+                                class="w-10 h-10 bg-[#ffd000] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#00008B]" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2 text-[#ffd000]" data-i18n="contact_email">E-Mail</p>
+                                <p class="text-white font-medium">info@db-netherlands.com</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all">
+                            <div
+                                class="w-10 h-10 bg-[#ffd000] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#00008B]" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2 text-[#ffd000]" data-i18n="contact_address_title">Deutsche
+                                    Bank Amsterdam</p>
+                                <p class="text-white/90" data-i18n="contact_address_details">De Entree 195<br>1101 HE
+                                    Amsterdam, Netherlands</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all">
+                            <div
+                                class="w-10 h-10 bg-[#ffd000] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#00008B]" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2 text-[#ffd000]" data-i18n="contact_hours_title">
+                                    Öffnungszeiten</p>
+                                <p class="text-white/90 text-sm">
+                                    <span data-i18n="contact_hours_mon_fri">Montag - Freitag: 9:00 - 18:00</span><br>
+                                    <span data-i18n="contact_hours_sat">Samstag: 9:00 - 13:00</span><br>
+                                    <span data-i18n="contact_hours_sun">Sonntag: Geschlossen</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-            <!-- Contact Form -->
-            <div id="contact-form" class="bg-gradient-to-br from-[#00008B] to-[#0000CD] py-12 md:py-16">
-                <div class="max-w-2xl mx-auto px-4">
-                    <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
-                        <h2 class="text-xl md:text-2xl font-semibold text-[#00008B] text-center mb-2"
-                            data-i18n="form_title">
-                            Jetzt Digital Festgeld Konto eröffnen
-                        </h2>
-                        <p class="text-center text-sm md:text-base text-gray-600 mb-6" data-i18n="form_subtitle">
-                            Deutsche
-                            Bank • Kostenlos &
-                            Unverbindlich</p>
-
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                            <p class="text-sm text-gray-700 text-center" data-i18n="form_info">
-                                <strong>Unverbindliches Beratungsgespräch</strong><br />
-                                Ein Berater kontaktiert Sie innerhalb von 24 Stunden.
-                                Kostenlos und ohne Verpflichtung.
-                            </p>
-                        </div>
-
-                        <form id="festgeld-form" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/"
-                            method="POST" class="space-y-4">
-                            <input type="hidden" name="form_type" value="festgeld">
-                            <input type="hidden" name="page" value="index">
-                            <input type="hidden" name="datum" id="form-datum">
-                            <input type="hidden" name="betreff" value="Digital Festgeld Anfrage">
-                            <input type="hidden" name="nachricht" value="Anfrage über Startseite">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700"
-                                        data-i18n="label_first_name">Vorname *</label>
-                                    <input type="text" name="vorname" required=""
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#00008B] focus:ring-[#00008B] sm:text-sm px-3 py-2 border">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700"
-                                        data-i18n="label_last_name">Nachname *</label>
-                                    <input type="text" name="nachname" required=""
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#00008B] focus:ring-[#00008B] sm:text-sm px-3 py-2 border">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700" data-i18n="label_phone">Rufnummer
-                                    *</label>
-                                <div class="flex gap-2 mt-1">
-                                    <select class="w-24 rounded-md border-gray-300 border px-2 py-2 text-sm">
-                                        <option value="de">🇩🇪 +49</option>
-                                        <option value="at">🇦🇹 +43</option>
-                                        <option value="ch">🇨🇭 +41</option>
-                                        <option value="es">🇪🇸 +34</option>
-                                        <option value="fr">🇫🇷 +33</option>
-                                        <option value="uk">🇬🇧 +44</option>
-                                    </select>
-                                    <input type="tel" name="telefon" required=""
-                                        class="flex-1 rounded-md border-gray-300 border px-3 py-2 text-sm shadow-sm focus:border-[#00008B] focus:ring-[#00008B]">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700" data-i18n="label_email">E-Mail
-                                    *</label>
-                                <input type="email" name="email" required
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#00008B] focus:ring-[#00008B] sm:text-sm px-3 py-2 border">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700"
-                                    data-i18n="label_currency">Währung
-                                    *</label>
-                                <select name="waehrung" required
-                                    class="mt-1 block w-full rounded-md border-gray-300 border px-3 py-2 text-sm focus:border-[#00008B] focus:ring-[#00008B]">
-                                    <option value="" data-i18n="select_option_choose">Bitte wählen...</option>
-                                    <option value="EURC">EURC</option>
-                                    <option value="EURAU">EURAU</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700"
-                                    data-i18n="label_amount">Anlagesumme
-                                    *</label>
-                                <select name="anlagebetrag" required
-                                    class="mt-1 block w-full rounded-md border-gray-300 border px-3 py-2 text-sm focus:border-[#00008B] focus:ring-[#00008B]">
-                                    <option value="" data-i18n="select_amount_placeholder">Bitte wählen Sie Ihre
-                                        gewünschte
-                                        Anlagesumme...</option>
-                                    <option value="10000" data-i18n="option_range_1">10.000€ - 25.000€ • 4% p.a. + 500€
-                                        Bonus</option>
-                                    <option value="50000" data-i18n="option_range_2">50.000€ - 75.000€ • 5% p.a. +
-                                        1.000€
-                                        Bonus</option>
-                                    <option value="100000" data-i18n="option_range_3">100.000€ - 200.000€ • 6% p.a. +
-                                        2.000€
-                                        Bonus</option>
-                                </select>
-                            </div>
-
-                            <div class="flex items-start space-x-3 pt-2">
-                                <input type="checkbox" id="autorizo" required
-                                    class="mt-1 h-4 w-4 rounded border-gray-300 text-[#00008B] focus:ring-[#00008B]">
-                                <label for="autorizo" class="text-xs text-gray-600 leading-relaxed"
-                                    data-i18n="form_consent">
-                                    Ich autorisiere die Erhebung und Verarbeitung meiner Daten zur Kontoeröffnung und
-                                    Kontaktaufnahme
-                                    durch Deutsche Bank gemäß Datenschutzrichtlinie. Das Angebot ist unverbindlich und
-                                    kostenlos.
-                                </label>
-                            </div>
-
-                            <button type="submit" id="submit-btn" data-i18n="form_submit"
-                                class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white py-3 md:py-4 text-sm md:text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all uppercase">
-                                JETZT UNVERBINDLICH BERATEN LASSEN
-                            </button>
-
-                            <div class="flex justify-center gap-6 pt-2">
-                                <span class="text-xs text-gray-500 flex items-center gap-1"
-                                    data-i18n="form_status_free">
-                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd"></path>
-                                    </svg> 100% Kostenlos
-                                </span>
-                                <span class="text-xs text-gray-500 flex items-center gap-1"
-                                    data-i18n="form_status_nonbinding">
-                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd"></path>
-                                    </svg> Unverbindlich
-                                </span>
-                                <span class="text-xs text-gray-500 flex items-center gap-1"
-                                    data-i18n="form_status_secure">
-                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd"></path>
-                                    </svg> Sicher
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Success Message -->
-            <div id="success-message" class="hidden fixed inset-0 z-50 flex items-center justify-center">
-                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-                <div class="relative bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl text-center">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                <div class="bg-gradient-to-br from-[#ffd000] to-[#ffdb33] rounded-2xl p-6 shadow-lg transition-all duration-700 ease-out delay-200"
+                    id="quick-help">
+                    <h3 class="text-xl font-semibold text-[#00008B] mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span data-i18n="contact_quick_help">Schnelle Hilfe</span>
+                    </h3>
+                    <p class="text-sm text-[#00008B]/80 mb-4" data-i18n="contact_urgent">Bei dringenden Anliegen oder
+                        Kartenverlust nutzen Sie bitte unsere Hotline:</p>
+                    <button type="button" onclick="openCallModal()"
+                        class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white shadow-lg flex items-center justify-center py-3 rounded-xl font-semibold transition-all">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                             </path>
                         </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="success_title">Vielen Dank!</h3>
-                    <p class="text-gray-600" data-i18n="success_message">Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen
-                        melden.</p>
-                    <button onclick="closeSuccessMessage()"
-                        class="mt-6 bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-3 px-8 rounded-xl transition-all" data-i18n="success_button">OK</button>
+                        <span data-i18n="contact_call_now">JETZT ANRUFEN</span>
+                    </button>
                 </div>
             </div>
 
-            <script>
-                document.getElementById('form-datum').value = new Date().toISOString().split('T')[0];
+            <!-- Call Modal -->
+            <div id="callModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeCallModal()"></div>
+                <div class="relative bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
+                    id="callModalContent">
+                    <button onclick="closeCallModal()"
+                        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
 
-                document.getElementById('festgeld-form').addEventListener('submit', function (e) {
-                    e.preventDefault();
+                    <h3 class="text-2xl font-light text-[#00008B] mb-6 pr-8 leading-tight"
+                        data-i18n="contact_modal_title">
+                        Wählen Sie eine Nummer</h3>
 
-                    var submitBtn = document.getElementById('submit-btn');
-                    var originalContent = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Wird gesendet...';
-                    submitBtn.disabled = true;
+                    <div class="space-y-4">
+                        <!-- DE -->
+                        <div
+                            class="flex flex-col gap-2 p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-blue-100 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                                    data-i18n="contact_phone_de_label">Deutschland</span>
+                                <img src="https://flagcdn.com/w20/de.png" alt="DE" class="w-5 h-auto rounded-sm" />
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <a href="tel:+3197010255546"
+                                    class="text-lg font-medium text-[#00008B] hover:text-[#0000CD] transition-colors"
+                                    data-i18n="contact_phone_de">+31 970 102 55546</a>
+                                <button onclick="copyNumber('+3197010255546', this)"
+                                    class="p-2 text-gray-400 hover:text-[#00008B] hover:bg-white rounded-lg transition-all flex items-center gap-2 group relative">
+                                    <svg class="transition-transform group-active:scale-90"
+                                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Hinweis: Support in deutscher Sprache verfügbar.</p>
+                        </div>
 
-                    var formData = new FormData(this);
-                    var data = {};
-                    formData.forEach(function (value, key) {
-                        data[key] = value;
-                    });
+                        <!-- NL -->
+                        <div
+                            class="flex flex-col gap-2 p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-blue-100 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                                    data-i18n="contact_phone_nl_label">Niederlande</span>
+                                <img src="https://flagcdn.com/w20/nl.png" alt="NL" class="w-5 h-auto rounded-sm" />
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <a href="tel:+31201234567"
+                                    class="text-lg font-medium text-[#00008B] hover:text-[#0000CD] transition-colors"
+                                    data-i18n="contact_phone_nl">+31 20 123 4567</a>
+                                <button onclick="copyNumber('+31201234567', this)"
+                                    class="p-2 text-gray-400 hover:text-[#00008B] hover:bg-white rounded-lg transition-all flex items-center gap-2 group relative">
+                                    <svg class="transition-transform group-active:scale-90"
+                                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Hinweis: Support nur in Englisch und Niederländisch verfügbar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams(data).toString()
-                    })
-                        .then(function (response) {
-                            if (response.ok) {
-                                document.getElementById('success-message').classList.remove('hidden');
-                                submitBtn.innerHTML = originalContent;
-                                submitBtn.disabled = false;
-                            } else {
-                                alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
-                                submitBtn.innerHTML = originalContent;
-                                submitBtn.disabled = false;
-                            }
-                        })
-                        .catch(function (error) {
-                            console.error('Error:', error);
-                            alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
-                            submitBtn.innerHTML = originalContent;
-                            submitBtn.disabled = false;
+            <!-- Contact Form -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-2xl p-8 md:p-12 shadow-2xl border border-gray-100 opacity-0 translate-y-4 transition-all duration-700 ease-out delay-100"
+                    id="contact-form-container">
+                    <div class="mb-10">
+                        <h2 class="text-3xl font-light text-gray-900 mb-2" data-i18n="contact_send_message">Nachricht
+                            senden</h2>
+                        <div class="h-1 w-20 bg-[#ffd000] rounded-full"></div>
+                    </div>
+
+                    <!-- Security Checklist -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h3 class="text-sm font-semibold text-[#00008B] mb-3 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span data-i18n="contact_sec_title">Sicherheit bei Deutsche Bank</span>
+                        </h3>
+                        <ul class="text-xs text-gray-700 space-y-2">
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item1_label">Einlagensicherung:</strong>
+                                    <span data-i18n="sec_item1_desc">Bis zu 100.000€ vollständig geschützt</span></span>
+                            </li>
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item2_label">Betrugsschutz:</strong>
+                                    <span data-i18n="sec_item2_desc">Höchste Sicherheit für alle
+                                        Transaktionen</span></span></li>
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item3_label">Kostenlose digitale
+                                        EURC/EURAU IBAN:</strong> <span data-i18n="sec_item3_desc">Ihr persönliches
+                                        sicheres Konto</span></span></li>
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item4_label">Zahlungen senden &
+                                        empfangen:</strong> <span data-i18n="sec_item4_desc">Mit maximaler
+                                        Sicherheit</span></span></li>
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item5_label">100% auf Ihren
+                                        Namen:</strong> <span data-i18n="sec_item5_desc">Nur Sie haben
+                                        Zugriff</span></span></li>
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item6_label">Dezentrale Lösungen:</strong>
+                                    <span data-i18n="sec_item6_desc">Erstmalig innovative
+                                        Blockchain-Technologie</span></span></li>
+                            <li class="flex items-start gap-2"><span
+                                    class="text-green-600 font-bold">✓</span><span><strong
+                                        data-i18n="sec_item7_label">Komplett kostenlos:</strong>
+                                    <span data-i18n="sec_item7_desc">Keine versteckten Gebühren</span></span></li>
+                        </ul>
+                    </div>
+
+                    <form id="contactForm" action="https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/" method="POST"
+                        class="space-y-6">
+                        <input type="hidden" name="page" value="kontakt">
+                        <input type="hidden" name="datum" id="form-datum">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700 ml-1"><span
+                                        data-i18n="contact_form_vorname">Vorname</span> <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="vorname" required
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#00008B] focus:border-transparent transition-all outline-none"
+                                    data-i18n="contact_form_vorname">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700 ml-1"><span
+                                        data-i18n="contact_form_nachname">Nachname</span> <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="nachname" required
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#00008B] focus:border-transparent transition-all outline-none"
+                                    data-i18n="contact_form_nachname">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700 ml-1">E-Mail <span
+                                        class="text-red-500">*</span></label>
+                                <input type="email" name="email" required
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#00008B] focus:border-transparent transition-all outline-none"
+                                    placeholder="email@domain.de">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700 ml-1"
+                                    data-i18n="contact_form_phone">Telefon</label>
+                                <input type="tel" name="telefon"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#00008B] focus:border-transparent transition-all outline-none"
+                                    data-i18n="contact_form_phone">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-700 ml-1"><span
+                                    data-i18n="contact_form_subject">Betreff</span> <span
+                                    class="text-red-500">*</span></label>
+                            <select name="betreff" required
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#00008B] focus:border-transparent transition-all outline-none appearance-none bg-no-repeat bg-[right_1rem_center] bg-[length:1em]"
+                                style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')">
+                                <option value="" disabled selected data-i18n="contact_form_subject_placeholder">Bitte
+                                    wählen...</option>
+                                <option value="Kontoeröffnung">Kontoeröffnung</option>
+                                <option value="Digital Festgeld">Digital Festgeld</option>
+                                <option value="Beratungstermin">Beratungstermin</option>
+                                <option value="Beschwerden">Beschwerden</option>
+                                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-700 ml-1"><span
+                                    data-i18n="contact_form_msg">Nachricht</span> <span
+                                    class="text-red-500">*</span></label>
+                            <textarea name="nachricht" required rows="5"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#00008B] focus:border-transparent transition-all outline-none resize-none"
+                                data-i18n="contact_form_msg_placeholder"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn"
+                            class="w-full bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-4 px-8 rounded-xl transition-all shadow-xl shadow-[#00008B]/20 transform hover:-translate-y-1 active:scale-[0.98] flex items-center justify-center gap-2 group">
+                            <span data-i18n="contact_form_submit">NACHRICHT SENDEN</span>
+                            <svg class="transition-transform group-hover:translate-x-1" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m22 2-7 20-4-9-9-4Z" />
+                                <path d="M22 2 11 13" />
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="success-message" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                        <div class="relative bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="success_title">Vielen Dank!</h3>
+                            <p class="text-gray-600" data-i18n="success_message">Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns in Kürze
+                                bei Ihnen melden.</p>
+                            <button onclick="closeSuccessMessage()"
+                                class="mt-6 bg-[#00008B] hover:bg-[#0000CD] text-white font-bold py-3 px-8 rounded-xl transition-all" data-i18n="success_button">OK</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.getElementById('form-datum').value = new Date().toISOString().split('T')[0];
+
+                        document.getElementById('contactForm').addEventListener('submit', function (e) {
+                            e.preventDefault();
+
+                            var submitBtn = document.getElementById('submit-btn');
+                            var originalContent = submitBtn.innerHTML;
+                            submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Wird gesendet...';
+                            submitBtn.disabled = true;
+
+                            var formData = new FormData(this);
+                            var data = {};
+                            formData.forEach(function (value, key) {
+                                data[key] = value;
+                            });
+
+                            fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                },
+                                body: new URLSearchParams(data).toString()
+                            })
+                                .then(function (response) {
+                                    if (response.ok) {
+                                        document.getElementById('success-message').classList.remove('hidden');
+                                        submitBtn.innerHTML = originalContent;
+                                        submitBtn.disabled = false;
+                                    } else {
+                                        alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
+                                        submitBtn.innerHTML = originalContent;
+                                        submitBtn.disabled = false;
+                                    }
+                                })
+                                .catch(function (error) {
+                                    console.error('Error:', error);
+                                    alert('Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut.');
+                                    submitBtn.innerHTML = originalContent;
+                                    submitBtn.disabled = false;
+                                });
                         });
-                });
 
-                function closeSuccessMessage() {
-                    document.getElementById('success-message').classList.add('hidden');
-                    document.getElementById('festgeld-form').reset();
+                        function closeSuccessMessage() {
+                            document.getElementById('success-message').classList.add('hidden');
+                            document.getElementById('contactForm').reset();
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer same as theme -->
+    <footer class="bg-[#00008B] text-white">
+        <div class="border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                <div class="space-y-4 text-xs text-white/60">
+                    <p data-i18n="footer_disclaimer1"><sup>1</sup> Aktion gültig für Gehaltsüberweisungen von mindestens
+                        2.000 € pro Monat.</p>
+                    <p data-i18n="footer_disclaimer2"><sup>2</sup> Effektiver Jahreszins von 3.20% bis 4.50% anwendbar auf
+                        Guthaben zwischen 10.000 € und 150.000 €.</p>
+                    <p data-i18n="footer_disclaimer3"><sup>3</sup> Aktionen gültig bis 02.03.2026.</p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-12 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
+                        alt="Logo" class="w-10 h-10 bg-white p-1">
+                    <p class="font-semibold text-lg">Deutsche Bank</p>
+                </div>
+                <div class="flex flex-wrap gap-6 text-sm text-white/60 justify-center">
+                    <a href="betrugsschutz.html" class="hover:text-white transition-colors"
+                        data-i18n="nav_betrugsschutz">Betrugsschutz</a>
+                    <a href="digital-festgeld.html" class="hover:text-white transition-colors"
+                        data-i18n="nav_festgeld">Digital Festgeld</a>
+                    <a href="kontakt.html" class="text-white">Kontakt</a>
+                    <a href="filialen.html" class="hover:text-white transition-colors"
+                        data-i18n="nav_filialen">Filialen</a>
+                    <a href="kundenservice.html" class="hover:text-white transition-colors"
+                        data-i18n="nav_kundenservice">Kundenservice</a>
+                </div>
+            </div>
+            <div
+                class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+                <p data-i18n="footer_rights">© 2026 Deutsche Bank AG. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Translations Script -->
+    <script src="assets/js/translations.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script>
+        window.openCallModal = function () {
+            const modal = document.getElementById('callModal');
+            const content = document.getElementById('callModalContent');
+            if (modal && content) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            }
+        };
+
+        window.closeCallModal = function () {
+            const modal = document.getElementById('callModal');
+            const content = document.getElementById('callModalContent');
+            if (modal && content) {
+                content.classList.remove('scale-100', 'opacity-100');
+                content.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        };
+
+        window.copyNumber = function (number, btn) {
+            navigator.clipboard.writeText(number).then(() => {
+                const lang = localStorage.getItem('selectedLang') || 'de';
+                const copiedMsg = (translations[lang] && translations[lang].contact_modal_copied) || 'Copied!';
+                if (window.showToast) {
+                    window.showToast(copiedMsg, 'success');
+                } else {
+                    alert(copiedMsg);
                 }
-            </script>
 
-            <!-- Security Section -->
-            <div class="bg-gray-50 py-12 md:py-16">
-                <div class="max-w-7xl mx-auto px-4">
-                    <h2 class="text-2xl md:text-3xl font-light text-[#00008B] text-center mb-3 md:mb-4 px-4"
-                        data-i18n="security_title">
-                        Maximale Sicherheit garantiert
-                    </h2>
-                    <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4"
-                        data-i18n="security_subtitle">
-                        Deutsche Bank kombiniert bewährte Bankensicherheit mit innovativer Blockchain-Technologie
-                    </p>
+                // Visual feedback on button
+                const originalIcon = btn.innerHTML;
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><polyline points="20 6 9 17 4 12"/></svg>`;
+                setTimeout(() => btn.innerHTML = originalIcon, 2000);
+            });
+        };
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                        <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                </path>
-                            </svg>
-                            <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec1_title">
-                                Deutsche Bank Garantie</h3>
-                            <p class="text-xs md:text-sm text-gray-600" data-i18n="sec1_desc">Alle EURAU/EURC Einlagen
-                                werden von der Deutschen
-                                Bank vollständig gesichert und garantiert.</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                </path>
-                            </svg>
-                            <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec2_title">
-                                Einlagensicherung bis
-                                100.000€</h3>
-                            <p class="text-xs md:text-sm text-gray-600" data-i18n="sec2_desc">Mitglied des
-                                Einlagensicherungsfonds. Jeder Einleger
-                                ist bis zu 100.000€ vollständig geschützt.</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                                </path>
-                            </svg>
-                            <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec3_title">
-                                Dezentrale Tresor-Technologie
-                            </h3>
-                            <p class="text-xs md:text-sm text-gray-600" data-i18n="sec3_desc">Ihr digitales Geld wird
-                                wie in
-                                einem hochsicheren
-                                Tresor verwahrt. Höchste Sicherheitsstandards.</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                </path>
-                            </svg>
-                            <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec4_title">
-                                Betrugsschutz auf höchstem
-                                Niveau</h3>
-                            <p class="text-xs md:text-sm text-gray-600" data-i18n="sec4_desc">Modernste
-                                Sicherheitstechnologie schützt jede
-                                Transaktion vor unbefugtem Zugriff.</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec5_title">
-                                100%
-                                auf Ihren Namen</h3>
-                            <p class="text-xs md:text-sm text-gray-600" data-i18n="sec5_desc">Nur Sie haben Zugriff auf
-                                Ihr
-                                Konto. Vollständige
-                                Kontrolle über Ihr digitales Festgeld.</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-600 mb-3 md:mb-4" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h3 class="text-base md:text-lg font-semibold text-[#00008B] mb-2" data-i18n="sec6_title">
-                                Reguliert & Lizenziert</h3>
-                            <p class="text-xs md:text-sm text-gray-600" data-i18n="sec6_desc">Deutsche Bank ist
-                                vollständig
-                                reguliert und
-                                lizenziert. Ihre Sicherheit ist unsere Priorität.</p>
-                        </div>
-                    </div>
+        window.switchPhone = function (country) {
+            const displayPhone = document.getElementById('display-phone');
+            const deNotice = document.getElementById('de-lang-notice');
+            const nlNotice = document.getElementById('nl-lang-notice');
+            const btnDe = document.getElementById('btn-phone-de');
+            const btnNl = document.getElementById('btn-phone-nl');
+            const lang = localStorage.getItem('selectedLang') || 'de';
 
-                    <div class="bg-[#ffd000] rounded-lg p-6 text-center mt-12">
-                        <p class="text-[#00008B] font-semibold" data-i18n="security_trust_badge">
-                            🏆 Deutsche Bank - Ihr vertrauenswürdiger Partner seit Jahrzehnten.
-                            Jetzt Vorreiter im Digital Festgeld mit revolutionärer EURAU/EURC Technologie.
-                        </p>
-                    </div>
+            if (country === 'de') {
+                displayPhone.setAttribute('data-i18n', 'contact_phone_de');
+                displayPhone.innerHTML = (translations[lang] && translations[lang].contact_phone_de) || '+31 970 102 55546';
+                deNotice.classList.remove('hidden');
+                nlNotice.classList.add('hidden');
+                btnDe.classList.remove('opacity-50');
+                btnNl.classList.add('opacity-50');
+            } else {
+                displayPhone.setAttribute('data-i18n', 'contact_phone_nl');
+                displayPhone.innerHTML = (translations[lang] && translations[lang].contact_phone_nl) || '+31 20 123 4567';
+                deNotice.classList.add('hidden');
+                nlNotice.classList.remove('hidden');
+                btnDe.classList.add('opacity-50');
+                btnNl.classList.remove('opacity-50');
+            }
+        };
 
-                </div>
-
-                <!-- Dynamic Security Badges -->
-                <div class="bg-white py-12 border-t border-gray-100">
-                    <div class="max-w-4xl mx-auto px-4">
-                        <h2 class="text-xl font-semibold text-[#00008B] text-center mb-8" data-i18n="badges_title">
-                            Maximale
-                            Sicherheit garantiert
-                        </h2>
-                        <p class="text-center text-sm text-gray-500 mb-12" data-i18n="badges_subtitle">Deutsche Bank
-                            kombiniert bewährte
-                            Bankensicherheit mit innovativer Blockchain-Technologie</p>
-                        <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20">
-                            <div class="flex flex-col items-center group">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 group-hover:shadow-md transition-shadow">
-                                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 group-hover:shadow-md transition-shadow">
-                                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 group-hover:shadow-md transition-shadow">
-                                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 003.208 4.53M19 10.166m2.147-3.346a11.963 11.963 0 012.353 7.964m-8 0a2 2 0 002 2h2a2 2 0 002-2M8 21h.01M3 9h.01M21 7h.01M12 7h.01">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- FAQ Section -->
-                <p class="text-center text-sm md:text-base text-gray-600 mb-8 md:mb-12 px-4" data-i18n="faq_subtitle">
-                    Alle wichtigen Informationen zum Digital Festgeld bei Deutsche Bank
-                </p>
-
-                <div class="space-y-4">
-                    <!-- FAQ 1 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q1">Was ist Digital Festgeld
-                                bei Deutsche
-                                Bank?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a1">
-                                Digital Festgeld ist eine innovative Anlageform, bei der Ihr Geld in hochsichere
-                                digitale Währungen
-                                (EURAU/EURC) umgewandelt wird. Sie profitieren von attraktiven Zinsen bis zu 6% p.a.
-                                plus 2% Cashback-Bonus.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 2 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q2">Wie sicher ist mein
-                                Geld?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a2">
-                                Ihre Einlagen sind bis zu 100.000€ durch den Einlagensicherungsfonds vollständig
-                                geschützt.
-                                Deutsche Bank garantiert die Sicherheit durch bewährte Bankenstandards kombiniert
-                                mit
-                                moderner Blockchain-Technologie.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 3 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q3">Was ist EURAU/EURC?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a3">
-                                EURAU und EURC sind digitale Stablecoins im Verhältnis 1:1 zum Euro. Jeder
-                                EURAU/EURC
-                                entspricht
-                                exakt 1€ und ist vollständig durch Deutsche Bank abgesichert.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 4 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q4">Wie funktioniert der 2%
-                                Cashback-Bonus?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a4">
-                                Sofort nach Ihrer Einzahlung erhalten Sie 2% Ihrer Anlagesumme als Bonus
-                                gutgeschrieben.
-                                Bei 100.000€ Anlage sind das 2.000€ extra - zusätzlich zu den Zinserträgen!
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 5 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q5">Welche Zinsen erhalte
-                                ich?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a5">
-                                Die Zinsen sind gestaffelt: 4% p.a. bei 10k-25k, 5% p.a. bei 50k-75k und 6% p.a. bei
-                                100k-200k Anlagesumme.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 6 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q6">Kann ich Zahlungen
-                                empfangen und
-                                tätigen?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a6">
-                                Ja! Sie erhalten eine kostenlose digitale IBAN und können Zahlungen empfangen und
-                                tätigen -
-                                mit höherer Sicherheit als beim klassischen Online-Banking.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 7 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q7">Gibt es versteckte
-                                Kosten?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a7">
-                                Nein, die Kontoeröffnung und Kontoführung sind komplett kostenlos. Keine Gebühren,
-                                keine
-                                versteckten Kosten.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 8 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q8">Ist das Angebot wirklich
-                                unverbindlich?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a8">
-                                Ja, absolut! Das Beratungsgespräch ist kostenlos und unverbindlich.
-                                Sie entscheiden erst nach dem Gespräch, ob Sie das Digital Festgeld nutzen möchten.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 9 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q9">Was passiert nach dem
-                                Beratungsgespräch?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a9">
-                                Wenn Sie sich für das Konto entscheiden, erhalten Sie alle Zugangsdaten und können
-                                Ihre erste Einzahlung tätigen, um den Bonus zu aktivieren.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ 10 -->
-                    <div class="accordion-item bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                        <button
-                            class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-100 transition-colors"
-                            onclick="this.parentElement.classList.toggle('active')">
-                            <span class="font-semibold text-[#00008B]" data-i18n="faq_q10">Warum ist Deutsche Bank
-                                Vorreiter?</span>
-                            <svg class="accordion-icon w-5 h-5 text-[#00008B] transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div class="accordion-content bg-white overflow-hidden transition-all duration-300">
-                            <div class="p-6 text-sm text-gray-600" data-i18n="faq_a10">
-                                Deutsche Bank kombiniert jahrzehntelange Bankerfahrung mit modernster
-                                Blockchain-Technologie.
-                                Wir sind die erste große Bank, die digitales Festgeld mit EURAU/EURC anbietet.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Final CTA -->
-        <div class="bg-gradient-to-br from-[#00008B] to-[#0000CD] py-12 md:py-16">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-2xl md:text-4xl font-light text-white mb-3 md:mb-4 px-4" data-i18n="final_cta_title">
-                    Bereit für Digital Festgeld der Zukunft?
-                </h2>
-                <p class="text-base md:text-xl text-white/90 mb-6 md:mb-8 px-4" data-i18n="final_cta_subtitle">
-                    Profitieren Sie von bis zu 6% Zinsen + 2% Cashback-Bonus. Starten Sie jetzt mit Deutsche Bank!
-                </p>
-                <button
-                    onclick="document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
-                    data-i18n="final_cta_btn"
-                    class="bg-[#ffd000] hover:bg-[#ffdb33] text-[#00008B] px-8 md:px-12 py-5 md:py-6 text-base md:text-lg font-semibold rounded-lg shadow-xl transition-all uppercase">
-                    JETZT KONTO ERÖFFNEN
-                </button>
-            </div>
-        </div>
-
-
-        <footer class="bg-[#00008B] text-white py-12 border-t border-white/10">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div class="flex items-center gap-3">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/240px-Deutsche_Bank_logo_without_wordmark.svg.png"
-                            alt="Logo" class="w-8 h-8 bg-white p-1">
-                        <p class="font-semibold" data-i18n="nav_brand">Deutsche Bank</p>
-                    </div>
-                    <div class="flex gap-6 text-sm text-white/60">
-                        <a href="index.html" class="hover:text-white" data-i18n="footer_home">Home</a>
-                        <a href="betrugsschutz.html" class="hover:text-white" data-i18n="nav_betrugsschutz">Betrugsschutz</a>
-                        <a href="kontakt.html" class="hover:text-white" data-i18n="nav_kontakt">Kontakt</a>
-                        <a href="filialen.html" class="hover:text-white" data-i18n="nav_filialen">Filialen</a>
-                        <a href="kundenservice.html" class="hover:text-white" data-i18n="nav_kundenservice">Kundenservice</a>
-                    </div>
-                </div>
-                <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
-                    <p data-i18n="footer_rights">© 2026 Deutsche Bank AG. Alle Rechte vorbehalten. Digital Festgeld
-                        mit EURAU/EURC.</p>
-                </div>
-            </div>
-        </footer>
-
-        <script src="assets/js/translations.js"></script>
-        <script src="mobile-menu.js"></script>
-        <script>
-            // Language switcher
+        document.addEventListener('DOMContentLoaded', () => {
+            // UI Toggles
             const langBtn = document.getElementById('lang-btn');
             const langMenu = document.getElementById('lang-menu');
-            const currentLangLabel = document.getElementById('current-lang');
-
             if (langBtn && langMenu) {
-                langBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    langMenu.classList.toggle('hidden');
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
-                        langMenu.classList.add('hidden');
-                    }
-                });
+                langBtn.addEventListener('click', (e) => { e.stopPropagation(); langMenu.classList.toggle('hidden'); });
+                document.addEventListener('click', (e) => { if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) langMenu.classList.add('hidden'); });
             }
 
-            // selectLang is now defined in translations.js
-            // window.selectLang = ...
+            // Entry Animations
+            setTimeout(() => document.getElementById('hero-content')?.classList.remove('opacity-0', 'translate-y-4'), 100);
+            setTimeout(() => document.getElementById('info-card')?.classList.remove('opacity-0', '-translate-x-4'), 300);
+            setTimeout(() => document.getElementById('contact-form-container')?.classList.remove('opacity-0', 'translate-y-4'), 500);
+            setTimeout(() => document.getElementById('quick-help')?.classList.remove('opacity-0', '-translate-x-4'), 700);
 
-            const festgeldForm = document.getElementById('festgeld-form');
-            if (festgeldForm) {
-                festgeldForm.addEventListener('submit', async function (e) {
+            // Form Submit Logic
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
                     e.preventDefault();
+                    if (window.setFormLoading) window.setFormLoading('contactForm', true);
 
-                    const submitBtn = festgeldForm.querySelector('button[type="submit"]');
+                    const submitBtn = form.querySelector('button[type="submit"]');
                     const originalBtnText = submitBtn.innerHTML;
                     submitBtn.innerHTML = 'Wird gesendet...';
                     submitBtn.disabled = true;
 
+                    const lang = localStorage.getItem('selectedLang') || 'de';
+
                     try {
-                        const formData = new FormData(festgeldForm);
+                        const formData = new FormData(form);
                         const data = Object.fromEntries(formData.entries());
 
                         const response = await fetch('https://hooks.zapier.com/hooks/catch/26345831/ue2jdsl/', {
@@ -1315,22 +705,28 @@
                         });
 
                         if (response.ok) {
-                            alert('Vielen Dank! Ein Berater wird Sie in Kürze kontaktieren.');
-                            festgeldForm.reset();
+                            if (window.showToast) {
+                                const sms = { de: "Gesendet!", en: "Sent!", fr: "Envoyé!", es: "¡Enviado!" };
+                                window.showToast(sms[lang] || sms.de, 'success');
+                            } else {
+                                alert("Nachricht gesendet!");
+                            }
+                            form.reset();
                         } else {
                             alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
                         }
                     } catch (error) {
                         console.error('Error:', error);
                         alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+                    } finally {
+                        if (window.setFormLoading) window.setFormLoading('contactForm', false);
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
                     }
-
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
                 });
             }
-        </script>
-
+        });
+    </script>
 </body>
 
 </html>
