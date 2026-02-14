@@ -25,7 +25,7 @@ const translations = {
         // Hero Section
         pioneer_badge: "Festgeld Pionier",
         hero_title: "Revolutionäres Digital Festgeld",
-        hero_subtitle: "Wandeln Sie Ihr Geld in digitales, hochsicheres EURAU/EURC um. Erhalten Sie bis zu 6% Zinsen p.a. plus 2% Cashback-Bonus sofort nach Einzahlung.",
+        hero_subtitle: "Wandeln Sie Ihr Geld in digitales, hochsicheres EURAU/EURC um. Erhalten Sie bis zu 4.50% Zinsen p.a. plus 2% Cashback-Bonus sofort nach Einzahlung.",
 
         // Cashback Banner
         cashback_intro_title: "Cashback Einzahlungsbonus: 2% sofort nach Einzahlung",
@@ -34,7 +34,7 @@ const translations = {
         hero_feat1_label: "Einlagensicherung",
         hero_feat1_value: "Bis zu 100k",
         hero_feat2_label: "Attraktive Zinsen",
-        hero_feat2_value: "4% bis 6% p.a.",
+        hero_feat2_value: "3.20% bis 4.50% p.a.",
         hero_feat3_label: "2% Cashback",
         hero_feat3_value: "Sofort-Bonus",
         hero_feat4_label: "Maximale Sicherheit",
@@ -53,7 +53,7 @@ const translations = {
         // Cashback Examples
         example_label: "Anlage",
         example_bonus: "Sofortbonus",
-        example_extra: "+ Ihre Zinserträge von 4% bis 6% p.a. zusätzlich",
+        example_extra: "+ Ihre Zinserträge von 3.20% bis 4.50% p.a. zusätzlich",
 
         // Benefits
         benefits_title: "Ihre Vorteile auf einen Blick",
@@ -62,8 +62,8 @@ const translations = {
         benefit1_title: "Einlagensicherung bis 100.000€",
         benefit1_desc: "Ihre Einlagen sind durch den Einlagensicherungsfonds vollständig geschützt. Deutsche Bank garantiert maximale Sicherheit.",
 
-        benefit2_title: "Bis zu 6% Zinsen p.a.",
-        benefit2_desc: "4% bei 10k-25k, 5% bei 50k-75k, 6% bei 100k-200k. Deutlich höher als klassisches Festgeld.",
+        benefit2_title: "Bis zu 4.50% Zinsen p.a.",
+        benefit2_desc: "3.20% bei 10k-25k, 3.80% bei 50k-75k, 4.50% bei 100k-200k. Deutlich höher als klassisches Festgeld.",
 
         benefit3_title: "2% Cashback Einzahlungsbonus",
         benefit3_desc: "Sofort nach Einzahlung erhalten Sie 2% Ihrer Anlagesumme als Bonus. Bei 100.000€ sind das 2.000€ extra!",
@@ -97,7 +97,7 @@ const translations = {
         // FAQ
         faq_title: "Häufig gestellte Fragen",
         faq_q1: "Was ist Digital Festgeld?",
-        faq_a1: "Digital Festgeld ist eine innovative Anlageform, die digitale Währungen (EURAU/EURC) mit traditionellem Festgeld kombiniert. Sie erhalten attraktive Zinsen von bis zu 6% p.a. sowie einen 2% Einzahlungsbonus.",
+        faq_a1: "Digital Festgeld ist eine innovative Anlageform, die digitale Währungen (EURAU/EURC) mit traditionellem Festgeld kombiniert. Sie erhalten attraktive Zinsen von bis zu 4.50% p.a. sowie einen 2% Einzahlungsbonus.",
 
         faq_q2: "Wie sicher ist meine Einlage?",
         faq_a2: "Ihre Einlage ist durch den Einlagensicherungsfonds bis zu 100.000€ geschützt. Zusätzlich nutzen wir dezentrale Blockchain-Technologie für maximale Sicherheit.",
@@ -144,7 +144,7 @@ const translations = {
 
         // Additional benefit labels
         benefit_label_1: "Bis zu 100k",
-        benefit_label_2: "4-6% Zinsen",
+        benefit_label_2: "3.20-4.50% Zinsen",
         benefit_label_3: "2% Cashback",
         benefit_label_4: "Sofort",
         benefit_label_5: "Dezentral",
@@ -228,7 +228,7 @@ const translations = {
         savings_title: "MEHR RENTABILITÄT",
         savings_amount: "Bis zu 6.000 €",
         savings_subtitle: "für Ihre Ersparnisse",
-        savings_interest: "6% effektiver Jahreszins<sup>2</sup>.",
+        savings_interest: "4.50% effektiver Jahreszins<sup>2</sup>.",
 
         cta_use_offers: "Nutzen Sie eine oder beide Angebote vor dem 02/03/2026, unter Einhaltung der Bedingungen<sup>3</sup>.",
         button_contact_advisor: "Mit Berater kontaktieren",
@@ -252,7 +252,7 @@ const translations = {
 
         benefits_title: "Mehr Vorteile",
         benefits_1_title: "Mehr Gewinn",
-        benefits_1_desc: "Bis zu 6% Zinsen auf Ihre Einlagen",
+        benefits_1_desc: "Bis zu 4.50% Zinsen auf Ihre Einlagen",
         benefits_2_title: "Globaler Zugang",
         benefits_2_desc: "Zugriff auf Ihr Konto von überall auf der Welt",
 
@@ -294,7 +294,7 @@ const translations = {
         trust_banner_3: "Betrugsschutz",
 
         footnote_1: "Aktion gültig für Gehaltsüberweisungen von mindestens 2.000 € pro Monat. Vollständige Bedingungen auf der Website einsehen.",
-        footnote_2: "Effektiver Jahreszins von 4% bis 6% anwendbar auf Guthaben zwischen 10.000 € und 150.000 €. 4% ab 25.000€, 5% ab 50.000€, 6% ab 100.000€.",
+        footnote_2: "Effektiver Jahreszins von 3.20% bis 4.50% anwendbar auf Guthaben zwischen 10.000 € und 150.000 €. 3.20% ab 25.000€, 3.80% ab 50.000€, 4.50% ab 100.000€.",
         footnote_3: "Aktionen gültig bis 02.03.2026. Vorbehaltlich der allgemeinen Geschäftsbedingungen. Vollständige rechtliche Grundlagen einsehen.",
 
         footer_desc: "Deutsche Bank bietet hochwertige Finanzlösungen für Privatkunden und Unternehmen, unterstützt durch die Stärke einer globalen Bank.",
@@ -311,14 +311,14 @@ const translations = {
 
         // Bonus tier translations
         bonus_tier_1_amount: "25.000€ Anlage",
-        bonus_tier_1_calc: "4% Zins + 2% Cashback = 1.500€ Bonus",
+        bonus_tier_1_calc: "3.20% Zins + 2% Cashback = 1.500€ Bonus",
         bonus_tier_2_amount: "50.000€ Anlage",
-        bonus_tier_2_calc: "5% Zins + 2% Cashback = 3.500€ Bonus",
+        bonus_tier_2_calc: "3.80% Zins + 2% Cashback = 3.500€ Bonus",
         bonus_tier_3_amount: "100.000€ Anlage",
-        bonus_tier_3_calc: "6% Zins + 2% Cashback = 8.000€ Bonus",
+        bonus_tier_3_calc: "4.50% Zins + 2% Cashback = 8.000€ Bonus",
 
         feature_bullet_1: "Modern: Digitale Lösung mit Blockchain-Technologie",
-        feature_bullet_2: "Mehr Zinsen: Bis zu 6% effektiver Jahreszins",
+        feature_bullet_2: "Mehr Zinsen: Bis zu 4.50% effektiver Jahreszins",
         feature_bullet_3: "Mehr Sicherheit: Vollständig durch Deutsche Bank garantiert",
 
         conditions_link: "Bedingungen",
@@ -353,9 +353,9 @@ const translations = {
         label_amount: "Anlagesumme *",
         select_option_choose: "Bitte wählen...",
         select_amount_placeholder: "Bitte wählen Sie Ihre gewünschte Anlagesumme...",
-        option_range_1: "10.000€ - 25.000€ • 4% p.a. + 500€ Bonus",
-        option_range_2: "50.000€ - 75.000€ • 5% p.a. + 1.000€ Bonus",
-        option_range_3: "100.000€ - 200.000€ • 6% p.a. + 2.000€ Bonus",
+        option_range_1: "10.000€ - 25.000€ • 3.20% p.a. + 500€ Bonus",
+        option_range_2: "50.000€ - 75.000€ • 3.80% p.a. + 1.000€ Bonus",
+        option_range_3: "100.000€ - 200.000€ • 4.50% p.a. + 2.000€ Bonus",
         form_consent: "Ich autorisiere die Erhebung und Verarbeitung meiner Daten zur Kontoeröffnung und Kontaktaufnahme durch Deutsche Bank gemäß Datenschutzrichtlinie. Das Angebot ist unverbindlich und kostenlos.",
         form_submit: "JETZT UNVERBINDLICH BERATEN LASSEN",
         form_status_free: "100% Kostenlos",
@@ -391,7 +391,7 @@ const translations = {
         // FAQ section
         faq_subtitle: "Alle wichtigen Informationen zum Digital Festgeld bei Deutsche Bank",
         faq_q1: "Was ist Digital Festgeld bei Deutsche Bank?",
-        faq_a1: "Digital Festgeld ist eine innovative Anlageform, bei der Ihr Geld in hochsichere digitale Währungen (EURAU/EURC) umgewandelt wird. Sie profitieren von attraktiven Zinsen bis zu 6% p.a. plus 2% Cashback-Bonus.",
+        faq_a1: "Digital Festgeld ist eine innovative Anlageform, bei der Ihr Geld in hochsichere digitale Währungen (EURAU/EURC) umgewandelt wird. Sie profitieren von attraktiven Zinsen bis zu 4.50% p.a. plus 2% Cashback-Bonus.",
         faq_q2: "Wie sicher ist mein Geld?",
         faq_a2: "Ihre Einlagen sind bis zu 100.000€ durch den Einlagensicherungsfonds vollständig geschützt. Deutsche Bank garantiert die Sicherheit durch bewährte Bankenstandards kombiniert mit moderner Blockchain-Technologie.",
         faq_q3: "Was ist EURAU/EURC?",
@@ -413,7 +413,7 @@ const translations = {
 
         // Final CTA
         final_cta_title: "Bereit für Digital Festgeld der Zukunft?",
-        final_cta_subtitle: "Profitieren Sie von bis zu 6% Zinsen + 2% Cashback-Bonus. Starten Sie jetzt mit Deutsche Bank!",
+        final_cta_subtitle: "Profitieren Sie von 3.20% bis 4.50% Zinsen + 2% Cashback-Bonus. Starten Sie jetzt mit Deutsche Bank!",
         final_cta_btn: "JETZT KONTO ERÖFFNEN",
 
         // Footer
@@ -511,9 +511,9 @@ const translations = {
         modal_submit: "Anlage einreichen",
 
         // Bonus tier info
-        bonus_25k: "25k: 4% + 2% Cashback",
-        bonus_50k: "50k: 5% + 2% Cashback",
-        bonus_100k: "100k: 6% + 2% Cashback",
+        bonus_25k: "25k: 3.20% + 2% Cashback",
+        bonus_50k: "50k: 3.80% + 2% Cashback",
+        bonus_100k: "100k: 4.50% + 2% Cashback",
         bonus_eurc: "Bonus in EURC",
     },
 
@@ -926,7 +926,7 @@ const translations = {
 
         // Final CTA
         final_cta_title: "Ready for the Future of Digital Term Deposits?",
-        final_cta_subtitle: "Benefit from up to 6% interest + 2% cashback bonus. Start now with Deutsche Bank!",
+        final_cta_subtitle: "Benefit from 3.20% to 4.50% interest + 2% cashback bonus. Start now with Deutsche Bank!",
         final_cta_btn: "OPEN ACCOUNT NOW",
 
         // Footer
@@ -1024,9 +1024,9 @@ const translations = {
         modal_submit: "Submit Investment",
 
         // Bonus tier info
-        bonus_25k: "25k: 4% + 2% Cashback",
-        bonus_50k: "50k: 5% + 2% Cashback",
-        bonus_100k: "100k: 6% + 2% Cashback",
+        bonus_25k: "25k: 3.20% + 2% Cashback",
+        bonus_50k: "50k: 3.80% + 2% Cashback",
+        bonus_100k: "100k: 4.50% + 2% Cashback",
         bonus_eurc: "Bonus in EURC",
     },
 
@@ -1383,9 +1383,9 @@ const translations = {
         label_amount: "Montant de Placement *",
         select_option_choose: "Veuillez sélectionner...",
         select_amount_placeholder: "Veuillez sélectionner votre montant de placement souhaité...",
-        option_range_1: "10.000€ - 25.000€ • 4% p.a. + 500€ Bonus",
-        option_range_2: "50.000€ - 75.000€ • 5% p.a. + 1.000€ Bonus",
-        option_range_3: "100.000€ - 200.000€ • 6% p.a. + 2.000€ Bonus",
+        option_range_1: "10.000€ - 25.000€ • 3.20% p.a. + 500€ Bonus",
+        option_range_2: "50.000€ - 75.000€ • 3.80% p.a. + 1.000€ Bonus",
+        option_range_3: "100.000€ - 200.000€ • 4.50% p.a. + 2.000€ Bonus",
         form_consent: "J'autorise la collecte et le traitement de mes données pour l'ouverture de compte et le contact par Deutsche Bank conformément à la Politique de Confidentialité. L'offre est sans engagement et gratuite.",
         form_submit: "OBTENIR UNE CONSULTATION SANS ENGAGEMENT",
         form_status_free: "100% Gratuit",
@@ -1441,7 +1441,7 @@ const translations = {
 
         // Final CTA
         final_cta_title: "Prêt pour l'Avenir des Dépôts à Terme Numériques?",
-        final_cta_subtitle: "Bénéficiez de jusqu'à 6% d'intérêts + 2% de bonus cashback. Commencez maintenant avec Deutsche Bank!",
+        final_cta_subtitle: "Bénéficiez de 3.20% à 4.50% d'intérêts + 2% de bonus cashback. Commencez maintenant avec Deutsche Bank!",
         final_cta_btn: "OUVRIR UN COMPTE MAINTENANT",
 
         // Footer
@@ -1539,9 +1539,9 @@ const translations = {
         modal_submit: "Soumettre l'Investissement",
 
         // Bonus tier info
-        bonus_25k: "25k: 4% + 2% Cashback",
-        bonus_50k: "50k: 5% + 2% Cashback",
-        bonus_100k: "100k: 6% + 2% Cashback",
+        bonus_25k: "25k: 3.20% + 2% Cashback",
+        bonus_50k: "50k: 3.80% + 2% Cashback",
+        bonus_100k: "100k: 4.50% + 2% Cashback",
         bonus_eurc: "Bonus en EURC",
     },
 
@@ -1897,9 +1897,9 @@ const translations = {
         label_amount: "Monto de Inversión *",
         select_option_choose: "Por favor seleccione...",
         select_amount_placeholder: "Por favor seleccione su monto de inversión deseado...",
-        option_range_1: "10.000€ - 25.000€ • 4% p.a. + 500€ Bonus",
-        option_range_2: "50.000€ - 75.000€ • 5% p.a. + 1.000€ Bonus",
-        option_range_3: "100.000€ - 200.000€ • 6% p.a. + 2.000€ Bonus",
+        option_range_1: "10.000€ - 25.000€ • 3.20% p.a. + 500€ Bonus",
+        option_range_2: "50.000€ - 75.000€ • 3.80% p.a. + 1.000€ Bonus",
+        option_range_3: "100.000€ - 200.000€ • 4.50% p.a. + 2.000€ Bonus",
         form_consent: "Autorizo la recopilación y procesamiento de mis datos para la apertura de cuenta y contacto por Deutsche Bank de acuerdo con la Política de Privacidad. La oferta es sin compromiso y gratis.",
         form_submit: "OBTENER CONSULTA SIN COMPROMISO",
         form_status_free: "100% Gratis",
@@ -1955,7 +1955,7 @@ const translations = {
 
         // Final CTA
         final_cta_title: "¿Listo para el Futuro de los Depósitos a Plazo Digitales?",
-        final_cta_subtitle: "Benefíciese de hasta 6% de intereses + 2% de bonus cashback. ¡Comience ahora con Deutsche Bank!",
+        final_cta_subtitle: "Benefíciese de 3.20% a 4.50% de intereses + 2% de bonus cashback. ¡Comience ahora con Deutsche Bank!",
         final_cta_btn: "ABRIR CUENTA AHORA",
 
         // Footer
@@ -2053,9 +2053,9 @@ const translations = {
         modal_submit: "Enviar Inversión",
 
         // Bonus tier info
-        bonus_25k: "25k: 4% + 2% Cashback",
-        bonus_50k: "50k: 5% + 2% Cashback",
-        bonus_100k: "100k: 6% + 2% Cashback",
+        bonus_25k: "25k: 3.20% + 2% Cashback",
+        bonus_50k: "50k: 3.80% + 2% Cashback",
+        bonus_100k: "100k: 4.50% + 2% Cashback",
         bonus_eurc: "Bonus en EURC",
     }
 };
